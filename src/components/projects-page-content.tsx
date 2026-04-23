@@ -13,10 +13,10 @@ const PROJECT_IMAGES = {
   bridge:
     "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=1400&q=80&auto=format&fit=crop",
   tower:
-    "https://images.unsplash.com/photo-1517089596392-fb9a9033e05b?w=1200&q=80&auto=format&fit=crop",
+    "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939227/bridge_hero_zox21k.jpg",
   road: "https://res.cloudinary.com/dk4csiouq/image/upload/q_auto/f_auto/v1776917191/patuakhali_project_section_hero_nqcinq.jpg",
   bridgeAlt:
-    "https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?w=1200&q=80&auto=format&fit=crop",
+    "https://res.cloudinary.com/dk4csiouq/image/upload/v1776937955/SKCD_Dreams_hero_bqebpm.jpg",
   earth:
     "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80&auto=format&fit=crop",
   concrete:
@@ -39,7 +39,7 @@ const PROJECT_IMAGES = {
     "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1400&q=80&auto=format&fit=crop",
 };
 
-export const PROJECTS = [
+const BASE_PROJECTS = [
   {
     id: "P001",
     cat: "Building Construction",
@@ -216,6 +216,188 @@ export const PROJECTS = [
       "Structural extension adding 28,000 sqft production floor with reinforced mezzanine and crane rails.",
   },
 ];
+
+const DEFAULT_PROJECT_SCOPES = [
+  {
+    icon: "concrete",
+    n: "01",
+    t: "RCC Superstructure",
+    d: "Concrete frame built to project load-bearing requirements and long-term durability standards.",
+  },
+  {
+    icon: "building",
+    n: "02",
+    t: "Pre-Engineered Steel Roof",
+    d: "Wide-span steel truss system configured for structural performance and weather resistance.",
+  },
+  {
+    icon: "equip",
+    n: "03",
+    t: "Equipment Integration",
+    d: "Structural provisions for operational equipment and internal logistics flow.",
+  },
+  {
+    icon: "fire",
+    n: "04",
+    t: "Fire Safety System",
+    d: "Fire safety infrastructure completed, tested, and commissioned before handover.",
+  },
+  {
+    icon: "mep",
+    n: "05",
+    t: "MEP Works",
+    d: "Electrical, plumbing, and ventilation systems coordinated for continuous operation.",
+  },
+  {
+    icon: "window",
+    n: "06",
+    t: "Security and Enclosure",
+    d: "External enclosure and security-compliant openings delivered as per client requirements.",
+  },
+  {
+    icon: "earth",
+    n: "07",
+    t: "Site Preparation",
+    d: "Groundworks, levelling, and drainage enabling completed ahead of superstructure work.",
+  },
+  {
+    icon: "floor",
+    n: "08",
+    t: "Industrial Floor System",
+    d: "Heavy-duty floor construction delivered for operational loads and long service life.",
+  },
+];
+
+const PROJECT_DETAIL_OVERRIDES: Record<string, any> = {
+  P002: {
+    client: "Bangladesh Government Navy",
+    projectType: "Industrial Warehouse Construction",
+    overviewTitle:
+      "Built tough, handed over fast a naval warehouse the southern coast can depend on.",
+    overviewBody:
+      "Patuakhali is not the easiest place to run a construction project. The coastal conditions, remote location, and tight government timeline made delivery complex. Within 4 to 5 months, the team took this site from bare ground to a fully handed-over naval warehouse, ready for immediate operations. Every structural decision was made with end use in mind - heavy naval equipment, long-term coastal durability, and strict government security standards.",
+    pullQuote:
+      "No delays. No incidents. Just a building the Bangladesh Navy could actually rely on.",
+    servicesDelivered: [
+      "RCC Superstructure",
+      "Pre-Engineered Steel Roof",
+      "EOT Overhead Crane System",
+      "Fire Suppression System",
+      "MEP Works",
+      "Security Fenestration",
+      "Site Preparation",
+      "Heavy-Duty Warehouse Floor",
+    ],
+    scopes: [
+      {
+        icon: "concrete",
+        n: "01",
+        t: "RCC Superstructure",
+        d: "Concrete frame built to heavy load-bearing specs, designed to store and support serious naval equipment and supplies long-term.",
+      },
+      {
+        icon: "building",
+        n: "02",
+        t: "Pre-Engineered Steel Roof",
+        d: "Wide-span steel truss system with blue corrugated cladding and polycarbonate skylights for maximum internal height and natural light.",
+      },
+      {
+        icon: "equip",
+        n: "03",
+        t: "EOT Overhead Crane System",
+        d: "Overhead travelling crane infrastructure installed across the full floor span for safe movement of heavy naval cargo.",
+      },
+      {
+        icon: "fire",
+        n: "04",
+        t: "Fire Suppression System",
+        d: "Full ceiling-mounted red-pipe fire safety network spanning the entire warehouse floor, commissioned before handover.",
+      },
+      {
+        icon: "mep",
+        n: "05",
+        t: "MEP Works",
+        d: "Industrial lighting, electrical systems, ventilation ducting and plumbing installed for round-the-clock warehouse operations.",
+      },
+      {
+        icon: "window",
+        n: "06",
+        t: "Security Fenestration",
+        d: "Double-band windows with heavy iron grilles across the full perimeter, meeting government security requirements.",
+      },
+      {
+        icon: "earth",
+        n: "07",
+        t: "Site Preparation",
+        d: "Coastal site clearing, levelling and drainage groundworks completed before any structural work commenced.",
+      },
+      {
+        icon: "floor",
+        n: "08",
+        t: "Heavy-Duty Warehouse Floor",
+        d: "Thick industrial concrete slab laid and finished to withstand forklifts, trolleys and heavy equipment without degradation.",
+      },
+    ],
+    caseStudyChallenge:
+      "Constructing a government-grade naval warehouse in a coastal zone under a strict 4-5 month deadline with no margin for delay.",
+    caseStudyApproach:
+      "Concurrent roofing and civil works to compress the schedule, weekly on-site reviews, and strict structural tolerances throughout.",
+    caseStudyResult:
+      "A fully operational, crane-equipped, fire-safe naval warehouse handed over on time to the Bangladesh Navy's southern coastal command.",
+    ctaHeading: "Need a warehouse built to government standard?",
+    gallery: [
+      "https://res.cloudinary.com/dk4csiouq/image/upload/q_auto/f_auto/v1776917191/patuakhali_project_section_hero_nqcinq.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918075/patuakhali_project_Gallary_1_nufw4p.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918074/patuakhali_project_Gallary_2_lchgzc.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918072/patuakhali_project_Gallary_3_agpdlx.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918072/patuakhali_project_Gallary_4_geulax.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918070/patuakhali_project_Gallary_5_btqqrf.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918069/patuakhali_project_Gallary_6_xhtnwd.jpg",
+    ],
+  },
+};
+
+export const PROJECTS = BASE_PROJECTS.map((project) => {
+  const override = PROJECT_DETAIL_OVERRIDES[project.id] ?? {};
+  const defaultDetail = {
+    client:
+      project.type === "Government"
+        ? "Government Client"
+        : project.type === "Private"
+          ? "Private Client"
+          : "Commercial Client",
+    projectType: project.cat,
+    overviewTitle: `Built for ${project.location}, delivered with disciplined execution.`,
+    overviewBody: `This ${project.type.toLowerCase()} ${project.cat.toLowerCase()} in ${project.location} was delivered with a focus on quality, safety and schedule discipline. From mobilization to handover, the team coordinated structural works, services and finishing to match project requirements and long-term performance goals.`,
+    pullQuote: project.summary,
+    servicesDelivered: DEFAULT_PROJECT_SCOPES.map((s) => s.t),
+    scopes: DEFAULT_PROJECT_SCOPES,
+    scopeDescription:
+      "Eight coordinated work packages delivered in sequence from site enabling works through to final handover, all under a single Zakir Enterprise contract.",
+    galleryHeading: "Construction in progress.",
+    galleryDescription:
+      "Selected site photography capturing the foundation, superstructure, and facade phases of the project documented by our site engineering team.",
+    highlightsDescription:
+      "Outcomes and metrics for this project are available on request.",
+    caseStudyChallenge: `Delivering a ${project.cat.toLowerCase()} in ${project.location} under a fixed timeline and strict quality requirements.`,
+    caseStudyApproach:
+      "Phased planning, disciplined site supervision, and coordinated engineering execution across all work packages.",
+    caseStudyResult: `A ${project.status.toLowerCase()} project delivered for ${project.location}, aligned with the client scope and timeline.`,
+    ctaHeading: `Need support for your next ${project.cat.toLowerCase()} project?`,
+    gallery: [project.img, project.img, project.img, project.img, project.img, project.img, project.img],
+  };
+
+  return {
+    ...project,
+    detail: {
+      ...defaultDetail,
+      ...override,
+      scopes: override.scopes ?? defaultDetail.scopes,
+      servicesDelivered: override.servicesDelivered ?? defaultDetail.servicesDelivered,
+      gallery: override.gallery ?? defaultDetail.gallery,
+    },
+  };
+});
 
 const CATEGORIES = [
   "All",
@@ -710,7 +892,7 @@ export function ProjectsPageContent() {
               {shown.map((p) => (
                 <Link
                   key={p.id}
-                  href="/projects/gulshan-commercial-tower"
+                  href={`/projects/${encodeURIComponent(p.id)}`}
                   className="proj-card"
                   style={{ textDecoration: "none" }}
                 >

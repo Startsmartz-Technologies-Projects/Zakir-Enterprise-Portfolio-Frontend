@@ -1,20 +1,10 @@
-"use client";
+﻿"use client";
 import * as React from "react";
 import Link from "next/link";
 import { Arrow as AD, ArrowUpRight as AURD, SvcIcon as SIcoD } from "./site-ui";
 import { PROJECTS } from "./projects-page-content";
 
 // Project Detail page - reuses PROJECTS data and proj-card style from projects_page.jsx
-
-const DETAIL_IMAGES = {
-  hero: "https://res.cloudinary.com/dk4csiouq/image/upload/q_auto/f_auto/v1776917191/patuakhali_project_section_hero_nqcinq.jpg",
-  g1: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918075/patuakhali_project_Gallary_1_nufw4p.jpg",
-  g2: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918074/patuakhali_project_Gallary_2_lchgzc.jpg",
-  g3: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918072/patuakhali_project_Gallary_3_agpdlx.jpg",
-  g4: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918072/patuakhali_project_Gallary_4_geulax.jpg",
-  g5: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918070/patuakhali_project_Gallary_5_btqqrf.jpg",
-  g6: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918069/patuakhali_project_Gallary_6_xhtnwd.jpg",
-};
 
 function ShareIcon({ k }) {
   const common = {
@@ -112,87 +102,54 @@ function Lightbox({ images, idx, onClose, setIdx }) {
   );
 }
 
-export function ProjectDetailContent() {
+export function ProjectDetailContent({ projectId }: { projectId?: string }) {
   const [lightbox, setLightbox] = React.useState(null);
-  const galleryImgs = [
-    DETAIL_IMAGES.hero,
-    DETAIL_IMAGES.g1,
-    DETAIL_IMAGES.g2,
-    DETAIL_IMAGES.g3,
-    DETAIL_IMAGES.g4,
-    DETAIL_IMAGES.g5,
-    DETAIL_IMAGES.g6,
-  ];
+  const normalizedProjectId = (projectId || "").trim().toLowerCase();
+  const project = React.useMemo(
+    () =>
+      PROJECTS.find((p) => p.id.toLowerCase() === normalizedProjectId) ??
+      PROJECTS[0],
+    [normalizedProjectId],
+  );
+  const detail = project.detail ?? {};
+  const fallbackGallery = React.useMemo(
+    () => [
+      project.img,
+      ...PROJECTS.filter((p) => p.id !== project.id)
+        .slice(0, 6)
+        .map((p) => p.img),
+    ],
+    [project.id, project.img],
+  );
+  const gallerySource =
+    Array.isArray(detail.gallery) && detail.gallery.length > 0
+      ? detail.gallery
+      : fallbackGallery;
+  const galleryImgs = Array.from(
+    { length: 7 },
+    (_, i) => gallerySource[i] ?? gallerySource[0] ?? project.img,
+  );
 
   const meta = [
-    { k: "Client", v: "Bangladesh Government Navy", sub: undefined },
     {
-      k: "Project Type",
-      v: "Industrial Warehouse Construction",
+      k: "Client",
+      v: detail.client,
       sub: undefined,
     },
-    { k: "Location", v: "Patuakhali, Bangladesh", sub: undefined },
-    { k: "Duration", v: "4-5 months", sub: "(Dummy INFORMATION)" },
-    { k: "Completion", v: "2025", sub: "(DUMMY INFORMATION)" },
+    { k: "Project Type", v: detail.projectType, sub: undefined },
+    { k: "Location", v: project.location, sub: undefined },
+    { k: "Duration", v: project.duration, sub: undefined },
+    { k: "Completion", v: project.year, sub: undefined },
   ];
 
-  const scopes = [
-    {
-      icon: "concrete",
-      n: "01",
-      t: "RCC Superstructure",
-      d: "Concrete frame built to heavy load-bearing specs, designed to store and support serious naval equipment and supplies long-term.",
-    },
-    {
-      icon: "building",
-      n: "02",
-      t: "Pre-Engineered Steel Roof",
-      d: "Wide-span steel truss system with blue corrugated cladding and polycarbonate skylights for maximum internal height and natural light.",
-    },
-    {
-      icon: "equip",
-      n: "03",
-      t: "EOT Overhead Crane System",
-      d: "Overhead travelling crane infrastructure installed across the full floor span for safe movement of heavy naval cargo.",
-    },
-    {
-      icon: "fire",
-      n: "04",
-      t: "Fire Suppression System",
-      d: "Full ceiling-mounted red-pipe fire safety network spanning the entire warehouse floor, commissioned before handover.",
-    },
-    {
-      icon: "mep",
-      n: "05",
-      t: "MEP Works",
-      d: "Industrial lighting, electrical systems, ventilation ducting and plumbing installed for round-the-clock warehouse operations.",
-    },
-    {
-      icon: "window",
-      n: "06",
-      t: "Security Fenestration",
-      d: "Double-band windows with heavy iron grilles across the full perimeter, meeting government security requirements.",
-    },
-    {
-      icon: "earth",
-      n: "07",
-      t: "Site Preparation",
-      d: "Coastal site clearing, levelling and drainage groundworks completed before any structural work commenced.",
-    },
-    {
-      icon: "floor",
-      n: "08",
-      t: "Heavy-Duty Warehouse Floor",
-      d: "Thick industrial concrete slab laid and finished to withstand forklifts, trolleys and heavy equipment without degradation.",
-    },
-  ];
+  const scopes = Array.isArray(detail.scopes) ? detail.scopes : [];
 
   const highlights = [
     // No specific metrics provided in static content, so leave empty or add placeholders if needed
   ];
 
-  // related — pick 3 from PROJECTS (from projects_page.jsx) excluding self
-  const related = PROJECTS.slice(1, 4);
+  // related - pick 3 from PROJECTS (from projects_page.jsx) excluding current
+  const related = PROJECTS.filter((p) => p.id !== project.id).slice(0, 3);
 
   return (
     <>
@@ -200,7 +157,7 @@ export function ProjectDetailContent() {
       <section className="detail-hero" data-screen-label="01 Hero">
         <div
           className="detail-hero-bg"
-          style={{ backgroundImage: `url(${DETAIL_IMAGES.hero})` }}
+          style={{ backgroundImage: `url(${galleryImgs[0]})` }}
         />
         <div className="container detail-hero-inner">
           <div className="crumb">
@@ -208,20 +165,17 @@ export function ProjectDetailContent() {
             <span className="sep">/</span>
             <Link href="/projects">Projects</Link>
             <span className="sep">/</span>
-            <Link href="/projects">Industrial Warehouse Construction</Link>
+            <Link href="/projects">{project.cat}</Link>
             <span className="sep">/</span>
-            <span>Patuakhali Naval Warehouse</span>
+            <span>{project.title}</span>
           </div>
           <div className="detail-hero-badges">
-            <span className="dh-badge">Featured</span>
-            <span className="dh-badge ghost">Completion · 2025</span>
-            <span className="dh-badge ghost">Patuakhali, Bangladesh</span>
+            <span className="dh-badge">{project.badge || project.status}</span>
+            <span className="dh-badge ghost">Completion - {project.year}</span>
+            <span className="dh-badge ghost">{project.location}</span>
           </div>
-          <h1>Patuakhali Naval Warehouse</h1>
-          <p className="summary">
-            A purpose-built government warehouse delivering secure, large-span
-            storage for the Bangladesh Navy's southern coastal operations
-          </p>
+          <h1>{project.title}</h1>
+          <p className="summary">{project.summary}</p>
         </div>
       </section>
 
@@ -247,32 +201,15 @@ export function ProjectDetailContent() {
             <div className="overview-copy">
               <span className="microlabel">Project Overview</span>
               <h2 style={{ marginTop: 16 }}>
-                Built tough, handed over fast a naval warehouse the southern
-                coast can depend on.
+                {detail.overviewTitle}
               </h2>
-              <p>
-                Patuakhali isn't the easiest place to run a construction
-                project. The coastal conditions, the remote location, the tight
-                government timeline — none of it was straightforward. But within
-                4 to 5 months, the team took this site from bare ground to a
-                fully handed-over naval warehouse, ready for the Bangladesh Navy
-                to move in and begin operations immediately. Every structural
-                decision was made with the end use in mind — heavy naval
-                equipment, long-term coastal durability, and the security
-                standards a government client demands.
-              </p>
-              <p className="pull">
-                "No delays. No incidents. Just a building the Bangladesh Navy
-                could actually rely on."
-              </p>
+              <p>{detail.overviewBody}</p>
+              <p className="pull">"{detail.pullQuote}"</p>
             </div>
 
             <aside className="side-card">
               <h4>Quick Summary</h4>
-              <p className="side-summary">
-                "No delays. No incidents. Just a building the Bangladesh Navy
-                could actually rely on."
-              </p>
+              <p className="side-summary">"{detail.pullQuote}"</p>
               <div>
                 <div
                   style={{
@@ -287,14 +224,9 @@ export function ProjectDetailContent() {
                   Services Delivered
                 </div>
                 <ul className="side-services">
-                  <li>RCC Superstructure</li>
-                  <li>Pre-Engineered Steel Roof</li>
-                  <li>EOT Overhead Crane System</li>
-                  <li>Fire Suppression System</li>
-                  <li>MEP Works</li>
-                  <li>Security Fenestration</li>
-                  <li>Site Preparation</li>
-                  <li>Heavy-Duty Warehouse Floor</li>
+                  {detail.servicesDelivered?.map((service: string) => (
+                    <li key={service}>{service}</li>
+                  ))}
                 </ul>
               </div>
               <div className="side-share">
@@ -338,9 +270,7 @@ export function ProjectDetailContent() {
               <h2>Services delivered on this project.</h2>
             </div>
             <p className="head-right">
-              Eight coordinated work packages delivered in sequence from site
-              enabling works through to final handover, all under a single Zakir
-              Enterprise contract.
+              {detail.scopeDescription}
             </p>
           </div>
           <div className="scope-grid">
@@ -368,13 +298,9 @@ export function ProjectDetailContent() {
           <div className="section-head">
             <div>
               <span className="num">PROJECT GALLERY / 05</span>
-              <h2>Construction in progress.</h2>
+              <h2>{detail.galleryHeading}</h2>
             </div>
-            <p className="head-right">
-              Selected site photography capturing the foundation,
-              superstructure, and facade phases of the project documented by our
-              site engineering team.
-            </p>
+            <p className="head-right">{detail.galleryDescription}</p>
           </div>
           <div className="gallery-grid">
             <div
@@ -466,7 +392,7 @@ export function ProjectDetailContent() {
               className="head-right"
               style={{ color: "rgba(255,255,255,0.7)" }}
             >
-              Outcomes and metrics for this project are available on request.
+              {detail.highlightsDescription}
             </p>
           </div>
           <div className="highlights-grid">
@@ -489,33 +415,22 @@ export function ProjectDetailContent() {
           </div>
           <div className="cso-grid">
             <div className="cso-cell">
-              <span className="cso-step">01 · The Challenge</span>
-              <h3>
-                Constructing a government-grade naval warehouse in a coastal
-                zone under a strict 4–5 month deadline with no margin for delay.
-              </h3>
+              <span className="cso-step">01 - The Challenge</span>
+              <h3>{detail.caseStudyChallenge}</h3>
             </div>
             <div className="cso-cell highlight">
-              <span className="cso-step">02 · The Approach</span>
-              <h3>
-                Concurrent roofing and civil works to compress the schedule,
-                weekly on-site reviews, and strict structural tolerances
-                throughout.
-              </h3>
+              <span className="cso-step">02 - The Approach</span>
+              <h3>{detail.caseStudyApproach}</h3>
             </div>
             <div className="cso-cell">
-              <span className="cso-step">03 · The Result</span>
-              <h3>
-                A fully operational, crane-equipped, fire-safe naval warehouse
-                handed over on time to the Bangladesh Navy's southern coastal
-                command.
-              </h3>
+              <span className="cso-step">03 - The Result</span>
+              <h3>{detail.caseStudyResult}</h3>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Related projects Ã¢â‚¬â€ reuses proj-card style from projects page */}
+      {/* Related projects - reuses proj-card style from projects page */}
       <section className="related-section" data-screen-label="08 Related">
         <div className="container">
           <div className="section-head">
@@ -535,7 +450,7 @@ export function ProjectDetailContent() {
             {related.map((p) => (
               <Link
                 key={p.id}
-                href="/projects/gulshan-commercial-tower"
+                href={`/projects/${encodeURIComponent(p.id)}`}
                 className="proj-card"
                 style={{ textDecoration: "none" }}
               >
@@ -579,7 +494,7 @@ export function ProjectDetailContent() {
             <div>
               <span className="microlabel on-dark">Start a Conversation</span>
               <h2 style={{ marginTop: 20 }}>
-                Need a warehouse built to government standard?
+                {detail.ctaHeading}
               </h2>
             </div>
             <div>
@@ -601,3 +516,4 @@ export function ProjectDetailContent() {
     </>
   );
 }
+
