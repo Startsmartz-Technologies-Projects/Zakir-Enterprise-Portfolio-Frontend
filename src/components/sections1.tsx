@@ -90,20 +90,18 @@ export function Hero({ variant }) {
     <section className="hero" data-screen-label="01 Hero">
       <div className="hero-bg" style={{ backgroundImage: `url(${bg})` }} />
       <div className="hero-sidecol">
-        <span className="hero-sideticker">NATIONWIDE Ãƒâ€šÃ‚Â· SINCE 2014</span>
-        <div className="hero-sidenum"><span className="n">01</span> / 15</div>
+        <span className="hero-sideticker">NATIONWIDE · SINCE 2014</span>
+        
       </div>
       <div className="container hero-inner">
         <span className="microlabel on-dark">Building Bangladesh Since 2014</span>
-        <h1>Building Bangladesh With <span className="accent">Strength,</span> Precision &amp; Trust</h1>
+        <h1>Strength in Every Build , <span className="accent">Precision </span>    in Every Detail</h1>
         <p className="lede">
-          Zakir Enterprise delivers reliable construction solutions across Bangladesh ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â
-          from buildings, roads, bridges and foundations to large-scale site development
-          and specialized engineering works.
+          Zakir Enterprise: Bangladesh’s Foundation of Strength & Trust. From site development to large-scale infrastructure, Zakir Enterprise is your trusted partner for high-quality construction that stands the test of time
         </p>
         <div className="hero-cta-row">
-          <Link href="/lets-collaborate" className="btn btn-primary">Request Quotation <Arrow/></Link>
-          <Link href="/projects" className="btn btn-outline-light">View Projects <ArrowUpRight/></Link>
+          <Link href="/lets-collaborate" className="btn btn-primary">Contact Us <Arrow/></Link>
+          <Link href="/projects" className="btn btn-outline-light">Explore Project <ArrowUpRight/></Link>
         </div>
         <div className="hero-badges">
           <div>
@@ -125,8 +123,8 @@ export function Hero({ variant }) {
         </div>
       </div>
       <div className="hero-bottom">
-        <span>Dhaka Ãƒâ€šÃ‚Â· Chattogram Ãƒâ€šÃ‚Â· Sylhet Ãƒâ€šÃ‚Â· Khulna Ãƒâ€šÃ‚Â· Rajshahi</span>
-        <span className="hero-scroll"><span className="line"/> Scroll to explore</span>
+        <span>Dhaka · Chattogram · Sylhet · Khulna · Rajshahi</span>
+       
       </div>
     </section>
   );
