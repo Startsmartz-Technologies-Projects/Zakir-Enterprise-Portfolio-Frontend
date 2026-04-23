@@ -23,7 +23,7 @@ export function About() {
           </div>
           <div className="about-copy">
             <span className="microlabel">About Zakir Enterprise</span>
-            <h2 style={{marginTop: 18}}>Building more than structures ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â <span style={{color:"var(--gold)", fontStyle:"italic", fontWeight:500}}>building trust.</span></h2>
+            <h2 style={{marginTop: 18}}>Building more than structures  <span style={{color:"var(--gold)", fontStyle:"italic", fontWeight:500}}>building trust.</span></h2>
             <p className="lead">
               Zakir Enterprise is a Bangladesh-based construction company committed to
               quality, safety and long-term value. We bring practical expertise, disciplined
@@ -74,7 +74,7 @@ export function Projects() {
           </div>
           <p className="head-right">
             A selection of recent completions across public infrastructure, commercial
-            structures and foundation works ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â engineered to last, delivered on time.
+            structures and foundation works engineered to last, delivered on time.
           </p>
         </div>
         <div className="projects-grid">
@@ -125,7 +125,7 @@ export function Services() {
             <h2>A full-spectrum construction partner.</h2>
           </div>
           <p className="head-right">
-            Eleven core service lines ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â each handled by specialized teams with the equipment,
+            Eleven core service lines each handled by specialized teams with the equipment,
             methodology and accountability the work demands.
           </p>
         </div>
@@ -148,7 +148,7 @@ export function Services() {
 
 export function Network() {
   const concerns = [
-    { logo: "ZE", cat: "Core", name: "Zakir Enterprise", body: "Construction & infrastructure execution ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â parent concern." },
+    { logo: "ZE", cat: "Core", name: "Zakir Enterprise", body: "Construction & infrastructure execution  parent concern." },
     { logo: "ZC", cat: "Materials", name: "Zakir Concrete Works", body: "Ready-mix concrete, precast elements and structural aggregate supply." },
     { logo: "ZT", cat: "Logistics", name: "Zakir Transport & Equipment", body: "Heavy machinery, hauling and on-site equipment rental across regions." },
     { logo: "ZD", cat: "Development", name: "Zakir Real Estate", body: "Mixed-use and residential development projects in urban Bangladesh." },
@@ -162,7 +162,7 @@ export function Network() {
             <h2>Our business network.</h2>
           </div>
           <p className="head-right">
-            A family of concerns covering construction, materials, logistics and development ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â
+            A family of concerns covering construction, materials, logistics and development 
             vertically aligned to keep quality and schedule under one roof.
           </p>
         </div>
@@ -186,11 +186,11 @@ export function Network() {
 
 export function Certifications() {
   const certs = [
-    { seal: "ISO\n9001", t: "Quality Management System", id: "ID Ãƒâ€šÃ‚Â· ISO-9001:2015", valid: "Valid through 2027" },
-    { seal: "ISO\n14001", t: "Environmental Standards", id: "ID Ãƒâ€šÃ‚Â· ISO-14001:2015", valid: "Valid through 2027" },
-    { seal: "ISO\n45001", t: "Occupational Health & Safety", id: "ID Ãƒâ€šÃ‚Â· ISO-45001:2018", valid: "Valid through 2026" },
-    { seal: "LGED", t: "Enlisted Civil Contractor", id: "Class Ãƒâ€šÃ‚Â· 01 (Nationwide)", valid: "Renewed annually" },
-    { seal: "RHD", t: "Roads & Highways Division", id: "Category Ãƒâ€šÃ‚Â· A ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Civil", valid: "Renewed annually" },
+    { seal: "ISO\n9001", t: "Quality Management System", id: "ID · ISO-9001:2015", valid: "Valid through 2027" },
+    { seal: "ISO\n14001", t: "Environmental Standards", id: "ID · ISO-14001:2015", valid: "Valid through 2027" },
+    { seal: "ISO\n45001", t: "Occupational Health & Safety", id: "ID · ISO-45001:2018", valid: "Valid through 2026" },
+    { seal: "LGED", t: "Enlisted Civil Contractor", id: "Class · 01 (Nationwide)", valid: "Renewed annually" },
+    { seal: "RHD", t: "Roads & Highways Division", id: "Category · A ‚ Civil", valid: "Renewed annually" },
     { seal: "BWDB", t: "Water Development Board", id: "Enlistment Ãƒâ€šÃ‚Â· Grade A", valid: "Renewed annually" },
     { seal: "PWD", t: "Public Works Department", id: "Category Ãƒâ€šÃ‚Â· 1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Civil & Elect", valid: "Renewed annually" },
     { seal: "BAB", t: "Bangladesh Assoc. of Builders", id: "Member Ãƒâ€šÃ‚Â· Active", valid: "Since 2016" },
@@ -204,7 +204,7 @@ export function Certifications() {
             <h2>Standards you can trust.</h2>
           </div>
           <p className="head-right">
-            Independently verified against international and national standards ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â our
+            Independently verified against international and national standards  our
             certifications are current, audited and available for tender review on request.
           </p>
         </div>

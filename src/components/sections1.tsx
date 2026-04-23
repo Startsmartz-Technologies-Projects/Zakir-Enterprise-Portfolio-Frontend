@@ -132,12 +132,13 @@ export function Hero({ variant }) {
 
 export function Expertise() {
   const cards = [
-    { tag: "01 Ãƒâ€šÃ‚Â· Public", title: "Government Projects", img: IMG.expGov,
+    { tag: "01 · Public", title: "Government Projects", img: IMG.expGov,
       body: "Reliable execution for public infrastructure and development works under LGED, RHD and municipal tenders." },
-    { tag: "02 Ãƒâ€šÃ‚Â· Commercial", title: "Commercial Projects", img: IMG.expCom,
-      body: "Modern solutions for business buildings, industrial facilities and commercial developments across Bangladesh." },
-    { tag: "03 Ãƒâ€šÃ‚Â· Private", title: "Private Projects", img: IMG.expPriv,
+      { tag: "03 · Private", title: "Private Projects", img: IMG.expPriv,
       body: "Premium residential homes, apartments and private buildings with disciplined quality finishing." },
+    { tag: "02 · Commercial", title: "Commercial Projects", img: IMG.expCom,
+      body: "Modern solutions for business buildings, industrial facilities and commercial developments across Bangladesh." },
+    
   ];
   return (
     <section className="section-pad" data-screen-label="03 Expertise">
@@ -187,7 +188,7 @@ export function Stats() {
             <h2>Delivering confidence through results.</h2>
           </div>
           <p className="head-right">
-            Over a decade of disciplined project delivery ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â measured in completed
+            Over a decade of disciplined project delivery  measured in completed
             contracts, satisfied clients and repeat government tenders.
           </p>
         </div>
