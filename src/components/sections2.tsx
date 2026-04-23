@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Arrow as A2, ArrowUpRight as AUR, SvcIcon } from "./site-ui";
 import { IMG } from "./sections1";
 
@@ -57,12 +57,12 @@ export function About() {
 
 export function Projects() {
   const projects = [
-    { cat: "Building Construction", title: "14-Storey Commercial Tower, Gulshan", size: "82,000 sqft", img: IMG.proj1, tall: true, num: "PÃƒâ€šÃ‚Â·001" },
-    { cat: "Road Works", title: "District Highway Upgrade, Cumilla", size: "24 KM", img: IMG.proj2, num: "PÃƒâ€šÃ‚Â·002" },
-    { cat: "Bridge & Culvert", title: "Girder Bridge, Padma Feeder Route", size: "180 m span", img: IMG.proj3, num: "PÃƒâ€šÃ‚Â·003" },
-    { cat: "Site Development", title: "Industrial Park Earthworks, Mymensingh", size: "120 acres", img: IMG.proj4, num: "PÃƒâ€šÃ‚Â·004" },
-    { cat: "Structural Concrete", title: "RCC Framework, EPZ Warehouse Facility", size: "45,000 sqft", img: IMG.proj5, num: "PÃƒâ€šÃ‚Â·005" },
-    { cat: "Foundation Work", title: "Deep Pile Foundation, Riverside Development", size: "340 piles", img: IMG.proj6, num: "PÃƒâ€šÃ‚Â·006" },
+    { cat: "Building Construction", title: "14-Storey Commercial Tower, Gulshan", size: "82,000 sqft", img: IMG.proj1, tall: true, num: "P-001" },
+    { cat: "Road Works", title: "District Highway Upgrade, Cumilla", size: "24 KM", img: IMG.proj2, num: "P-002" },
+    { cat: "Bridge & Culvert", title: "Girder Bridge, Padma Feeder Route", size: "180 m span", img: IMG.proj3, num: "P-003" },
+    { cat: "Site Development", title: "Industrial Park Earthworks, Mymensingh", size: "120 acres", img: IMG.proj4, num: "P-004" },
+    { cat: "Structural Concrete", title: "RCC Framework, EPZ Warehouse Facility", size: "45,000 sqft", img: IMG.proj5, num: "P-005" },
+    { cat: "Foundation Work", title: "Deep Pile Foundation, Riverside Development", size: "340 piles", img: IMG.proj6, num: "P-006" },
   ];
   return (
     <section className="section-pad section-soft" data-screen-label="06 Projects">
@@ -186,14 +186,14 @@ export function Network() {
 
 export function Certifications() {
   const certs = [
-    { seal: "ISO\n9001", t: "Quality Management System", id: "ID · ISO-9001:2015", valid: "Valid through 2027" },
-    { seal: "ISO\n14001", t: "Environmental Standards", id: "ID · ISO-14001:2015", valid: "Valid through 2027" },
-    { seal: "ISO\n45001", t: "Occupational Health & Safety", id: "ID · ISO-45001:2018", valid: "Valid through 2026" },
-    { seal: "LGED", t: "Enlisted Civil Contractor", id: "Class · 01 (Nationwide)", valid: "Renewed annually" },
-    { seal: "RHD", t: "Roads & Highways Division", id: "Category · A ‚ Civil", valid: "Renewed annually" },
-    { seal: "BWDB", t: "Water Development Board", id: "Enlistment Ãƒâ€šÃ‚Â· Grade A", valid: "Renewed annually" },
-    { seal: "PWD", t: "Public Works Department", id: "Category Ãƒâ€šÃ‚Â· 1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Civil & Elect", valid: "Renewed annually" },
-    { seal: "BAB", t: "Bangladesh Assoc. of Builders", id: "Member Ãƒâ€šÃ‚Â· Active", valid: "Since 2016" },
+    { seal: "ISO\n9001", t: "Quality Management System", id: "ID Â· ISO-9001:2015", valid: "Valid through 2027" },
+    { seal: "ISO\n14001", t: "Environmental Standards", id: "ID Â· ISO-14001:2015", valid: "Valid through 2027" },
+    { seal: "ISO\n45001", t: "Occupational Health & Safety", id: "ID Â· ISO-45001:2018", valid: "Valid through 2026" },
+    { seal: "LGED", t: "Enlisted Civil Contractor", id: "Class Â· 01 (Nationwide)", valid: "Renewed annually" },
+    { seal: "RHD", t: "Roads & Highways Division", id: "Category Â· A â€š Civil", valid: "Renewed annually" },
+    { seal: "BWDB", t: "Water Development Board", id: "Enlistment ? Grade A", valid: "Renewed annually" },
+    { seal: "PWD", t: "Public Works Department", id: "Category ? 1 - Civil & Elect", valid: "Renewed annually" },
+    { seal: "BAB", t: "Bangladesh Assoc. of Builders", id: "Member ? Active", valid: "Since 2016" },
   ];
   return (
     <section id="certifications" className="section-pad" data-screen-label="09 Certifications">
@@ -227,4 +227,5 @@ export function Certifications() {
     </section>
   );
 }
+
 

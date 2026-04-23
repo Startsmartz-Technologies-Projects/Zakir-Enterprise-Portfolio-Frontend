@@ -506,7 +506,7 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
                   href="/lets-collaborate"
                   className="btn btn-outline-light"
                 >
-                  Request Quotation <AURD />
+                  Let's Collaborate <AURD />
                 </Link>
               </div>
             </div>

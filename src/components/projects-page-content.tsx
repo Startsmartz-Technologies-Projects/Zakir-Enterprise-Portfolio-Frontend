@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import * as React from "react";
 import Link from "next/link";
 import { Arrow as AP, ArrowUpRight as AURP } from "./site-ui";
@@ -77,14 +77,14 @@ const BASE_PROJECTS = [
     status: "Ongoing",
     location:
       "Plot 60/C, Road 07, Mouza Lalalsarat, Cantonment Market Area, Cantonment, Dhaka",
-    title: "SKCD Dream — G+7 Residential Building",
+    title: "SKCD Dream â€” G+7 Residential Building",
     year: "2026",
     duration: "In progress",
     img: PROJECT_IMAGES.bridgeAlt,
     badge: "Ongoing",
     badgeClass: "gold",
     summary:
-      "An 8-storied premium residential building rising in the heart of Dhaka Cantonment — 14 units per floor, two apartment types, and a modern curved facade that's already turning heads on Road",
+      "An 8-storied premium residential building rising in the heart of Dhaka Cantonment â€” 14 units per floor, two apartment types, and a modern curved facade that's already turning heads on Road",
   },
   {
     id: "P004",
@@ -178,7 +178,7 @@ const BASE_PROJECTS = [
     type: "Infrastructure",
     status: "Completed",
     location: "Barishal",
-    title: "Reinforced Culvert Network Ã¢â‚¬â€ 12 Units",
+    title: "Reinforced Culvert Network - 12 Units",
     year: "2023",
     duration: "10 months",
     img: PROJECT_IMAGES.bridge,
@@ -207,7 +207,7 @@ const BASE_PROJECTS = [
     type: "Industrial",
     status: "Completed",
     location: "Gazipur",
-    title: "Factory Expansion Ã¢â‚¬â€ Phase II",
+    title: "Factory Expansion - Phase II",
     year: "2024",
     duration: "12 months",
     img: PROJECT_IMAGES.concrete,
@@ -420,7 +420,7 @@ const LOCATIONS = [
   "Mymensingh",
   "Gazipur",
 ];
-const SORTS = ["Most Recent", "Oldest First", "A Ã¢â€ â€™ Z", "By Size"];
+const SORTS = ["Most Recent", "Oldest First", "A - Z", "By Size"];
 
 function SearchIcon() {
   return (
@@ -534,7 +534,7 @@ export function ProjectsPageContent() {
         category !== "All" &&
         !p.cat.toLowerCase().includes(category.toLowerCase().split(" ")[0])
       ) {
-        // loose match Ã¢â‚¬â€ allow category chip to map
+        // loose match ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â allow category chip to map
         if (category === "Government Projects" && p.type !== "Government")
           return false;
         if (category === "Private Residential" && p.type !== "Private")
@@ -551,7 +551,7 @@ export function ProjectsPageContent() {
         return false;
       return true;
     });
-    if (sort === "A Ã¢â€ â€™ Z")
+    if (sort === "A - Z")
       list = [...list].sort((a, b) => a.title.localeCompare(b.title));
     if (sort === "Oldest First")
       list = [...list].sort((a, b) =>
@@ -564,7 +564,7 @@ export function ProjectsPageContent() {
   if (search)
     activeFilters.push({
       k: "search",
-      l: `Ã¢â‚¬Å“${search}Ã¢â‚¬Â`,
+      l: `"${search}"`,
       clear: () => setSearch(""),
     });
   if (category !== "All")
@@ -752,7 +752,7 @@ export function ProjectsPageContent() {
               <SearchIcon />
               <input
                 type="text"
-                placeholder="Search projects, locations, categoriesÃ¢â‚¬Â¦"
+                placeholder="Search projects, locations, categories..."
                 value={search}
                 onChange={(e) => {
                   setSearch(e.target.value);
@@ -967,12 +967,12 @@ export function ProjectsPageContent() {
             <div>
               <p>
                 Partner with Zakir Enterprise for dependable execution,
-                disciplined engineering and timely delivery Ã¢â‚¬â€ on
+                disciplined engineering and timely delivery - on
                 government tenders, commercial builds and private developments.
               </p>
               <div className="trust-cta-buttons">
                 <Link href="/lets-collaborate" className="btn btn-primary">
-                  Request Quotation <AP />
+                  Let's Collaborate <AP />
                 </Link>
                 <Link
                   href="/lets-collaborate"
@@ -988,3 +988,4 @@ export function ProjectsPageContent() {
     </>
   );
 }
+

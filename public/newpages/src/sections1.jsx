@@ -67,7 +67,7 @@ function Nav({ scrolled }) {
             <span>Call us</span>
             <strong>+880 1700 000 000</strong>
           </div>
-          <a href="#" className="btn btn-primary">Request Quotation <Arrow/></a>
+          <a href="#" className="btn btn-primary">Let's Collaborate <Arrow/></a>
         </div>
       </div>
     </nav>
@@ -94,7 +94,7 @@ function Hero({ variant }) {
           and specialized engineering works.
         </p>
         <div className="hero-cta-row">
-          <a href="#" className="btn btn-primary">Request Quotation <Arrow/></a>
+          <a href="#" className="btn btn-primary">Let's Collaborate <Arrow/></a>
           <a href="Projects.html" className="btn btn-outline-light">View Projects <ArrowUpRight/></a>
         </div>
         <div className="hero-badges">

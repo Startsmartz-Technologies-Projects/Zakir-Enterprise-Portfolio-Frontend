@@ -64,7 +64,7 @@ function SvcSubnav() {
                className={active === it.id ? "active" : ""}>{it.label}</a>
           ))}
           <div className="subnav-cta">
-            <a href="#svc-cta" className="btn btn-dark">Request Quotation <Arrow/></a>
+            <a href="#svc-cta" className="btn btn-dark">Let's Collaborate <Arrow/></a>
           </div>
         </div>
       </div>
@@ -332,7 +332,7 @@ function SvcCTA({ service }) {
             </p>
             <div className="svc-cta-btns">
               <a href="#" className="btn btn-primary">Let's Collaborate <Arrow/></a>
-              <a href="#" className="btn btn-outline-light">Request Quotation <ArrowUpRight/></a>
+              <a href="#" className="btn btn-outline-light">Let's Collaborate <ArrowUpRight/></a>
             </div>
             <div className="svc-cta-tertiary">
               <span>Looking at our work first?</span>

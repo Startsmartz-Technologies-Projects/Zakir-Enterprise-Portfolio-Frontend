@@ -191,7 +191,7 @@ function SvcSubnav() {
             ))}
             {/* <div className="subnav-cta">
               <a href="#svc-cta" className="btn btn-dark">
-                Request Quotation <Arrow />
+                Let's Collaborate <Arrow />
               </a>
             </div> */}
           </div>
@@ -490,7 +490,7 @@ export function ServiceDetailsPageContent() {
                   Let's Collaborate <Arrow />
                 </Link>
                 <Link href="/lets-collaborate" className="btn btn-outline-light">
-                  Request Quotation <ArrowUpRight />
+                  Let's Collaborate <ArrowUpRight />
                 </Link>
               </div>
               <div className="svc-cta-tertiary">

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import * as React from "react";
 import Link from "next/link";
 import { Arrow as AA, ArrowUpRight as AURA, SvcIcon as SIcoA } from "./site-ui";
@@ -180,42 +180,42 @@ export function AboutPageContent() {
 
   const why = [
     {
-      ico: "Ã°Å¸â€ºÂ¡",
+      ico: "?",
       t: "Systematic and process-driven project execution",
       d: "100+ completed projects with documented QA sign-off.",
     },
     {
-      ico: "Ã°Å¸â€˜Â·",
+      ico: "?",
       t: "Strong technical expertise backed by experienced engineering teams",
       d: "Experienced engineers, surveyors and site supervisors.",
     },
     {
-      ico: "Ã°Å¸â€”Âº",
+      ico: "?",
       t: "Consistent quality control and adherence to construction standards",
       d: "Operating across every district of Bangladesh.",
     },
     {
-      ico: "Ã°Å¸â€œÂ",
+      ico: "?",
       t: "Strict safety practices across all project sites",
       d: "BIM-driven planning and weekly client reviews.",
     },
     {
-      ico: "Ã¢Å¡â€™",
+      ico: "?",
       t: "Transparent coordination with clients and stakeholders",
       d: "Certified safety protocols on every site.",
     },
     {
-      ico: "Ã¢ÂÂ±",
+      ico: "?",
       t: "Commitment to durable, sustainable, and long-lasting construction",
       d: "Track record of on-time and ahead-of-schedule delivery.",
     },
     {
-      ico: "Ã¢Å“â€°",
+      ico: "?",
       t: "Transparent Communication",
       d: "Clear reporting, budgets and change-order processes.",
     },
     {
-      ico: "Ã¢Å“â€œ",
+      ico: "?",
       t: "Quality Assurance",
       d: "Three-stage QA, materials testing and handover audits.",
     },
@@ -466,7 +466,7 @@ export function AboutPageContent() {
                   <circle cx="12" cy="12" r="1.5" fill="currentColor" />
                 </svg>
               </div>
-              {/* <span className="mvv-label">01 Ã‚Â· Mission</span> */}
+              {/* <span className="mvv-label">01 Ãƒâ€šÃ‚Â· Mission</span> */}
               <h3>Mission</h3>
               <p>
                 To deliver high-quality construction and engineering services by
@@ -488,7 +488,7 @@ export function AboutPageContent() {
                   <path d="M5 10 V21 H19 V10" />
                 </svg>
               </div>
-              {/* <span className="mvv-label">02 Ã‚Â· Vision</span> */}
+              {/* <span className="mvv-label">02 Ãƒâ€šÃ‚Â· Vision</span> */}
               <h3>Vision</h3>
               <p>
                 To be a leading construction company in Bangladesh, recognized
@@ -509,7 +509,7 @@ export function AboutPageContent() {
                   <polygon points="12,3 21,8 21,16 12,21 3,16 3,8" />
                 </svg>
               </div>
-              {/* <span className="mvv-label">03 Ã‚Â· Values</span> */}
+              {/* <span className="mvv-label">03 Ãƒâ€šÃ‚Â· Values</span> */}
               <h3>Core Values</h3>
               <ul className="mvv-values">
                 <li>Quality</li>
@@ -573,14 +573,14 @@ export function AboutPageContent() {
               <h2>Commitment to Excellence</h2>
               <div className="leader-quote">
                 <p>
-                  “We are dedicated to delivering construction solutions that
+                  â€œWe are dedicated to delivering construction solutions that
                   reflect quality, integrity, and long-term value for our
-                  clients and communities.”
+                  clients and communities.â€
                 </p>
               </div>
               <p className="body">
                 At Zakir Enterprise, we believe construction is more than
-                building structures—it is about creating lasting value through
+                building structuresâ€”it is about creating lasting value through
                 expertise, innovation, and responsible execution. With years of
                 industry experience, our leadership ensures that every project
                 is delivered with professionalism, precision, and
@@ -646,9 +646,8 @@ export function AboutPageContent() {
               <h2>Why clients trust Zakir Enterprise.</h2>
             </div>
             <p className="head-right">
-              Eight operational commitments that show up on every contract
-              Ã¢â‚¬â€ whether it's a Ã Â§Â³2cr culvert or a Ã Â§Â³200cr
-              commercial tower.
+              Eight operational commitments that show up on every contract -
+              whether it's a Tk 2cr culvert or a Tk 200cr commercial tower.
             </p>
           </div>
           <div className="why-grid">
@@ -767,14 +766,14 @@ export function AboutPageContent() {
         </div>
       </section>
 
-      {/* 12. Final CTA Ã¢â‚¬â€ reuses trust-cta */}
+      {/* 12. Final CTA - reuses trust-cta */}
       <section className="trust-cta" data-screen-label="12 CTA">
         <div className="container">
           <div className="trust-cta-inner">
             <div>
               <span className="microlabel on-dark">START YOUR PROJECT</span>
               <h2 style={{ marginTop: 20 }}>
-                Let’s Build Your Next Project with Confidence
+                Let's Build Your Next Project with Confidence
                 <span className="accent">confidence?</span>
               </h2>
             </div>
@@ -802,3 +801,4 @@ export function AboutPageContent() {
     </>
   );
 }
+

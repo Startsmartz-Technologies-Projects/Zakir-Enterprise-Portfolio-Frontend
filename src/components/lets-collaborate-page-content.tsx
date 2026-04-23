@@ -7,7 +7,7 @@ const HERO_IMAGE =
   "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=2200&q=80&auto=format&fit=crop";
 
 const INTENT_ITEMS = [
-  { id: "quote", icon: "building", title: "Request Quotation", description: "Priced scope for a defined construction brief." },
+  { id: "quote", icon: "building", title: "Let's Collaborate", description: "Priced scope for a defined construction brief." },
   { id: "new", icon: "concrete", title: "New Construction Project", description: "Start a fresh development from concept to delivery." },
   { id: "collab", icon: "special", title: "Request Collaboration", description: "Joint execution on complex or multi-party builds." },
   { id: "gov", icon: "road", title: "Government Project", description: "LGED, RHD, PWD tenders and institutional works." },
@@ -131,7 +131,7 @@ export function LetsCollaboratePageContent() {
               </p>
               <div className="lc-hero-ctas">
                 <a href="#form" className="btn btn-primary">
-                  Request Quotation <Arrow />
+                  Let's Collaborate <Arrow />
                 </a>
                 {/* <a href="#form" className="btn btn-outline-light">
                   Start Discussion <ArrowUpRight />

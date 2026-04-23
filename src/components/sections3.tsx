@@ -154,7 +154,7 @@ export function CTABanner() {
           <div className="cta-right">
             <p>From planning to execution, Zakir Enterprise is ready to deliver quality work with confidence and professionalism - on schedule, on budget, on standard.</p>
             <div className="cta-btns">
-              <Link href="/lets-collaborate" className="btn btn-primary">Request Quotation <A3/></Link>
+              <Link href="/lets-collaborate" className="btn btn-primary">Let's Collaborate <A3/></Link>
               <Link href="/lets-collaborate" className="btn btn-outline-light">Discuss Project <AUR3/></Link>
             </div>
           </div>
@@ -225,7 +225,7 @@ export function Footer() {
           <div className="footer-col">
             <h5>Contact</h5>
             <ul>
-              <li><Link href="/lets-collaborate">Request Quotation</Link></li>
+              <li><Link href="/lets-collaborate">Let's Collaborate</Link></li>
               <li><Link href="/lets-collaborate">Discuss a Project</Link></li>
               <li><Link href="/lets-collaborate">Vendor Enquiries</Link></li>
               <li><Link href="/news">Media Requests</Link></li>

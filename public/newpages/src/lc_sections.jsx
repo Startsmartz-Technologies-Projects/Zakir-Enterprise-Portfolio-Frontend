@@ -22,7 +22,7 @@ function LcHero() {
               of Bangladesh.
             </p>
             <div className="lc-hero-ctas">
-              <a href="#form" className="btn btn-primary">Request Quotation <LcA/></a>
+              <a href="#form" className="btn btn-primary">Let's Collaborate <LcA/></a>
               <a href="#form" className="btn btn-outline-light">Start Discussion <LcAUR/></a>
               <a href="tel:+8801700000000" className="btn btn-outline-light">Call Now</a>
             </div>
@@ -63,7 +63,7 @@ function LcTrustHook() {
 
 // ───────── Intent Grid ─────────
 const INTENT_ITEMS = [
-  { id: "quote",    icon: "building",   t: "Request Quotation",         d: "Priced scope for a defined construction brief." },
+  { id: "quote",    icon: "building",   t: "Let's Collaborate",         d: "Priced scope for a defined construction brief." },
   { id: "new",      icon: "concrete",   t: "New Construction Project",  d: "Start a fresh development from concept to delivery." },
   { id: "collab",   icon: "special",    t: "Request Collaboration",     d: "Joint execution on complex or multi-party builds." },
   { id: "gov",      icon: "road",       t: "Government Project",        d: "LGED, RHD, PWD tenders and institutional works." },
