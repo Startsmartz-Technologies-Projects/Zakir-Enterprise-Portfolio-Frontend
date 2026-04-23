@@ -57,12 +57,12 @@ export function About() {
 
 export function Projects() {
   const projects = [
-    { cat: "Building Construction", title: "14-Storey Commercial Tower, Gulshan", size: "82,000 sqft", img: IMG.proj1, tall: true, num: "PÃƒâ€šÃ‚Â·001" },
-    { cat: "Road Works", title: "District Highway Upgrade, Cumilla", size: "24 KM", img: IMG.proj2, num: "PÃƒâ€šÃ‚Â·002" },
-    { cat: "Bridge & Culvert", title: "Girder Bridge, Padma Feeder Route", size: "180 m span", img: IMG.proj3, num: "PÃƒâ€šÃ‚Â·003" },
-    { cat: "Site Development", title: "Industrial Park Earthworks, Mymensingh", size: "120 acres", img: IMG.proj4, num: "PÃƒâ€šÃ‚Â·004" },
-    { cat: "Structural Concrete", title: "RCC Framework, EPZ Warehouse Facility", size: "45,000 sqft", img: IMG.proj5, num: "PÃƒâ€šÃ‚Â·005" },
-    { cat: "Foundation Work", title: "Deep Pile Foundation, Riverside Development", size: "340 piles", img: IMG.proj6, num: "PÃƒâ€šÃ‚Â·006" },
+    { cat: "Building Construction", title: "14-Storey Commercial Tower, Gulshan", size: "82,000 sqft", img: IMG.proj1, tall: true,  },
+    { cat: "Road Works", title: "District Highway Upgrade, Cumilla", size: "24 KM", img: IMG.proj2,  },
+    { cat: "Bridge & Culvert", title: "Girder Bridge, Padma Feeder Route", size: "180 m span", img: IMG.proj3,  },
+    { cat: "Site Development", title: "Industrial Park Earthworks, Mymensingh", size: "120 acres", img: IMG.proj4,  },
+    { cat: "Structural Concrete", title: "RCC Framework, EPZ Warehouse Facility", size: "45,000 sqft", img: IMG.proj5,},
+    { cat: "Foundation Work", title: "Deep Pile Foundation, Riverside Development", size: "340 piles", img: IMG.proj6,  },
   ];
   return (
     <section className="section-pad section-soft" data-screen-label="06 Projects">
@@ -81,7 +81,7 @@ export function Projects() {
           {projects.map((p, i) => (
             <Link key={p.title} href="/projects/gulshan-commercial-tower" className={`project ${p.tall ? "tall" : ""}`} style={{ textDecoration: "none", color: "inherit" }}>
               <div className="p-img" style={{ backgroundImage: `url(${p.img})` }} />
-              <span className="p-num">{p.num}</span>
+              
               <span className="p-size">{p.size}</span>
               <div className="p-body">
                 <div>
@@ -191,9 +191,9 @@ export function Certifications() {
     { seal: "ISO\n45001", t: "Occupational Health & Safety", id: "ID · ISO-45001:2018", valid: "Valid through 2026" },
     { seal: "LGED", t: "Enlisted Civil Contractor", id: "Class · 01 (Nationwide)", valid: "Renewed annually" },
     { seal: "RHD", t: "Roads & Highways Division", id: "Category · A ‚ Civil", valid: "Renewed annually" },
-    { seal: "BWDB", t: "Water Development Board", id: "Enlistment Ãƒâ€šÃ‚Â· Grade A", valid: "Renewed annually" },
-    { seal: "PWD", t: "Public Works Department", id: "Category Ãƒâ€šÃ‚Â· 1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Civil & Elect", valid: "Renewed annually" },
-    { seal: "BAB", t: "Bangladesh Assoc. of Builders", id: "Member Ãƒâ€šÃ‚Â· Active", valid: "Since 2016" },
+    { seal: "BWDB", t: "Water Development Board", id: "Enlistment  Grade A", valid: "Renewed annually" },
+    { seal: "PWD", t: "Public Works Department", id: "Category ·  Civil & Elect", valid: "Renewed annually" },
+    { seal: "BAB", t: "Bangladesh Assoc. of Builders", id: "Member  Active", valid: "Since 2016" },
   ];
   return (
     <section id="certifications" className="section-pad" data-screen-label="09 Certifications">
