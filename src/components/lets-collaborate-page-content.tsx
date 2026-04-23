@@ -133,9 +133,9 @@ export function LetsCollaboratePageContent() {
                 <a href="#form" className="btn btn-primary">
                   Request Quotation <Arrow />
                 </a>
-                <a href="#form" className="btn btn-outline-light">
+                {/* <a href="#form" className="btn btn-outline-light">
                   Start Discussion <ArrowUpRight />
-                </a>
+                </a> */}
                 <a href="tel:+8801700000000" className="btn btn-outline-light">
                   Call Now
                 </a>
@@ -158,7 +158,7 @@ export function LetsCollaboratePageContent() {
                 </li>
                 <li>
                   <span className="k">Desk</span>
-                  <span className="v">projects@zakirenterprise.com.bd</span>
+                  <span className="v">zakirenterprise307@gmail.com</span>
                 </li>
               </ul>
             </aside>
@@ -218,10 +218,10 @@ export function LetsCollaboratePageContent() {
                 <h5>Contact</h5>
                 <ul>
                   <li>
-                    <strong>Phone</strong>+880 1700 000 000
+                    <strong>Phone</strong>+8801791026074
                   </li>
                   <li>
-                    <strong>Email</strong>projects@zakirenterprise.com.bd
+                    <strong>Email</strong>zakirenterprise307@gmail.com
                   </li>
                   <li>
                     <strong>Head Office</strong>House 42, Road 11, Banani,
@@ -236,15 +236,15 @@ export function LetsCollaboratePageContent() {
 
               <div className="side-card quick">
                 <h5>Quick Actions</h5>
-                <a href="https://wa.me/8801700000000">
+                <a href="https://wa.me/01791026074">
                   <span>WhatsApp Team</span>
                   <Arrow />
                 </a>
-                <a href="tel:+8801700000000">
+                <a href="tel:+8801791026074">
                   <span>Direct Call</span>
                   <Arrow />
                 </a>
-                <a href="mailto:projects@zakirenterprise.com.bd">
+                <a href="mailto:zakirenterprise307@gmail.com">
                   <span>Email Desk</span>
                   <Arrow />
                 </a>
@@ -488,16 +488,16 @@ export function LetsCollaboratePageContent() {
               Dhaka 1213, Bangladesh
             </p>
             <p>
-              <strong>Phone</strong>+880 1700 000 000
+              <strong>Phone</strong>+8801791026074
             </p>
             <p>
-              <strong>Email</strong>projects@zakirenterprise.com.bd
+              <strong>Email</strong>zakirenterprise307@gmail.com
             </p>
             <div style={{ marginTop: 20, display: "flex", gap: 10, flexWrap: "wrap" }}>
               <a href="#" className="btn btn-primary" style={{ padding: "12px 18px", fontSize: 11 }}>
                 Get Directions <Arrow size={12} />
               </a>
-              <a href="tel:+8801700000000" className="btn btn-outline-dark" style={{ padding: "12px 18px", fontSize: 11 }}>
+              <a href="tel:+8801791026074" className="btn btn-outline-dark" style={{ padding: "12px 18px", fontSize: 11 }}>
                 Call Office
               </a>
             </div>
@@ -515,20 +515,20 @@ export function LetsCollaboratePageContent() {
               </h2>
               <p>Our project desk is staffed across business hours. For urgent coordination, tender deadlines or ongoing site issues, reach us directly.</p>
               <div className="final-cta-btns">
-                <a href="tel:+8801700000000" className="btn btn-primary">
+                <a href="tel:+8801791026074" className="btn btn-primary">
                   Call Now <Arrow />
                 </a>
-                <a href="https://wa.me/8801700000000" className="btn btn-outline-light">
+                <a href="https://wa.me/8801791026074" className="btn btn-outline-light">
                   WhatsApp Us
                 </a>
-                <a href="#form" className="btn btn-outline-light">
+                {/* <a href="#form" className="btn btn-outline-light">
                   Send Proposal
-                </a>
+                </a> */}
               </div>
             </div>
 
             <div className="final-cta-lines">
-              <a href="tel:+8801700000000" className="fc-line">
+              <a href="tel:+8801791026074" className="fc-line">
                 <div className="ic">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square">
                     <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 3a2 2 0 0 1-.5 2L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.5c1 .3 2 .5 3 .6a2 2 0 0 1 1.7 2.1z" />
@@ -536,14 +536,14 @@ export function LetsCollaboratePageContent() {
                 </div>
                 <div>
                   <span className="k">Direct Line</span>
-                  <span className="v">+880 1700 000 000</span>
+                  <span className="v">+880 1791 026 074</span>
                 </div>
                 <span className="chev">
                   <Arrow size={14} />
                 </span>
               </a>
 
-              <a href="https://wa.me/8801700000000" className="fc-line">
+              <a href="https://wa.me/8801791026074" className="fc-line">
                 <div className="ic">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M20.5 3.5A11.5 11.5 0 0 0 2.1 17.2L1 22l4.9-1.1A11.5 11.5 0 1 0 20.5 3.5zm-8.4 17.5a9.5 9.5 0 0 1-4.8-1.3l-.3-.2-2.9.7.6-2.8-.2-.3a9.5 9.5 0 1 1 7.6 3.9zm5.2-6.6c-.3-.1-1.8-.8-2-1s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a7.8 7.8 0 0 1-2.3-1.4 8.7 8.7 0 0 1-1.6-2c-.1-.3 0-.4.1-.6l.4-.4.3-.5c.1-.2 0-.3 0-.5s-.6-1.4-.8-1.9-.4-.4-.6-.4h-.5c-.2 0-.5 0-.7.3a3 3 0 0 0-1 2.2 5.2 5.2 0 0 0 1 2.7c.2.3 1.6 2.5 3.9 3.5a13 13 0 0 0 1.3.5 3.1 3.1 0 0 0 1.4.1 2.4 2.4 0 0 0 1.5-1 1.9 1.9 0 0 0 .1-1c0-.2-.2-.2-.5-.4z" />
@@ -558,7 +558,7 @@ export function LetsCollaboratePageContent() {
                 </span>
               </a>
 
-              <a href="mailto:projects@zakirenterprise.com.bd" className="fc-line">
+              <a href="mailto:zakirenterprise307@gmail.com" className="fc-line">
                 <div className="ic">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square">
                     <rect x="3" y="5" width="18" height="14" />
@@ -567,7 +567,7 @@ export function LetsCollaboratePageContent() {
                 </div>
                 <div>
                   <span className="k">Email Desk</span>
-                  <span className="v">projects@zakirenterprise.com.bd</span>
+                  <span className="v">zakirenterprise307@gmail.com</span>
                 </div>
                 <span className="chev">
                   <Arrow size={14} />
@@ -578,7 +578,7 @@ export function LetsCollaboratePageContent() {
         </div>
       </section>
 
-      <a href="https://wa.me/8801700000000" className="whatsapp-sticky" aria-label="Chat on WhatsApp">
+      <a href="https://wa.me/8801791026074" className="whatsapp-sticky" aria-label="Chat on WhatsApp">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
           <path d="M20.5 3.5A11.5 11.5 0 0 0 2.1 17.2L1 22l4.9-1.1A11.5 11.5 0 1 0 20.5 3.5zm-8.4 17.5a9.5 9.5 0 0 1-4.8-1.3l-.3-.2-2.9.7.6-2.8-.2-.3a9.5 9.5 0 1 1 7.6 3.9z" />
         </svg>
