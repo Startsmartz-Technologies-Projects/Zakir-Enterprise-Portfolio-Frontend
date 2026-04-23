@@ -147,35 +147,35 @@ export function AboutPageContent() {
 
   const team = [
     {
-      name: "Md. Zakir Hossain",
+      name: "Abu Zakir",
       role: "Managing Director",
       bio: "25+ years in civil works and commercial construction.",
       img: ABOUT_IMAGES.t1,
     },
-    {
-      name: "Eng. Arif Rahman",
-      role: "Chief Engineer",
-      bio: "Structural engineering lead across all major builds.",
-      img: ABOUT_IMAGES.t2,
-    },
-    {
-      name: "Tanvir Ahmed",
-      role: "Head of Operations",
-      bio: "Procurement, scheduling and multi-site delivery.",
-      img: ABOUT_IMAGES.t3,
-    },
-    {
-      name: "Nazmul Hasan",
-      role: "Finance Director",
-      bio: "Budgeting, cost control and financial governance.",
-      img: ABOUT_IMAGES.t4,
-    },
-    {
-      name: "Eng. Salma Khatun",
-      role: "Project Director",
-      bio: "On-site project leadership and client liaison.",
-      img: ABOUT_IMAGES.t5,
-    },
+    // {
+    //   name: "Eng. Arif Rahman",
+    //   role: "Chief Engineer",
+    //   bio: "Structural engineering lead across all major builds.",
+    //   img: ABOUT_IMAGES.t2,
+    // },
+    // {
+    //   name: "Tanvir Ahmed",
+    //   role: "Head of Operations",
+    //   bio: "Procurement, scheduling and multi-site delivery.",
+    //   img: ABOUT_IMAGES.t3,
+    // },
+    // {
+    //   name: "Nazmul Hasan",
+    //   role: "Finance Director",
+    //   bio: "Budgeting, cost control and financial governance.",
+    //   img: ABOUT_IMAGES.t4,
+    // },
+    // {
+    //   name: "Eng. Salma Khatun",
+    //   role: "Project Director",
+    //   bio: "On-site project leadership and client liaison.",
+    //   img: ABOUT_IMAGES.t5,
+    // },
   ];
 
   const why = [
@@ -564,7 +564,7 @@ export function AboutPageContent() {
               style={{ backgroundImage: `url(${ABOUT_IMAGES.leader})` }}
             >
               <div className="signature">
-                <div className="name">Md. Zakir Hossain</div>
+                <div className="name">Abu Zakir</div>
                 <div className="role">Managing Director</div>
               </div>
             </div>
@@ -595,7 +595,7 @@ export function AboutPageContent() {
               </p>
               <div className="leader-signoff">
                 <div>
-                  <div className="name">Md. Zakir Hossain</div>
+                  <div className="name">Abu Zakir</div>
                   <div className="role">Founder &amp; Managing Director</div>
                 </div>
               </div>
