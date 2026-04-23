@@ -84,7 +84,7 @@ function Lightbox({ images, idx, onClose, setIdx }) {
   return (
     <div className="lightbox" onClick={onClose}>
       <button className="lb-close" onClick={onClose}>
-        Ã¢Å“â€¢
+        Close
       </button>
       <button
         className="lb-nav prev"
@@ -93,7 +93,7 @@ function Lightbox({ images, idx, onClose, setIdx }) {
           setIdx((idx - 1 + images.length) % images.length);
         }}
       >
-        Ã¢â‚¬Â¹
+        Left
       </button>
       <button
         className="lb-nav next"
@@ -102,7 +102,7 @@ function Lightbox({ images, idx, onClose, setIdx }) {
           setIdx((idx + 1) % images.length);
         }}
       >
-        Ã¢â‚¬Âº
+        Right
       </button>
       <img src={images[idx]} onClick={(e) => e.stopPropagation()} />
       <div className="lb-count">
@@ -338,8 +338,8 @@ export function ProjectDetailContent() {
               <h2>Services delivered on this project.</h2>
             </div>
             <p className="head-right">
-              Eight coordinated work packages executed in sequence Ã¢â‚¬â€ from
-              site enabling works through to handover, all under a single Zakir
+              Eight coordinated work packages delivered in sequence from site
+              enabling works through to final handover, all under a single Zakir
               Enterprise contract.
             </p>
           </div>
@@ -371,9 +371,9 @@ export function ProjectDetailContent() {
               <h2>Construction in progress.</h2>
             </div>
             <p className="head-right">
-              Selected site photography across the foundation, superstructure
-              and facade phases of the project Ã¢â‚¬â€ documented by our site
-              engineering team.
+              Selected site photography capturing the foundation,
+              superstructure, and facade phases of the project documented by our
+              site engineering team.
             </p>
           </div>
           <div className="gallery-grid">
@@ -552,7 +552,7 @@ export function ProjectDetailContent() {
                 <div className="pc-body">
                   <div className="pc-cat">{p.cat}</div>
                   <h3>{p.title}</h3>
-                  <div className="pc-loc">Ã°Å¸â€œÂ {p.location}</div>
+                  <div className="pc-loc">Location {p.location}</div>
                   <p className="pc-sum">{p.summary}</p>
                   <div className="pc-footer">
                     <span className={`pc-status ${p.status.toLowerCase()}`}>
