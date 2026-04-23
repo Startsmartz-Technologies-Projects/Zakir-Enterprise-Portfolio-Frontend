@@ -209,9 +209,37 @@ export function CertificationsPageContent() {
         <div className="container ct-intro-grid">
           <div className="ct-intro-left">
             <span className="microlabel">Why Certifications Matter</span>
-            <h2>
-              Certified capability - <span className="accent">verified in writing.</span>
+            <h2 className="ct-intro-head">
+              Certified capability
+              <br />
+               <span className="accent">verified in writing.</span>
             </h2>
+            <p className="ct-intro-lede">
+              Zakir Enterprise maintains the registrations, licenses, and professional certifications necessary to support public and private sector construction projects across Bangladesh.
+            </p>
+          </div>
+          <div className="ct-intro-right">
+            <div className="ct-intro-card">
+              <div className="ct-intro-num">01</div>
+              <div>
+                <h4>Verified Documents</h4>
+                <p>Every document on this page is current, signed, and verifiable through the issuing authority.</p>
+              </div>
+            </div>
+            <div className="ct-intro-card">
+              <div className="ct-intro-num">02</div>
+              <div>
+                <h4>Operational Readiness</h4>
+                <p>Pre-qualified for Class-A public tenders, BEZA zones, and private institutional projects.</p>
+              </div>
+            </div>
+            <div className="ct-intro-card">
+              <div className="ct-intro-num">03</div>
+              <div>
+                <h4>Nationwide Capability</h4>
+                <p>Credentials cover all 64 districts - infrastructure, commercial, industrial, and civil works.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
