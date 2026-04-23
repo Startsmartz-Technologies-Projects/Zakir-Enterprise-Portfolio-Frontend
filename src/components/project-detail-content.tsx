@@ -8,12 +8,12 @@ import { PROJECTS } from "./projects-page-content";
 
 const DETAIL_IMAGES = {
   hero: "https://res.cloudinary.com/dk4csiouq/image/upload/q_auto/f_auto/v1776917191/patuakhali_project_section_hero_nqcinq.jpg",
-  g1: "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=1400&q=80&auto=format&fit=crop",
-  g2: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80&auto=format&fit=crop",
-  g3: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&q=80&auto=format&fit=crop",
-  g4: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80&auto=format&fit=crop",
-  g5: "https://images.unsplash.com/photo-1565008576549-57569a49371c?w=1200&q=80&auto=format&fit=crop",
-  g6: "https://images.unsplash.com/photo-1518335935020-cfd6580c1ab4?w=1200&q=80&auto=format&fit=crop",
+  g1: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918075/patuakhali_project_Gallary_1_nufw4p.jpg",
+  g2: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918074/patuakhali_project_Gallary_2_lchgzc.jpg",
+  g3: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918072/patuakhali_project_Gallary_3_agpdlx.jpg",
+  g4: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918072/patuakhali_project_Gallary_4_geulax.jpg",
+  g5: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918070/patuakhali_project_Gallary_5_btqqrf.jpg",
+  g6: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918069/patuakhali_project_Gallary_6_xhtnwd.jpg",
 };
 
 function ShareIcon({ k }) {
@@ -125,92 +125,73 @@ export function ProjectDetailContent() {
   ];
 
   const meta = [
-    { k: "Client", v: "Gulshan Development Ltd.", sub: "Private commercial" },
-    { k: "Category", v: "Building Construction", sub: "Commercial" },
-    { k: "Location", v: "Gulshan Avenue", sub: "Dhaka, Bangladesh" },
-    { k: "Duration", v: "22 Months", sub: "Jan 2024 Ã¢â€ â€™ Nov 2025" },
-    { k: "Status", v: "Completed", sub: "Handover Nov 2025" },
+    { k: "Client", v: "Bangladesh Government Navy", sub: undefined },
+    {
+      k: "Project Type",
+      v: "Industrial Warehouse Construction",
+      sub: undefined,
+    },
+    { k: "Location", v: "Patuakhali, Bangladesh", sub: undefined },
+    { k: "Duration", v: "4-5 months", sub: "(Dummy INFORMATION)" },
+    { k: "Completion", v: "2025", sub: "(DUMMY INFORMATION)" },
   ];
 
   const scopes = [
     {
-      icon: "foundation",
-      n: "01",
-      t: "Deep Foundation",
-      d: "142 bored piles reaching 38m depth into firm bearing stratum.",
-    },
-    {
       icon: "concrete",
-      n: "02",
+      n: "01",
       t: "RCC Superstructure",
-      d: "14-storey cast-in-situ reinforced concrete frame with shear cores.",
+      d: "Concrete frame built to heavy load-bearing specs, designed to store and support serious naval equipment and supplies long-term.",
     },
     {
       icon: "building",
-      n: "03",
-      t: "Curtain-Wall Facade",
-      d: "Full unitized glass facade with thermally broken aluminium profiles.",
+      n: "02",
+      t: "Pre-Engineered Steel Roof",
+      d: "Wide-span steel truss system with blue corrugated cladding and polycarbonate skylights for maximum internal height and natural light.",
     },
     {
       icon: "equip",
+      n: "03",
+      t: "EOT Overhead Crane System",
+      d: "Overhead travelling crane infrastructure installed across the full floor span for safe movement of heavy naval cargo.",
+    },
+    {
+      icon: "fire",
       n: "04",
-      t: "MEP Coordination",
-      d: "Tight BIM-driven coordination of HVAC, electrical and plumbing risers.",
+      t: "Fire Suppression System",
+      d: "Full ceiling-mounted red-pipe fire safety network spanning the entire warehouse floor, commissioned before handover.",
     },
     {
-      icon: "finish",
+      icon: "mep",
       n: "05",
-      t: "Premium Interior Finishing",
-      d: "Imported stone, porcelain and architectural timber throughout lobbies.",
+      t: "MEP Works",
+      d: "Industrial lighting, electrical systems, ventilation ducting and plumbing installed for round-the-clock warehouse operations.",
     },
     {
-      icon: "drain",
+      icon: "window",
       n: "06",
-      t: "Drainage & Plumbing",
-      d: "Dual-stack drainage with rainwater harvesting to underground storage.",
+      t: "Security Fenestration",
+      d: "Double-band windows with heavy iron grilles across the full perimeter, meeting government security requirements.",
     },
     {
       icon: "earth",
       n: "07",
       t: "Site Preparation",
-      d: "Enabling excavation, dewatering and sheet-pile shoring to 9m depth.",
+      d: "Coastal site clearing, levelling and drainage groundworks completed before any structural work commenced.",
     },
     {
-      icon: "special",
+      icon: "floor",
       n: "08",
-      t: "Specialty Works",
-      d: "Helipad structural pad, BMS rooms and architectural metalwork.",
+      t: "Heavy-Duty Warehouse Floor",
+      d: "Thick industrial concrete slab laid and finished to withstand forklifts, trolleys and heavy equipment without degradation.",
     },
   ];
 
   const highlights = [
-    {
-      n: "14",
-      u: "Storeys",
-      t: "Full-height build",
-      d: "Delivered from piling to helipad deck including two basement levels.",
-    },
-    {
-      n: "82K",
-      u: "Sqft",
-      t: "Gross built area",
-      d: "Column-free floor plates averaging 5,800 sqft of leasable area.",
-    },
-    {
-      n: "0",
-      u: "Reportable incidents",
-      t: "Safety record",
-      d: "Over 1.4M working hours logged on site without a lost-time incident.",
-    },
-    {
-      n: "3",
-      u: "Months early",
-      t: "Schedule performance",
-      d: "Completed ahead of the original 25-month contractual programme.",
-    },
+    // No specific metrics provided in static content, so leave empty or add placeholders if needed
   ];
 
-  // related Ã¢â‚¬â€ pick 3 from PROJECTS (from projects_page.jsx) excluding self
+  // related — pick 3 from PROJECTS (from projects_page.jsx) excluding self
   const related = PROJECTS.slice(1, 4);
 
   return (
@@ -227,14 +208,14 @@ export function ProjectDetailContent() {
             <span className="sep">/</span>
             <Link href="/projects">Projects</Link>
             <span className="sep">/</span>
-            <Link href="/projects">Building Construction</Link>
+            <Link href="/projects">Industrial Warehouse Construction</Link>
             <span className="sep">/</span>
-            <span>Gulshan Commercial Tower</span>
+            <span>Patuakhali Naval Warehouse</span>
           </div>
           <div className="detail-hero-badges">
             <span className="dh-badge">Featured</span>
-            <span className="dh-badge ghost">Completed Ã‚Â· 2025</span>
-            <span className="dh-badge ghost">Gulshan, Dhaka</span>
+            <span className="dh-badge ghost">Completion · 2025</span>
+            <span className="dh-badge ghost">Patuakhali, Bangladesh</span>
           </div>
           <h1>Patuakhali Naval Warehouse</h1>
           <p className="summary">
@@ -266,52 +247,31 @@ export function ProjectDetailContent() {
             <div className="overview-copy">
               <span className="microlabel">Project Overview</span>
               <h2 style={{ marginTop: 16 }}>
-                A landmark commercial tower engineered for four decades of
-                service.
+                Built tough, handed over fast a naval warehouse the southern
+                coast can depend on.
               </h2>
               <p>
-                Zakir Enterprise delivered the full execution of a 14-storey
-                Grade-A commercial tower on Gulshan Avenue Ã¢â‚¬â€ one of
-                Dhaka's premier corporate addresses. The contract included deep
-                foundations, the full reinforced concrete superstructure,
-                unitized curtain-wall installation, and high-specification
-                interior finishing across 82,000 square feet of leasable area.
-              </p>
-              <p>
-                The programme required tight coordination between structural,
-                mechanical and architectural trades Ã¢â‚¬â€ handled through a
-                BIM-driven clash-resolution process with weekly joint review
-                sessions. Dewatering and shoring works enabled safe excavation
-                to nine metres below grade in a congested urban site adjacent to
-                live roadway.
+                Patuakhali isn't the easiest place to run a construction
+                project. The coastal conditions, the remote location, the tight
+                government timeline — none of it was straightforward. But within
+                4 to 5 months, the team took this site from bare ground to a
+                fully handed-over naval warehouse, ready for the Bangladesh Navy
+                to move in and begin operations immediately. Every structural
+                decision was made with the end use in mind — heavy naval
+                equipment, long-term coastal durability, and the security
+                standards a government client demands.
               </p>
               <p className="pull">
-                Handed over three months ahead of the original 25-month schedule
-                Ã¢â‚¬â€ with zero reportable safety incidents across 1.4 million
-                working hours.
-              </p>
-              <h3>Engineering discipline on every floor</h3>
-              <p>
-                The building was designed to BNBC seismic zone 2 requirements
-                with an independently peer-reviewed structural model.
-                Cast-in-situ slabs were poured on a strict four-day cycle, and
-                the facade was installed storey-by-storey immediately behind the
-                structural works to accelerate the internal fit-out programme.
-              </p>
-              <p>
-                Final handover included full as-built documentation, MEP
-                commissioning certificates and a two-year defects liability
-                programme Ã¢â‚¬â€ standard across every Zakir Enterprise
-                commercial delivery.
+                "No delays. No incidents. Just a building the Bangladesh Navy
+                could actually rely on."
               </p>
             </div>
 
             <aside className="side-card">
               <h4>Quick Summary</h4>
               <p className="side-summary">
-                A 14-storey Grade-A commercial tower delivered turnkey from
-                piling to handover Ã¢â‚¬â€ including facade, interior finishing
-                and MEP commissioning.
+                "No delays. No incidents. Just a building the Bangladesh Navy
+                could actually rely on."
               </p>
               <div>
                 <div
@@ -327,12 +287,14 @@ export function ProjectDetailContent() {
                   Services Delivered
                 </div>
                 <ul className="side-services">
-                  <li>Deep Pile Foundation</li>
                   <li>RCC Superstructure</li>
-                  <li>Curtain-Wall Facade</li>
-                  <li>MEP Coordination</li>
-                  <li>Interior Finishing</li>
-                  <li>Site Enabling Works</li>
+                  <li>Pre-Engineered Steel Roof</li>
+                  <li>EOT Overhead Crane System</li>
+                  <li>Fire Suppression System</li>
+                  <li>MEP Works</li>
+                  <li>Security Fenestration</li>
+                  <li>Site Preparation</li>
+                  <li>Heavy-Duty Warehouse Floor</li>
                 </ul>
               </div>
               <div className="side-share">
@@ -504,19 +466,11 @@ export function ProjectDetailContent() {
               className="head-right"
               style={{ color: "rgba(255,255,255,0.7)" }}
             >
-              Four measurable outcomes that define the engineering and delivery
-              discipline behind the project.
+              Outcomes and metrics for this project are available on request.
             </p>
           </div>
           <div className="highlights-grid">
-            {highlights.map((h) => (
-              <div key={h.t} className="hl-card">
-                <div className="hl-num">{h.n}</div>
-                <div className="hl-unit">{h.u}</div>
-                <h4>{h.t}</h4>
-                <p>{h.d}</p>
-              </div>
-            ))}
+            {/* No specific metrics provided in static content */}
           </div>
         </div>
       </section>
@@ -526,41 +480,36 @@ export function ProjectDetailContent() {
         <div className="container">
           <div className="section-head">
             <div>
-              <span className="num">EXECUTION STORY / 07</span>
-              <h2>Challenge, solution, outcome.</h2>
+              <span className="num">CASE STUDY / 07</span>
+              <h2>Case Study</h2>
             </div>
             <p className="head-right">
-              How the project was engineered through constraints that are
-              typical of dense urban commercial sites in Dhaka.
+              Project delivery story: challenge, approach, result.
             </p>
           </div>
           <div className="cso-grid">
             <div className="cso-cell">
-              <span className="cso-step">01 Ã‚Â· Challenge</span>
-              <h3>Narrow urban site with limited laydown area.</h3>
-              <p>
-                Adjacent to a live Gulshan Avenue and two active neighbouring
-                buildings Ã¢â‚¬â€ with less than 4m of boundary clearance and no
-                dedicated site storage.
-              </p>
+              <span className="cso-step">01 · The Challenge</span>
+              <h3>
+                Constructing a government-grade naval warehouse in a coastal
+                zone under a strict 4–5 month deadline with no margin for delay.
+              </h3>
             </div>
             <div className="cso-cell highlight">
-              <span className="cso-step">02 Ã‚Â· Solution</span>
-              <h3>Just-in-time delivery with nightly material staging.</h3>
-              <p>
-                Materials sequenced to arrive hours before use, coordinated with
-                police for overnight delivery windows. Tower cranes timed to
-                minimise road obstruction.
-              </p>
+              <span className="cso-step">02 · The Approach</span>
+              <h3>
+                Concurrent roofing and civil works to compress the schedule,
+                weekly on-site reviews, and strict structural tolerances
+                throughout.
+              </h3>
             </div>
             <div className="cso-cell">
-              <span className="cso-step">03 Ã‚Â· Outcome</span>
-              <h3>Three months ahead of schedule, zero safety incidents.</h3>
-              <p>
-                Structure topped out in 11 months. Full handover complete with
-                commissioning documentation, MEP testing records and a clean
-                defects liability sign-off.
-              </p>
+              <span className="cso-step">03 · The Result</span>
+              <h3>
+                A fully operational, crane-equipped, fire-safe naval warehouse
+                handed over on time to the Bangladesh Navy's southern coastal
+                command.
+              </h3>
             </div>
           </div>
         </div>
@@ -630,17 +579,10 @@ export function ProjectDetailContent() {
             <div>
               <span className="microlabel on-dark">Start a Conversation</span>
               <h2 style={{ marginTop: 20 }}>
-                Need a similar <span className="gold">construction</span>{" "}
-                <span className="accent">solution?</span>
+                Need a warehouse built to government standard?
               </h2>
             </div>
             <div>
-              <p>
-                From piling and structural works through to full turnkey
-                commercial delivery Ã¢â‚¬â€ Zakir Enterprise is ready to scope,
-                price and execute your next project with the same discipline
-                shown on this one.
-              </p>
               <div className="trust-cta-buttons">
                 <Link href="/lets-collaborate" className="btn btn-primary">
                   Discuss Your Project <AD />
