@@ -14,7 +14,7 @@ const PROJECT_IMAGES = {
     "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=1400&q=80&auto=format&fit=crop",
   tower:
     "https://images.unsplash.com/photo-1517089596392-fb9a9033e05b?w=1200&q=80&auto=format&fit=crop",
-  road: "https://images.unsplash.com/photo-1621352452648-c717c4eba35f?w=1200&q=80&auto=format&fit=crop",
+  road: "https://res.cloudinary.com/dk4csiouq/image/upload/q_auto/f_auto/v1776917191/patuakhali_project_section_hero_nqcinq.jpg",
   bridgeAlt:
     "https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?w=1200&q=80&auto=format&fit=crop",
   earth:
@@ -43,47 +43,48 @@ export const PROJECTS = [
   {
     id: "P001",
     cat: "Building Construction",
-    type: "Commercial",
+    type: "Government",
     status: "Completed",
-    location: "Gulshan, Dhaka",
-    title: "14-Storey Commercial Tower",
+    location: "Rampura, Dhaka",
+    title: "49m All Traffic Steel Arch Bridge",
     year: "2025",
     duration: "22 months",
     img: PROJECT_IMAGES.tower,
     badge: "Featured",
     badgeClass: "lime",
     summary:
-      "A landmark 82,000 sqft corporate headquarters with premium curtain-wall facade and structural steel core.",
+      "A major government infrastructure project in Rampura, Dhaka delivering three bridges under one contract: two double-lane all-traffic steel bridges with footpath connecting Banasree with Aftab Nagar, and a dedicated pedestrian bridge over Rampura Khal.",
   },
   {
     id: "P002",
     cat: "Road Works",
     type: "Government",
     status: "Completed",
-    location: "Cumilla District",
-    title: "District Highway Upgrade - 24 KM",
+    location: "Patuakhali, Bangladesh",
+    title: "Patuakhali Naval Warehouse",
     year: "2025",
     duration: "14 months",
     img: PROJECT_IMAGES.road,
     badge: "Government",
     badgeClass: "black",
     summary:
-      "Full carriageway resurfacing with improved drainage, signage and shoulder works for LGED.",
+      "A purpose-built government warehouse delivering secure, large-span storage for the Bangladesh Navy's southern coastal operations ",
   },
   {
     id: "P003",
-    cat: "Bridge Works",
+    cat: "Private Residential",
     type: "Infrastructure",
     status: "Ongoing",
-    location: "Padma Feeder Route",
-    title: "Girder Bridge - 180m Span",
+    location:
+      "Plot 60/C, Road 07, Mouza Lalalsarat, Cantonment Market Area, Cantonment, Dhaka",
+    title: "SKCD Dream — G+7 Residential Building",
     year: "2026",
     duration: "In progress",
     img: PROJECT_IMAGES.bridgeAlt,
     badge: "Ongoing",
     badgeClass: "gold",
     summary:
-      "Three-span prestressed girder bridge with deep pile foundations over seasonal floodplain.",
+      "An 8-storied premium residential building rising in the heart of Dhaka Cantonment — 14 units per floor, two apartment types, and a modern curved facade that's already turning heads on Road",
   },
   {
     id: "P004",
@@ -543,16 +544,14 @@ export function ProjectsPageContent() {
                 <span className="featured-badge ghost">Infrastructure</span>
               </div>
               <div className="f-body">
-                <div className="f-cat">
-                  Bridge Works Ã‚Â· Public Infrastructure
-                </div>
+                <div className="f-cat">Bridge Works, Public Infrastructure</div>
                 <h3>Padma Feeder Girder Bridge</h3>
                 <div className="f-meta">
                   <span>Faridpur</span>
                   <span className="dot" />
                   <span>180m span</span>
                   <span className="dot" />
-                  <span>Ongoing Ã‚Â· 2026</span>
+                  <span>Ongoing 2026</span>
                 </div>
               </div>
               <div className="f-arrow">
@@ -663,7 +662,7 @@ export function ProjectsPageContent() {
             <div className="active-chips">
               {activeFilters.map((f) => (
                 <span key={f.k} className="active-chip">
-                  {f.l} <button onClick={f.clear}>Ã¢Å“â€¢</button>
+                  {f.l} <button onClick={f.clear}>Clear</button>
                 </span>
               ))}
               <button className="clear-all" onClick={resetAll}>
