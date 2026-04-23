@@ -42,7 +42,7 @@ export function Nav({ scrolled }) {
     { label: "Certifications", href: "/certifications" },
     { label: "News",           href: "/news" },
     { label: "Blogs",          href: "/blogs" },
-    { label: "Contact",        href: "/lets-collaborate" },
+    // { label: "Contact",        href: "/lets-collaborate" },
   ];
   const homeFile = "/";
   return (
@@ -73,7 +73,7 @@ export function Nav({ scrolled }) {
         <div className="nav-cta">
           <div className="nav-phone">
             <span>Call us</span>
-            <strong>+880 1700 000 000</strong>
+            <strong>+8801791026074</strong>
           </div>
           <Link href="/lets-collaborate" className="btn btn-primary">Request Quotation <Arrow/></Link>
         </div>

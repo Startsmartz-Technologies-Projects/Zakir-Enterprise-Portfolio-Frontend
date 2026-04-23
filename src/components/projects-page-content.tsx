@@ -889,7 +889,7 @@ export function ProjectsPageContent() {
             </div>
           ) : (
             <div className="listing-grid">
-              {shown.map((p) => (
+              {shown.slice(0,3).map((p) => (
                 <Link
                   key={p.id}
                   href={`/projects/${encodeURIComponent(p.id)}`}
@@ -938,10 +938,10 @@ export function ProjectsPageContent() {
                   style={{ width: `${(visible / filtered.length) * 100}%` }}
                 />
               </div>
-              <div className="meta">
-                Showing {shown.length} of {filtered.length} Ã‚Â·{" "}
+              {/* <div className="meta">
+                Showing {shown.length} of {filtered.length} 
                 {filtered.length - visible} more
-              </div>
+              </div> */}
               <button
                 className="btn btn-dark"
                 onClick={() => setVisible((v) => v + 6)}

@@ -407,8 +407,8 @@
 .team-photo {
   aspect-ratio: 3/4;
   background-size: cover; background-position: center;
-  filter: grayscale(100%) contrast(1.05);
-  transition: filter .4s;
+  /* filter: grayscale(100%) contrast(1.05); */
+  /* transition: filter .4s; */
   position: relative;
 }
 .team-card:hover .team-photo { filter: grayscale(0%); }

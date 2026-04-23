@@ -18,7 +18,7 @@ const ABOUT_IMAGES = {
   c1: "https://images.unsplash.com/photo-1565008576549-57569a49371c?w=900&q=80&auto=format&fit=crop",
   c2: "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=900&q=80&auto=format&fit=crop",
   c3: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80&auto=format&fit=crop",
-  t1: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&auto=format&fit=crop",
+  t1: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776938526/MdZakir_novdeb.jpg",
   t2: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&auto=format&fit=crop",
   t3: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80&auto=format&fit=crop",
   t4: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop",
@@ -623,7 +623,7 @@ export function AboutPageContent() {
             {team.map((p) => (
               <div key={p.name} className="team-card">
                 <div
-                  className="team-photo"
+                  className="team-photo "
                   style={{ backgroundImage: `url(${p.img})` }}
                 />
                 <div className="team-body">
