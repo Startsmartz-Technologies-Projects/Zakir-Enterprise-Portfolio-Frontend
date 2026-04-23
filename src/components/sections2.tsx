@@ -186,14 +186,14 @@ export function Network() {
 
 export function Certifications() {
   const certs = [
-    { seal: "ISO\n9001", t: "Quality Management System", id: "ID Â· ISO-9001:2015", valid: "Valid through 2027" },
-    { seal: "ISO\n14001", t: "Environmental Standards", id: "ID Â· ISO-14001:2015", valid: "Valid through 2027" },
-    { seal: "ISO\n45001", t: "Occupational Health & Safety", id: "ID Â· ISO-45001:2018", valid: "Valid through 2026" },
-    { seal: "LGED", t: "Enlisted Civil Contractor", id: "Class Â· 01 (Nationwide)", valid: "Renewed annually" },
-    { seal: "RHD", t: "Roads & Highways Division", id: "Category Â· A â€š Civil", valid: "Renewed annually" },
-    { seal: "BWDB", t: "Water Development Board", id: "Enlistment ? Grade A", valid: "Renewed annually" },
-    { seal: "PWD", t: "Public Works Department", id: "Category ? 1 - Civil & Elect", valid: "Renewed annually" },
-    { seal: "BAB", t: "Bangladesh Assoc. of Builders", id: "Member ? Active", valid: "Since 2016" },
+    { seal: "ISO\n9001", t: "Quality Management System", id: "ID - ISO-9001:2015", valid: "Valid through 2027" },
+    { seal: "ISO\n14001", t: "Environmental Standards", id: "ID - ISO-14001:2015", valid: "Valid through 2027" },
+    { seal: "ISO\n45001", t: "Occupational Health & Safety", id: "ID - ISO-45001:2018", valid: "Valid through 2026" },
+    { seal: "LGED", t: "Enlisted Civil Contractor", id: "Class - 01 (Nationwide)", valid: "Renewed annually" },
+    { seal: "RHD", t: "Roads & Highways Division", id: "Category - A Civil", valid: "Renewed annually" },
+    { seal: "BWDB", t: "Water Development Board", id: "Enlistment - Grade A", valid: "Renewed annually" },
+    { seal: "PWD", t: "Public Works Department", id: "Category - 1 Civil & Elect", valid: "Renewed annually" },
+    { seal: "BAB", t: "Bangladesh Assoc. of Builders", id: "Member - Active", valid: "Since 2016" },
   ];
   return (
     <section id="certifications" className="section-pad" data-screen-label="09 Certifications">
@@ -227,5 +227,6 @@ export function Certifications() {
     </section>
   );
 }
+
 
 

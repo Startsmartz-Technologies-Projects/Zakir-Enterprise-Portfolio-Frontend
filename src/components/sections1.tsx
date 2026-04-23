@@ -58,7 +58,7 @@ export function Nav({ scrolled }) {
           </span>
           {/* <span className="title-stack">
             <span>ZAKIR ENTERPRISE</span>
-            <span className="sub">Construction ? Infrastructure ? Bangladesh</span>
+            <span className="sub">Construction - Infrastructure - Bangladesh</span>
           </span> */}
         </Link>
         <ul className="nav-menu">
@@ -90,14 +90,14 @@ export function Hero({ variant }) {
     <section className="hero" data-screen-label="01 Hero">
       <div className="hero-bg" style={{ backgroundImage: `url(${bg})` }} />
       <div className="hero-sidecol">
-        <span className="hero-sideticker">NATIONWIDE Â· SINCE 2014</span>
+        <span className="hero-sideticker">NATIONWIDE - SINCE 2014</span>
         
       </div>
       <div className="container hero-inner">
         <span className="microlabel on-dark">Building Bangladesh Since 2014</span>
         <h1>Strength in Every Build , <span className="accent">Precision </span>    in Every Detail</h1>
         <p className="lede">
-          Zakir Enterprise: Bangladeshâ€™s Foundation of Strength & Trust. From site development to large-scale infrastructure, Zakir Enterprise is your trusted partner for high-quality construction that stands the test of time
+          Zakir Enterprise: Bangladesh's Foundation of Strength & Trust. From site development to large-scale infrastructure, Zakir Enterprise is your trusted partner for high-quality construction that stands the test of time
         </p>
         <div className="hero-cta-row">
           <Link href="/lets-collaborate" className="btn btn-primary">Contact Us <Arrow/></Link>
@@ -123,7 +123,7 @@ export function Hero({ variant }) {
         </div>
       </div>
       <div className="hero-bottom">
-        <span>Dhaka Â· Chattogram Â· Sylhet Â· Khulna Â· Rajshahi</span>
+        <span>Dhaka - Chattogram - Sylhet - Khulna - Rajshahi</span>
        
       </div>
     </section>
@@ -132,11 +132,11 @@ export function Hero({ variant }) {
 
 export function Expertise() {
   const cards = [
-    { tag: "01 Â· Public", title: "Government Projects", img: IMG.expGov,
+    { tag: "01 - Public", title: "Government Projects", img: IMG.expGov,
       body: "Reliable execution for public infrastructure and development works under LGED, RHD and municipal tenders." },
-      { tag: "03 Â· Private", title: "Private Projects", img: IMG.expPriv,
+      { tag: "03 - Private", title: "Private Projects", img: IMG.expPriv,
       body: "Premium residential homes, apartments and private buildings with disciplined quality finishing." },
-    { tag: "02 Â· Commercial", title: "Commercial Projects", img: IMG.expCom,
+    { tag: "02 - Commercial", title: "Commercial Projects", img: IMG.expCom,
       body: "Modern solutions for business buildings, industrial facilities and commercial developments across Bangladesh." },
     
   ];

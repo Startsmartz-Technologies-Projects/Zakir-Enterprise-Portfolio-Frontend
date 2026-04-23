@@ -466,7 +466,7 @@ export function AboutPageContent() {
                   <circle cx="12" cy="12" r="1.5" fill="currentColor" />
                 </svg>
               </div>
-              {/* <span className="mvv-label">01 Ãƒâ€šÃ‚Â· Mission</span> */}
+              {/* <span className="mvv-label">01 - Mission</span> */}
               <h3>Mission</h3>
               <p>
                 To deliver high-quality construction and engineering services by
@@ -488,7 +488,7 @@ export function AboutPageContent() {
                   <path d="M5 10 V21 H19 V10" />
                 </svg>
               </div>
-              {/* <span className="mvv-label">02 Ãƒâ€šÃ‚Â· Vision</span> */}
+              {/* <span className="mvv-label">02 - Vision</span> */}
               <h3>Vision</h3>
               <p>
                 To be a leading construction company in Bangladesh, recognized
@@ -509,7 +509,7 @@ export function AboutPageContent() {
                   <polygon points="12,3 21,8 21,16 12,21 3,16 3,8" />
                 </svg>
               </div>
-              {/* <span className="mvv-label">03 Ãƒâ€šÃ‚Â· Values</span> */}
+              {/* <span className="mvv-label">03 - Values</span> */}
               <h3>Core Values</h3>
               <ul className="mvv-values">
                 <li>Quality</li>
@@ -573,14 +573,14 @@ export function AboutPageContent() {
               <h2>Commitment to Excellence</h2>
               <div className="leader-quote">
                 <p>
-                  â€œWe are dedicated to delivering construction solutions that
+                  "We are dedicated to delivering construction solutions that
                   reflect quality, integrity, and long-term value for our
-                  clients and communities.â€
+                  clients and communities."
                 </p>
               </div>
               <p className="body">
                 At Zakir Enterprise, we believe construction is more than
-                building structuresâ€”it is about creating lasting value through
+                building structures - it is about creating lasting value through
                 expertise, innovation, and responsible execution. With years of
                 industry experience, our leadership ensures that every project
                 is delivered with professionalism, precision, and
@@ -766,7 +766,7 @@ export function AboutPageContent() {
         </div>
       </section>
 
-      {/* 12. Final CTA - reuses trust-cta */}
+      {/* 12. Final CTA - reuses trust-cta
       <section className="trust-cta" data-screen-label="12 CTA">
         <div className="container">
           <div className="trust-cta-inner">
@@ -797,7 +797,7 @@ export function AboutPageContent() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

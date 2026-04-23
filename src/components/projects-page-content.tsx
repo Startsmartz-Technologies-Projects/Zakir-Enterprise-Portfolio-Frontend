@@ -77,14 +77,14 @@ const BASE_PROJECTS = [
     status: "Ongoing",
     location:
       "Plot 60/C, Road 07, Mouza Lalalsarat, Cantonment Market Area, Cantonment, Dhaka",
-    title: "SKCD Dream â€” G+7 Residential Building",
+    title: "SKCD Dream - G+7 Residential Building",
     year: "2026",
     duration: "In progress",
     img: PROJECT_IMAGES.bridgeAlt,
     badge: "Ongoing",
     badgeClass: "gold",
     summary:
-      "An 8-storied premium residential building rising in the heart of Dhaka Cantonment â€” 14 units per floor, two apartment types, and a modern curved facade that's already turning heads on Road",
+      "An 8-storied premium residential building rising in the heart of Dhaka Cantonment - 14 units per floor, two apartment types, and a modern curved facade that's already turning heads on Road",
   },
   {
     id: "P004",
@@ -534,7 +534,7 @@ export function ProjectsPageContent() {
         category !== "All" &&
         !p.cat.toLowerCase().includes(category.toLowerCase().split(" ")[0])
       ) {
-        // loose match ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â allow category chip to map
+        // loose match - allow category chip to map
         if (category === "Government Projects" && p.type !== "Government")
           return false;
         if (category === "Private Residential" && p.type !== "Private")
