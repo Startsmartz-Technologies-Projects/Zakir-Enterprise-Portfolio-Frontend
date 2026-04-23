@@ -519,9 +519,7 @@ export function ProjectsPageContent() {
                 <span className="featured-badge ghost">Commercial</span>
               </div>
               <div className="f-body">
-                <div className="f-cat">
-                  Building Construction Ã‚Â· Commercial
-                </div>
+                <div className="f-cat">Construction & Commercial Building</div>
                 <h3>14-Storey Corporate Headquarters, Gulshan</h3>
                 <div className="f-meta">
                   <span>Dhaka</span>
