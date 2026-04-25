@@ -480,11 +480,11 @@ export function ConcernDetailPageContent() {
             <div className="cd-cta-contact">
               <div>
                 <span className="k">Project Desk</span>
-                <span className="v">+880 1700 000 000</span>
+                <span className="v">+8801791026074</span>
               </div>
               <div>
                 <span className="k">Email</span>
-                <span className="v">projects@zakirenterprise.com.bd</span>
+                <span className="v">zakirenterprise307@gmail.com</span>
               </div>
             </div>
           </div>

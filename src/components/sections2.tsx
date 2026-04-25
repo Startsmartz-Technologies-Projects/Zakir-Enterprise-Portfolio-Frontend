@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import { Arrow as A2, ArrowUpRight as AUR, SvcIcon } from "./site-ui";
 import { IMG } from "./sections1";
+import { CERTIFICATIONS } from "../data/certifications";
 
 // About, Projects, Services, Business Network, Certifications
 
@@ -185,16 +186,8 @@ export function Network() {
 }
 
 export function Certifications() {
-  const certs = [
-    { seal: "ISO\n9001", t: "Quality Management System", id: "ID - ISO-9001:2015", valid: "Valid through 2027" },
-    { seal: "ISO\n14001", t: "Environmental Standards", id: "ID - ISO-14001:2015", valid: "Valid through 2027" },
-    { seal: "ISO\n45001", t: "Occupational Health & Safety", id: "ID - ISO-45001:2018", valid: "Valid through 2026" },
-    { seal: "LGED", t: "Enlisted Civil Contractor", id: "Class - 01 (Nationwide)", valid: "Renewed annually" },
-    { seal: "RHD", t: "Roads & Highways Division", id: "Category - A Civil", valid: "Renewed annually" },
-    { seal: "BWDB", t: "Water Development Board", id: "Enlistment - Grade A", valid: "Renewed annually" },
-    { seal: "PWD", t: "Public Works Department", id: "Category - 1 Civil & Elect", valid: "Renewed annually" },
-    { seal: "BAB", t: "Bangladesh Assoc. of Builders", id: "Member - Active", valid: "Since 2016" },
-  ];
+  const certs = CERTIFICATIONS.slice(0, 4);
+
   return (
     <section id="certifications" className="section-pad" data-screen-label="09 Certifications">
       <div className="container">
@@ -208,15 +201,20 @@ export function Certifications() {
             certifications are current, audited and available for tender review on request.
           </p>
         </div>
-        <div className="certs-grid">
-          {certs.map(c => (
-            <Link key={c.t} href="/certifications" className="cert" style={{ textDecoration: "none", color: "inherit" }}>
-              <div className="cert-seal" style={{whiteSpace:"pre-line", textAlign:"center", lineHeight:1.05}}>{c.seal}</div>
+        <div className="certs-grid certs-grid-one-row">
+          {certs.map((c) => (
+            <Link
+              key={c.id}
+              href={`/certifications?preview=${encodeURIComponent(c.id)}#certs`}
+              className="cert"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div className="cert-seal" style={{whiteSpace:"pre-line", textAlign:"center", lineHeight:1.05}}>{c.homeSeal}</div>
               <div>
-                <h4>{c.t}</h4>
-                <div className="cert-id">{c.id}</div>
+                <h4>{c.title}</h4>
+                <div className="cert-id">{c.homeId}</div>
               </div>
-              <div className="cert-valid">{c.valid}</div>
+              <div className="cert-valid">{c.homeValid}</div>
             </Link>
           ))}
         </div>
@@ -227,6 +225,4 @@ export function Certifications() {
     </section>
   );
 }
-
-
 

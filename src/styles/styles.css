@@ -762,6 +762,12 @@ section { position: relative; }
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+.certs-grid-one-row {
+  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+}
 .cert {
   background: #fff;
   padding: 34px 28px;
@@ -1206,6 +1212,7 @@ footer.footer {
 }
 @media (max-width: 1100px) {
   .expertise-grid, .services-grid, .certs-grid, .network-grid { grid-template-columns: repeat(2, 1fr);}
+  .certs-grid.certs-grid-one-row { grid-template-columns: repeat(4, minmax(240px, 1fr)); }
   .projects-grid { grid-template-columns: repeat(2, 1fr);}
   .stats { grid-template-columns: repeat(2, 1fr);}
   .stat:nth-child(2n) { border-right: none;}

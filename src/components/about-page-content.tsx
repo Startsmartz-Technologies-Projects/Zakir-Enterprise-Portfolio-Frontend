@@ -523,34 +523,34 @@ export function AboutPageContent() {
         </div>
       </section>
 
-      {/* 5. Timeline */}
-      <section className="timeline-section" data-screen-label="05 Timeline">
+      {/* 5. Timeline / Process */}
+      <section className="cd-process" data-screen-label="05 Timeline">
         <div className="container">
-          <div className="section-head">
+          <div className="cd-section-head">
             <div>
-              {/* <span className="num">Our Journey of Growth</span> */}
+              <span className="microlabel on-dark">Work Process</span>
               <h2>Our Journey of Growth</h2>
             </div>
-            <p className="head-right">
+            <p>
               Over more than 16 years, Zakir Enterprise has built a strong
               foundation through experience, technical expertise, and successful
-              project execution across Bangladesh..
+              project execution across Bangladesh.
             </p>
           </div>
-          <div className="timeline-rail">
-            <div className="timeline-grid">
-              {timeline.map((t, i) => (
-                <div
-                  key={i}
-                  className={"tl-item " + (t.active ? "active" : "")}
-                >
-                  <div className="tl-dot" />
-                  <div className="tl-year">{t.year}</div>
-                  <div className="tl-title">{t.title}</div>
+          <div className="cd-process-track">
+            {timeline.map((t, i) => (
+              <div key={i} className={"cd-process-step " + (t.active ? "active" : "")}>
+                <div className="cd-process-connector">
+                  <span className="cd-process-dot" />
+                  {i < timeline.length - 1 && <span className="cd-process-line" />}
+                </div>
+                <div className="cd-process-body">
+                  <div className="cd-process-num">{t.year}</div>
+                  <h4>{t.title}</h4>
                   <p>{t.p}</p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
