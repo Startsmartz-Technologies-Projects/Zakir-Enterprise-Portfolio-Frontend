@@ -193,6 +193,14 @@
 .featured-card:hover .f-arrow { background: var(--lime); color: var(--black); border-color: var(--lime);}
 
 /* Sticky filter */
+.filter-sticky-anchor {
+  height: 0;
+}
+
+.filter-sticky-spacer {
+  width: 100%;
+}
+
 .filter-bar {
   position: sticky;
   top: 76px;
@@ -202,10 +210,21 @@
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 18px 0;
-  margin-top: 20px;
+  margin-top: 0;
   transition: box-shadow .25s;
 }
-.filter-bar.pinned { box-shadow: 0 6px 18px rgba(17,17,17,0.06);}.filter-row {
+.filter-bar.pinned { box-shadow: 0 6px 18px rgba(17,17,17,0.06);}
+
+.filter-bar.is-fixed {
+  position: fixed;
+  top: 76px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 55;
+}
+
+.filter-row {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -580,6 +599,7 @@
   .filter-row { flex-wrap: wrap; }
   .filter-search { flex: 1 1 100%; }
   .filter-bar { top: 68px;}
+  .filter-bar.is-fixed { top: 68px; }
   .listing-grid { grid-template-columns: repeat(2, 1fr);}
   .ih-stats { gap: 30px;}
 }

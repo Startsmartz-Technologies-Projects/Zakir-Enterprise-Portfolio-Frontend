@@ -654,6 +654,62 @@
 }
 .trust-logo:hover span { color: var(--black); }
 
+
+/* Final CTA (shared style used by About page) */
+.trust-cta {
+  padding: 100px 0;
+  background: var(--black);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.trust-cta::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.trust-cta::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(183, 226, 42, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.trust-cta-inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.trust-cta h2 {
+  font-size: clamp(40px, 4.5vw, 64px);
+  color: #fff;
+  letter-spacing: -0.02em;
+  max-width: 16ch;
+}
+.trust-cta h2 .accent { color: var(--lime); }
+.trust-cta h2 .gold { color: var(--gold); font-style: italic; font-weight: 500; }
+.trust-cta p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  margin: 22px 0 32px;
+  max-width: 44ch;
+}
+.trust-cta-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
 /* ——— Responsive ——— */
 @media (max-width: 1200px) {
   .ae-grid, .why-grid { grid-template-columns: repeat(3, 1fr); }
@@ -663,6 +719,7 @@
 }
 @media (max-width: 1024px) {
   .about-hero-grid, .story-grid, .leader-msg-grid, .culture-grid { grid-template-columns: 1fr; gap: 50px; }
+  .trust-cta-inner { grid-template-columns: 1fr; gap: 50px; }
   .mvv-grid { grid-template-columns: 1fr; }
   .cd-section-head { grid-template-columns: 1fr; gap: 20px; }
   .ach-grid { grid-template-columns: repeat(2, 1fr); }
@@ -679,3 +736,5 @@
   .trust-logos { grid-template-columns: 1fr 1fr; }
   .about-hero-visual .stamp { left: 0; }
 }
+
+

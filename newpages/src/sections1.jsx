@@ -65,7 +65,7 @@ function Nav({ scrolled }) {
         <div className="nav-cta">
           <div className="nav-phone">
             <span>Call us</span>
-            <strong>+880 1700 000 000</strong>
+            <strong>+8801791026074</strong>
           </div>
           <a href="#" className="btn btn-primary">Let's Collaborate <Arrow/></a>
         </div>

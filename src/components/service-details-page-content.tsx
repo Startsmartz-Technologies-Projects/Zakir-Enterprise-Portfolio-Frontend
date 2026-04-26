@@ -505,11 +505,11 @@ export function ServiceDetailsPageContent() {
               <ul>
                 <li>
                   <span className="k">Direct line</span>
-                  <span className="v">+880 1700 000 000</span>
+                  <span className="v">+8801791026074</span>
                 </li>
                 <li>
                   <span className="k">Email</span>
-                  <span className="v">projects@zakirenterprise.com.bd</span>
+                  <span className="v">zakirenterprise307@gmail.com</span>
                 </li>
                 <li>
                   <span className="k">Head office</span>

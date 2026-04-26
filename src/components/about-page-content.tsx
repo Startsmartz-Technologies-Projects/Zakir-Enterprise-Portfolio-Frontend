@@ -766,38 +766,32 @@ export function AboutPageContent() {
         </div>
       </section>
 
-      {/* 12. Final CTA - reuses trust-cta
+      {/* 12. Final CTA - reuses trust-cta */}
       <section className="trust-cta" data-screen-label="12 CTA">
         <div className="container">
           <div className="trust-cta-inner">
             <div>
-              <span className="microlabel on-dark">START YOUR PROJECT</span>
+              <span className="microlabel on-dark">Start the Conversation</span>
               <h2 style={{ marginTop: 20 }}>
-                Let's Build Your Next Project with Confidence
-                <span className="accent">confidence?</span>
+                Ready to <span className="gold">build</span> with <span className="accent">confidence?</span>
               </h2>
             </div>
             <div>
               <p>
-                From building construction and infrastructure development to
-                specialized engineering solutions, Zakir Enterprise is equipped
-                to plan, manage, and deliver projects with quality, safety, and
-                efficiency. Let us turn your vision into reality with reliable
-                execution and professional expertise.
+                Partner with Zakir Enterprise for reliable construction and engineering excellence from initial consultation through handover and long-term maintenance.
               </p>
               <div className="trust-cta-buttons">
                 <Link href="/lets-collaborate" className="btn btn-primary">
-                  Request a Consultation
-                  <AA />
+                  Request Consultation <AA />
                 </Link>
                 <Link href="/projects" className="btn btn-outline-light">
-                  Explore Our Services <AURA />
+                  View Portfolio <AURA />
                 </Link>
               </div>
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </>
   );
 }

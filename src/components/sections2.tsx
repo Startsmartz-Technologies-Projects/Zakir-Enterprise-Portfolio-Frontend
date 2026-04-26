@@ -1,7 +1,8 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { Arrow as A2, ArrowUpRight as AUR, SvcIcon } from "./site-ui";
 import { IMG } from "./sections1";
 import { CERTIFICATIONS } from "../data/certifications";
+import { PROJECTS as ALL_PROJECTS } from "./projects-page-content";
 
 // About, Projects, Services, Business Network, Certifications
 
@@ -57,14 +58,15 @@ export function About() {
 }
 
 export function Projects() {
-  const projects = [
-    { cat: "Building Construction", title: "14-Storey Commercial Tower, Gulshan", size: "82,000 sqft", img: IMG.proj1, tall: true, num: "P-001" },
-    { cat: "Road Works", title: "District Highway Upgrade, Cumilla", size: "24 KM", img: IMG.proj2, num: "P-002" },
-    { cat: "Bridge & Culvert", title: "Girder Bridge, Padma Feeder Route", size: "180 m span", img: IMG.proj3, num: "P-003" },
-    { cat: "Site Development", title: "Industrial Park Earthworks, Mymensingh", size: "120 acres", img: IMG.proj4, num: "P-004" },
-    { cat: "Structural Concrete", title: "RCC Framework, EPZ Warehouse Facility", size: "45,000 sqft", img: IMG.proj5, num: "P-005" },
-    { cat: "Foundation Work", title: "Deep Pile Foundation, Riverside Development", size: "340 piles", img: IMG.proj6, num: "P-006" },
-  ];
+  const projects = ALL_PROJECTS.slice(0, 6).map((project, index) => ({
+    cat: project.cat,
+    title: project.title,
+    size: project.location,
+    img: project.img,
+    num: project.id.replace(/^P/, "P-"),
+    href: `/projects/${encodeURIComponent(project.id)}`,
+    tall: index === 0,
+  }));
   return (
     <section className="section-pad section-soft" data-screen-label="06 Projects">
       <div className="container">
@@ -79,8 +81,8 @@ export function Projects() {
           </p>
         </div>
         <div className="projects-grid">
-          {projects.map((p, i) => (
-            <Link key={p.title} href="/projects/gulshan-commercial-tower" className={`project ${p.tall ? "tall" : ""}`} style={{ textDecoration: "none", color: "inherit" }}>
+          {projects.map((p) => (
+            <Link key={p.num} href={p.href} className={`project ${p.tall ? "tall" : ""}`} style={{ textDecoration: "none", color: "inherit" }}>
               <div className="p-img" style={{ backgroundImage: `url(${p.img})` }} />
               <span className="p-num">{p.num}</span>
               <span className="p-size">{p.size}</span>
@@ -149,10 +151,10 @@ export function Services() {
 
 export function Network() {
   const concerns = [
-    { logo: "ZE", cat: "Core", name: "Zakir Enterprise", body: "Construction & infrastructure execution  parent concern." },
-    { logo: "ZC", cat: "Materials", name: "Zakir Concrete Works", body: "Ready-mix concrete, precast elements and structural aggregate supply." },
-    { logo: "ZT", cat: "Logistics", name: "Zakir Transport & Equipment", body: "Heavy machinery, hauling and on-site equipment rental across regions." },
-    { logo: "ZD", cat: "Development", name: "Zakir Real Estate", body: "Mixed-use and residential development projects in urban Bangladesh." },
+    { logo: "ZE", cat: "Core", name: "Zakir Enterprise", slug: "zakir-enterprise", body: "Construction & infrastructure execution  parent concern." },
+    { logo: "ZC", cat: "Materials", name: "Zakir Concrete Works", slug: "zakir-concrete-works", body: "Ready-mix concrete, precast elements and structural aggregate supply." },
+    { logo: "ZT", cat: "Logistics", name: "Zakir Transport & Equipment", slug: "zakir-transport-equipment", body: "Heavy machinery, hauling and on-site equipment rental across regions." },
+    { logo: "ZD", cat: "Development", name: "Zakir Real Estate", slug: "zakir-real-estate", body: "Mixed-use and residential development projects in urban Bangladesh." },
   ];
   return (
     <section className="section-pad section-soft" data-screen-label="08 Network">
@@ -176,7 +178,7 @@ export function Network() {
                 <h4>{c.name}</h4>
                 <p>{c.body}</p>
               </div>
-              <Link href="/concern-detail" className="exp-link" style={{fontSize:11}}>Visit Concern <A2 size={12}/></Link>
+              <Link href={`/concern-detail/${c.slug}`} className="exp-link" style={{fontSize:11}}>Visit Concern <A2 size={12}/></Link>
             </div>
           ))}
         </div>
@@ -225,4 +227,6 @@ export function Certifications() {
     </section>
   );
 }
+
+
 

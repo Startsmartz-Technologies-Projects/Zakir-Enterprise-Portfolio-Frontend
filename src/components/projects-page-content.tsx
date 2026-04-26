@@ -16,7 +16,7 @@ const PROJECT_IMAGES = {
     "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939227/bridge_hero_zox21k.jpg",
   road: "https://res.cloudinary.com/dk4csiouq/image/upload/q_auto/f_auto/v1776917191/patuakhali_project_section_hero_nqcinq.jpg",
   bridgeAlt:
-    "https://res.cloudinary.com/dk4csiouq/image/upload/v1776937955/SKCD_Dreams_hero_bqebpm.jpg",
+    "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939518/SKCD_Dreams_hero_wdvl2j.jpg",
   earth:
     "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80&auto=format&fit=crop",
   concrete:
@@ -600,17 +600,30 @@ export function ProjectsPageContent() {
   const shown = filtered.slice(0, visible);
   const hasMore = visible < filtered.length;
 
-  // pinned filter bar shadow
+  // sticky filter bar
   const [pinned, setPinned] = React.useState(false);
+  const [filterBarHeight, setFilterBarHeight] = React.useState(0);
+  const stickyAnchorRef = React.useRef<HTMLDivElement | null>(null);
+  const filterBarRef = React.useRef<HTMLDivElement | null>(null);
+
   React.useEffect(() => {
-    const el = document.querySelector(".filter-bar");
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => setPinned(e.intersectionRatio < 1),
-      { threshold: [1] },
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    const STICKY_TOP = 76;
+
+    const update = () => {
+      const anchorTop = stickyAnchorRef.current?.getBoundingClientRect().top ?? Number.POSITIVE_INFINITY;
+      const nextPinned = anchorTop <= STICKY_TOP;
+      setPinned(nextPinned);
+      setFilterBarHeight(filterBarRef.current?.offsetHeight ?? 0);
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
   return (
@@ -692,7 +705,7 @@ export function ProjectsPageContent() {
             </p>
           </div>
           <div className="featured-grid">
-            <article className="featured-card">
+            <Link href="/projects/P001" className="featured-card" style={{ textDecoration: "none", color: "inherit" }}>
               <div
                 className="f-img"
                 style={{ backgroundImage: `url(${PROJECT_IMAGES.tower})` }}
@@ -715,8 +728,8 @@ export function ProjectsPageContent() {
               <div className="f-arrow">
                 <AURP />
               </div>
-            </article>
-            <article className="featured-card">
+            </Link>
+            <Link href="/projects/P003" className="featured-card" style={{ textDecoration: "none", color: "inherit" }}>
               <div
                 className="f-img"
                 style={{ backgroundImage: `url(${PROJECT_IMAGES.bridgeAlt})` }}
@@ -739,13 +752,15 @@ export function ProjectsPageContent() {
               <div className="f-arrow">
                 <AURP />
               </div>
-            </article>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Sticky filter */}
-      <div className={`filter-bar ${pinned ? "pinned" : ""}`}>
+      <div ref={stickyAnchorRef} className="filter-sticky-anchor" aria-hidden />
+      {pinned && <div className="filter-sticky-spacer" style={{ height: filterBarHeight }} aria-hidden />}
+      <div ref={filterBarRef} className={`filter-bar ${pinned ? "pinned is-fixed" : ""}`}>
         <div className="container">
           <div className="filter-row">
             <div className="filter-search">
