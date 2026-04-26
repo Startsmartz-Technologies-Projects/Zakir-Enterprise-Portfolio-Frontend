@@ -431,7 +431,7 @@
 }
 .team-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(17,17,17,0.08); }
 .team-photo {
-  aspect-ratio: 3/4;
+  aspect-ratio: 1;
   background-size: cover; background-position: center;
   /* filter: grayscale(100%) contrast(1.05); */
   /* transition: filter .4s; */

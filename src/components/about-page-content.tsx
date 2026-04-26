@@ -621,7 +621,7 @@ export function AboutPageContent() {
           </div>
           <div className="team-grid">
             {team.map((p) => (
-              <div key={p.name} className="team-card">
+              <div key={p.name} className="team-card xl:min-w-[300px]">
                 <div
                   className="team-photo "
                   style={{ backgroundImage: `url(${p.img})` }}
