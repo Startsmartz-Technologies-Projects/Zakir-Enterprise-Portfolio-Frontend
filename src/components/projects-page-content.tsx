@@ -118,6 +118,7 @@ export function ProjectsPageContent() {
   const [visible, setVisible] = React.useState(6);
   const [projects, setProjects] = React.useState<ProjectRecord[]>([]);
   const [isLoadingProjects, setIsLoadingProjects] = React.useState(true);
+  const [featuredPage, setFeaturedPage] = React.useState(0);
 
   React.useEffect(() => {
     const controller = new AbortController();
@@ -138,12 +139,35 @@ export function ProjectsPageContent() {
     return () => controller.abort();
   }, []);
 
-  const featuredProjects = React.useMemo(() => {
-    const byId = FEATURED_PROJECT_IDS.map((id) => projects.find((project) => project.id === id)).filter(
-      (project): project is ProjectRecord => Boolean(project),
-    );
-    return byId.length > 0 ? byId.slice(0, 2) : projects.slice(0, 2);
-  }, [projects]);
+  const featuredProjects = React.useMemo(
+    () =>
+      FEATURED_PROJECT_IDS.map((id) =>
+        projects.find((project) => project.id === id),
+      ).filter((project): project is ProjectRecord => Boolean(project)),
+    [projects],
+  );
+
+  const featuredSlides = React.useMemo(() => {
+    const slides: ProjectRecord[][] = [];
+    for (let i = 0; i < featuredProjects.length; i += 2) {
+      slides.push(featuredProjects.slice(i, i + 2));
+    }
+    return slides;
+  }, [featuredProjects]);
+
+  const featuredPageCount = Math.max(1, featuredSlides.length);
+
+  React.useEffect(() => {
+    setFeaturedPage((prev) => Math.min(prev, featuredPageCount - 1));
+  }, [featuredPageCount]);
+
+  const showNextFeatured = () => {
+    setFeaturedPage((prev) => (prev + 1) % featuredPageCount);
+  };
+
+  const showPreviousFeatured = () => {
+    setFeaturedPage((prev) => (prev - 1 + featuredPageCount) % featuredPageCount);
+  };
 
   const heroProject = featuredProjects[0] ?? projects[0] ?? null;
   const yearsExperience = React.useMemo(() => {
@@ -352,37 +376,88 @@ export function ProjectsPageContent() {
               scale, engineering complexity, and impact for our clients.
             </p>
           </div>
-          <div className="featured-grid">
-            {featuredProjects.map((project) => (
-              <Link
-                key={project.id}
-                href={`/projects/${encodeURIComponent(project.id)}`}
-                className="featured-card"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <div className="f-img" style={{ backgroundImage: `url(${project.img})` }} />
-                <div className="f-top">
-                  <span className={`featured-badge ${project.badgeClass ?? ""}`.trim()}>
-                    {project.badge}
-                  </span>
-                  <span className="featured-badge ghost">{project.type}</span>
-                </div>
-                <div className="f-body">
-                  <div className="f-cat">{project.cat}</div>
-                  <h3>{project.title}</h3>
-                  <div className="f-meta">
-                    <span>{project.location}</span>
-                    <span className="dot" />
-                    <span>{project.duration}</span>
-                    <span className="dot" />
-                    <span>{`${project.status} ${project.year}`}</span>
+          <div className="featured-carousel-controls">
+            <button
+              type="button"
+              className="featured-nav-btn"
+              onClick={showPreviousFeatured}
+              disabled={featuredProjects.length <= 2}
+              aria-label="Previous featured projects"
+            >
+              <span className="icon left">
+                <AP size={12} />
+              </span>
+              Prev
+            </button>
+            <span className="featured-page-indicator">
+              {Math.min(featuredPage + 1, featuredPageCount)} / {featuredPageCount}
+            </span>
+            <button
+              type="button"
+              className="featured-nav-btn"
+              onClick={showNextFeatured}
+              disabled={featuredProjects.length <= 2}
+              aria-label="Next featured projects"
+            >
+              Next
+              <span className="icon">
+                <AP size={12} />
+              </span>
+            </button>
+          </div>
+          <div className="featured-carousel-viewport">
+            <div
+              className="featured-carousel-track"
+              style={{ transform: `translate3d(-${featuredPage * 100}%, 0, 0)` }}
+            >
+              {featuredSlides.map((slide, slideIndex) => (
+                <div className="featured-carousel-slide" key={`featured-slide-${slideIndex}`}>
+                  <div className="featured-grid">
+                    {slide.map((project) => (
+                      <Link
+                        key={project.id}
+                        href={`/projects/${encodeURIComponent(project.id)}`}
+                        className="featured-card"
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        <div className="f-img" style={{ backgroundImage: `url(${project.img})` }} />
+                        <div className="f-top">
+                          <span className={`featured-badge ${project.badgeClass ?? ""}`.trim()}>
+                            {project.badge}
+                          </span>
+                          <span className="featured-badge ghost">{project.type}</span>
+                        </div>
+                        <div className="f-body">
+                          <div className="f-cat">{project.cat}</div>
+                          <h3>{project.title}</h3>
+                          <div className="f-meta">
+                            <span>
+                              {project.location.length > 35
+                                ? `${project.location.slice(0, 35)}...`
+                                : project.location}
+                            </span>
+                            <span className="dot" />
+                            <span>{project.duration}</span>
+                            <span className="dot" />
+                            <span>{`${project.status} ${project.year}`}</span>
+                          </div>
+                        </div>
+                        <div className="f-arrow text-white">
+                          <AURP />
+                        </div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
-                <div className="f-arrow">
-                  <AURP />
+              ))}
+              {!isLoadingProjects && featuredSlides.length === 0 && (
+                <div className="featured-carousel-slide">
+                  <div className="featured-grid">
+                    <div className="featured-empty">No featured projects are configured yet.</div>
+                  </div>
                 </div>
-              </Link>
-            ))}
+              )}
+            </div>
           </div>
         </div>
       </section>

@@ -308,7 +308,7 @@ const DEFAULT_PROJECT_SCOPES: ProjectScope[] = [
 const PROJECT_DETAIL_OVERRIDES: Partial<Record<string, Partial<ProjectDetail>>> = {
   P001: {
     gallery: [
-      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939227/bridge_hero_zox21k.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776938163/rampura_bridge_hero_section_tpakxn.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777109606/IMG-20250910-WA0017_utwbd4.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777109603/IMG-20250910-WA0015_jgf8un.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777109602/IMG-20250910-WA0019_nh2uem.jpg",
@@ -494,4 +494,4 @@ export const PROJECT_FILTERS = {
 
 export const PROJECT_SORTS = ["Most Recent", "Oldest First", "A - Z", "By Size"] as const;
 
-export const FEATURED_PROJECT_IDS = ["P001", "P003"] as const;
+export const FEATURED_PROJECT_IDS = ["P001", "P002", "P003", "P005"] as const;
