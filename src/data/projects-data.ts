@@ -7,6 +7,13 @@ export interface ProjectScope {
   d: string;
 }
 
+export interface ProjectHighlight {
+  num: string;
+  unit: string;
+  title: string;
+  body: string;
+}
+
 export interface ProjectDetail {
   client: string;
   projectType: string;
@@ -19,6 +26,7 @@ export interface ProjectDetail {
   galleryHeading: string;
   galleryDescription: string;
   highlightsDescription: string;
+  highlights: ProjectHighlight[];
   caseStudyChallenge: string;
   caseStudyApproach: string;
   caseStudyResult: string;
@@ -448,6 +456,36 @@ export const PROJECTS: ProjectRecord[] = BASE_PROJECTS.map((project) => {
       "Selected site photography capturing the foundation, superstructure, and facade phases of the project documented by our site engineering team.",
     highlightsDescription:
       "Outcomes and metrics for this project are available on request.",
+    highlights: [
+      {
+        num: project.year,
+        unit: "Year",
+        title: "Delivery Window",
+        body: `Primary delivery timeline aligned to ${project.year}.`,
+      },
+      {
+        num:
+          Number.parseInt(project.duration, 10) > 0
+            ? String(Number.parseInt(project.duration, 10))
+            : "Live",
+        unit:
+          Number.parseInt(project.duration, 10) > 0 ? "Months" : "Progress",
+        title: "Execution Duration",
+        body: `Project duration: ${project.duration}.`,
+      },
+      {
+        num: project.status === "Completed" ? "100" : "In",
+        unit: project.status === "Completed" ? "%" : "Motion",
+        title: "Completion Status",
+        body: `Current project status: ${project.status}.`,
+      },
+      {
+        num: project.type.slice(0, 3).toUpperCase(),
+        unit: "Type",
+        title: "Client Segment",
+        body: `${project.type} project delivered for ${project.location}.`,
+      },
+    ],
     caseStudyChallenge: `Delivering a ${project.cat.toLowerCase()} in ${project.location} under a fixed timeline and strict quality requirements.`,
     caseStudyApproach:
       "Phased planning, disciplined site supervision, and coordinated engineering execution across all work packages.",
@@ -464,6 +502,7 @@ export const PROJECTS: ProjectRecord[] = BASE_PROJECTS.map((project) => {
       scopes: override.scopes ?? defaultDetail.scopes,
       servicesDelivered: override.servicesDelivered ?? defaultDetail.servicesDelivered,
       gallery: override.gallery ?? defaultDetail.gallery,
+      highlights: override.highlights ?? defaultDetail.highlights,
     },
   };
 });

@@ -182,9 +182,7 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
 
   const scopes = Array.isArray(detail.scopes) ? detail.scopes : [];
 
-  const highlights = [
-    // No specific metrics provided in static content, so leave empty or add placeholders if needed
-  ];
+  const highlights = Array.isArray(detail.highlights) ? detail.highlights : [];
 
   const related = projects.filter((p) => p.id !== project.id).slice(0, 3);
 
@@ -433,7 +431,17 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
             </p>
           </div>
           <div className="highlights-grid">
-            {/* No specific metrics provided in static content */}
+            {highlights.map((item, index) => (
+              <article
+                key={`${item.title}-${index}`}
+                className="hl-card"
+              >
+                <div className="hl-num">{item.num}</div>
+                <div className="hl-unit">{item.unit}</div>
+                <h4>{item.title}</h4>
+                <p>{item.body}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
