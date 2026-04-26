@@ -49,9 +49,9 @@ export function Nav({ scrolled }) {
     <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
         <Link href={homeFile} className="nav-logo">
-          <span className=" w-40 h-15">
+          <span className=" h-10 bg-contain">
             <img
-              src='https://res.cloudinary.com/dk4csiouq/image/upload/q_auto/f_auto/v1776763490/Heading_15_kr7lug.png'
+              src='https://res.cloudinary.com/dk4csiouq/image/upload/v1777186435/Heading_25_tzjq9d.png'
               alt="Zakir Enterprise Logo"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />

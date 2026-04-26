@@ -2,9 +2,10 @@
 import * as React from "react";
 import Link from "next/link";
 import { Arrow as AD, ArrowUpRight as AURD, SvcIcon as SIcoD } from "./site-ui";
-import { PROJECTS } from "./projects-page-content";
+import type { ProjectRecord } from "@/src/data/projects-data";
+import { fetchProjects } from "@/src/lib/projects-api";
 
-// Project Detail page - reuses PROJECTS data and proj-card style from projects_page.jsx
+// Project Detail page
 
 function ShareIcon({ k }) {
   const common = {
@@ -104,23 +105,60 @@ function Lightbox({ images, idx, onClose, setIdx }) {
 
 export function ProjectDetailContent({ projectId }: { projectId?: string }) {
   const [lightbox, setLightbox] = React.useState(null);
+  const [projects, setProjects] = React.useState<ProjectRecord[]>([]);
+  const [isLoadingProjects, setIsLoadingProjects] = React.useState(true);
+
+  React.useEffect(() => {
+    const controller = new AbortController();
+
+    const loadProjects = async () => {
+      try {
+        const data = await fetchProjects(controller.signal);
+        setProjects(data);
+      } catch {
+        setProjects([]);
+      } finally {
+        setIsLoadingProjects(false);
+      }
+    };
+
+    loadProjects();
+
+    return () => controller.abort();
+  }, []);
+
   const normalizedProjectId = (projectId || "").trim().toLowerCase();
   const project = React.useMemo(
     () =>
-      PROJECTS.find((p) => p.id.toLowerCase() === normalizedProjectId) ??
-      PROJECTS[0],
-    [normalizedProjectId],
+      projects.find((p) => p.id.toLowerCase() === normalizedProjectId) ?? projects[0] ?? null,
+    [projects, normalizedProjectId],
   );
-  const detail = project.detail ?? {};
-  const fallbackGallery = React.useMemo(
-    () => [
-      project.img,
-      ...PROJECTS.filter((p) => p.id !== project.id)
-        .slice(0, 6)
-        .map((p) => p.img),
-    ],
-    [project.id, project.img],
-  );
+
+  if (isLoadingProjects && !project) {
+    return (
+      <section className="meta-strip">
+        <div className="container">
+          <p>Loading project...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (!project) {
+    return (
+      <section className="meta-strip">
+        <div className="container">
+          <p>Project not found.</p>
+        </div>
+      </section>
+    );
+  }
+
+  const detail = project.detail;
+  const fallbackGallery = [
+    project.img,
+    ...projects.filter((p) => p.id !== project.id).slice(0, 6).map((p) => p.img),
+  ];
   const gallerySource =
     Array.isArray(detail.gallery) && detail.gallery.length > 0
       ? detail.gallery
@@ -148,8 +186,7 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
     // No specific metrics provided in static content, so leave empty or add placeholders if needed
   ];
 
-  // related - pick 3 from PROJECTS (from projects_page.jsx) excluding current
-  const related = PROJECTS.filter((p) => p.id !== project.id).slice(0, 3);
+  const related = projects.filter((p) => p.id !== project.id).slice(0, 3);
 
   return (
     <>

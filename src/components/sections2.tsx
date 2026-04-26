@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Arrow as A2, ArrowUpRight as AUR, SvcIcon } from "./site-ui";
 import { IMG } from "./sections1";
 import { CERTIFICATIONS } from "../data/certifications";
-import { PROJECTS as ALL_PROJECTS } from "./projects-page-content";
+import { PROJECTS as ALL_PROJECTS } from "@/src/data/projects-data";
 
 // About, Projects, Services, Business Network, Certifications
 
