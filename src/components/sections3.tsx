@@ -3,6 +3,7 @@ import * as React from "react";
 import Link from "next/link";
 import { Arrow as A3, ArrowUpRight as AUR3, ChevronLeft, ChevronRight, Social } from "./site-ui";
 import { IMG } from "./sections1";
+import { BRAND_LOGOS } from "@/src/data/brand-assets";
 
 // Trusted-by, Testimonials, Insights, News, CTA, Footer
 
@@ -177,10 +178,12 @@ export function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link href="/" className="nav-logo">
-              <span className="mark">Z</span>
-              <span className="title-stack">
-                <span>ZAKIR ENTERPRISE</span>
-                <span className="sub">Construction · Infrastructure · Bangladesh</span>
+              <span style={{ display: "inline-block", height: 48 }}>
+                <img
+                  src={BRAND_LOGOS.updatedPrimary}
+                  alt="Zakir Enterprise Logo"
+                  style={{ height: "100%", width: "auto", objectFit: "contain" }}
+                />
               </span>
             </Link>
             <p>A Bangladesh-based construction firm delivering government, commercial and private works with disciplined execution and dependable project management.</p>

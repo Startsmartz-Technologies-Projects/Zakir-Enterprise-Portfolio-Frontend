@@ -306,6 +306,17 @@ const DEFAULT_PROJECT_SCOPES: ProjectScope[] = [
 ];
 
 const PROJECT_DETAIL_OVERRIDES: Partial<Record<string, Partial<ProjectDetail>>> = {
+  P001: {
+    gallery: [
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939227/bridge_hero_zox21k.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777109606/IMG-20250910-WA0017_utwbd4.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777109603/IMG-20250910-WA0015_jgf8un.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777109602/IMG-20250910-WA0019_nh2uem.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777109601/IMG-20250910-WA0014_co37c0.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777109601/IMG-20250910-WA0018_btrc1q.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777109596/IMG-20250910-WA0016_o2472b.jpg",
+    ],
+  },
   P002: {
     client: "Bangladesh Government Navy",
     projectType: "Industrial Warehouse Construction",
@@ -390,6 +401,27 @@ const PROJECT_DETAIL_OVERRIDES: Partial<Record<string, Partial<ProjectDetail>>> 
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918072/patuakhali_project_Gallary_4_geulax.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918070/patuakhali_project_Gallary_5_btqqrf.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918069/patuakhali_project_Gallary_6_xhtnwd.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918069/patuakhali_project_Gallary_7_gpzegp.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918066/patuakhali_project_Gallary_8_hvrt85.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918064/patuakhali_project_Gallary_9_ozhlbz.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918063/patuakhali_project_Gallary_10_my0yme.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918067/patuakhali_project_Gallary_11_odi3el.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918067/patuakhali_project_Gallary_12_dxfub4.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776918065/patuakhali_project_Gallary_13_z1mjzg.jpg",
+    ],
+  },
+  P003: {
+    gallery: [
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939518/SKCD_Dreams_hero_wdvl2j.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110616/21_jdwj2x.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110551/22_peji5t.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110532/3D_PLAN_Even_level_xwisji.png",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110508/3D_PLAN_Ground_level_j9exjo.png",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110498/19_capapw.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110439/14_y32w3w.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110438/18_cd4kfv.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110418/16_ktdd0w.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110412/23_w63dch.jpg",
     ],
   },
 };

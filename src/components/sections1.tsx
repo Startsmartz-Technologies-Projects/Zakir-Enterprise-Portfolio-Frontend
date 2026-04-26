@@ -5,9 +5,10 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Arrow, ArrowUpRight } from "./site-ui";
+import { BRAND_LOGOS } from "@/src/data/brand-assets";
 
 const LOGO_IMAGE_URL =
-  "https://res.cloudinary.com/dk4csiouq/image/upload/q_auto/f_auto/v1776763490/Heading_15_kr7lug.png";
+  BRAND_LOGOS.updatedPrimary;
 
 // Photography URLs - real commercial construction imagery from Unsplash
 export const IMG = {
@@ -51,7 +52,7 @@ export function Nav({ scrolled }) {
         <Link href={homeFile} className="nav-logo">
           <span className=" h-10 bg-contain">
             <img
-              src='https://res.cloudinary.com/dk4csiouq/image/upload/v1777186435/Heading_25_tzjq9d.png'
+              src={LOGO_IMAGE_URL}
               alt="Zakir Enterprise Logo"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />

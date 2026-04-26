@@ -3,6 +3,7 @@ import { Arrow as A2, ArrowUpRight as AUR, SvcIcon } from "./site-ui";
 import { IMG } from "./sections1";
 import { CERTIFICATIONS } from "../data/certifications";
 import { PROJECTS as ALL_PROJECTS } from "@/src/data/projects-data";
+import { SERVICE_IMAGE_BY_TITLE } from "@/src/data/brand-assets";
 
 // About, Projects, Services, Business Network, Certifications
 
@@ -137,7 +138,17 @@ export function Services() {
             <Link key={i} href={`/service-details?service=${encodeURIComponent(s.t)}`} className="svc" style={{ textDecoration: "none" }}>
               <div className="svc-top">
                 <span className="svc-num">{String(i+1).padStart(2,'0')}</span>
-                <div className="svc-icon"><SvcIcon kind={s.icon}/></div>
+                <div className="svc-icon">
+                  {SERVICE_IMAGE_BY_TITLE[s.t] ? (
+                    <img
+                      src={SERVICE_IMAGE_BY_TITLE[s.t]}
+                      alt={s.t}
+                      className="svc-icon-img"
+                    />
+                  ) : (
+                    <SvcIcon kind={s.icon} />
+                  )}
+                </div>
               </div>
               <h4>{s.t}</h4>
               <div className="svc-arrow"><A2 size={12}/></div>
