@@ -200,7 +200,7 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
             <span className="sep">/</span>
             <Link href="/projects">Projects</Link>
             <span className="sep">/</span>
-            <Link href="/projects">{project.cat}</Link>
+            <Link href={`/projects/${encodeURIComponent(project.id)}`}>{project.cat}</Link>
             <span className="sep">/</span>
             <span>{project.title}</span>
           </div>

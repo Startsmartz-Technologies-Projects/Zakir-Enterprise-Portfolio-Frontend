@@ -85,7 +85,7 @@ export function Projects() {
           {projects.map((p) => (
             <Link key={p.num} href={p.href} className={`project ${p.tall ? "tall" : ""}`} style={{ textDecoration: "none", color: "inherit" }}>
               <div className="p-img" style={{ backgroundImage: `url(${p.img})` }} />
-              <span className="p-num">{p.num}</span>
+              
               <span className="p-size">{p.size}</span>
               <div className="p-body">
                 <div>

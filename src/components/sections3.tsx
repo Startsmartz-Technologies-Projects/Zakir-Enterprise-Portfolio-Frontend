@@ -3,7 +3,6 @@ import * as React from "react";
 import Link from "next/link";
 import { Arrow as A3, ArrowUpRight as AUR3, ChevronLeft, ChevronRight, Social } from "./site-ui";
 import { IMG } from "./sections1";
-import { BRAND_LOGOS } from "@/src/data/brand-assets";
 
 // Trusted-by, Testimonials, Insights, News, CTA, Footer
 
@@ -172,6 +171,9 @@ export function CTABanner() {
 }
 
 export function Footer() {
+  const footerLogo =
+    "https://res.cloudinary.com/dk4csiouq/image/upload/v1777196761/Heading_34_lflrda.png";
+
   return (
     <footer id="contact" className="footer" data-screen-label="15 Footer">
       <div className="container">
@@ -180,7 +182,7 @@ export function Footer() {
             <Link href="/" className="nav-logo">
               <span style={{ display: "inline-block", height: 48 }}>
                 <img
-                  src={BRAND_LOGOS.updatedPrimary}
+                  src={footerLogo}
                   alt="Zakir Enterprise Logo"
                   style={{ height: "100%", width: "auto", objectFit: "contain" }}
                 />
