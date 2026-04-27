@@ -1,0 +1,148 @@
+﻿export type CertificationItem = {
+  id: string;
+  title: string;
+  authority: string;
+  number: string;
+  category: string;
+  issued: string;
+  expiry: string;
+  status: string;
+  thumbClass: "tone-paper" | "tone-slate" | "tone-cream";
+  accent: "seal-round" | "seal-hex";
+  description: string;
+  homeSeal: string;
+  homeId: string;
+  homeValid: string;
+};
+
+export const CERTIFICATIONS: CertificationItem[] = [
+  {
+    id: "iso-9001",
+    title: "ISO 9001:2015 - Quality Management System",
+    authority: "International Organization for Standardization",
+    number: "ISO / QMS / 2024 / 77208",
+    category: "Compliance",
+    issued: "Jun 2024",
+    expiry: "Jun 2027",
+    status: "Renewed Recently",
+    thumbClass: "tone-slate",
+    accent: "seal-hex",
+    description: "Quality management certification covering project planning, procurement, site execution, and delivery controls.",
+    homeSeal: "ISO\n9001",
+    homeId: "ID - ISO-9001:2015",
+    homeValid: "Valid through 2027",
+  },
+  {
+    id: "iso-14001",
+    title: "ISO 14001:2015 - Environmental Management",
+    authority: "International Organization for Standardization",
+    number: "ISO / EMS / 2024 / 51127",
+    category: "Compliance",
+    issued: "Jul 2024",
+    expiry: "Jul 2027",
+    status: "Active",
+    thumbClass: "tone-paper",
+    accent: "seal-round",
+    description: "Environmental management certification supporting sustainable construction and site-level compliance practices.",
+    homeSeal: "ISO\n14001",
+    homeId: "ID - ISO-14001:2015",
+    homeValid: "Valid through 2027",
+  },
+  {
+    id: "iso-45001",
+    title: "ISO 45001:2018 - Occupational Health & Safety",
+    authority: "International Organization for Standardization",
+    number: "ISO / OHS / 2024 / 64013",
+    category: "Safety",
+    issued: "Aug 2024",
+    expiry: "Aug 2026",
+    status: "Expiring Soon",
+    thumbClass: "tone-cream",
+    accent: "seal-round",
+    description: "Occupational health and safety certification for workforce protection and safe site operations.",
+    homeSeal: "ISO\n45001",
+    homeId: "ID - ISO-45001:2018",
+    homeValid: "Valid through 2026",
+  },
+  {
+    id: "lged-class-01",
+    title: "LGED Enlisted Civil Contractor",
+    authority: "Local Government Engineering Department",
+    number: "LGED / ENLIST / CLASS-01 / 2025",
+    category: "Engineering",
+    issued: "Jan 2025",
+    expiry: "Dec 2026",
+    status: "Active",
+    thumbClass: "tone-slate",
+    accent: "seal-hex",
+    description: "Class-01 enlistment enabling nationwide participation in approved LGED civil infrastructure tenders.",
+    homeSeal: "LGED",
+    homeId: "Class - 01 (Nationwide)",
+    homeValid: "Renewed annually",
+  },
+  {
+    id: "rhd-category-a",
+    title: "RHD Pre-Qualification - Category A Civil",
+    authority: "Roads & Highways Department",
+    number: "RHD / PQ / CAT-A / 2025 / 09340",
+    category: "Engineering",
+    issued: "Nov 2024",
+    expiry: "Nov 2026",
+    status: "Active",
+    thumbClass: "tone-paper",
+    accent: "seal-round",
+    description: "Category-A pre-qualification for roads, corridor upgrades, and bridge-related civil packages.",
+    homeSeal: "RHD",
+    homeId: "Category - A Civil",
+    homeValid: "Renewed annually",
+  },
+  {
+    id: "bwdb-grade-a",
+    title: "BWDB Enlistment - Grade A",
+    authority: "Bangladesh Water Development Board",
+    number: "BWDB / ENLIST / GRADE-A / 2025",
+    category: "Trade & Licensing",
+    issued: "Mar 2025",
+    expiry: "Mar 2026",
+    status: "Active",
+    thumbClass: "tone-cream",
+    accent: "seal-hex",
+    description: "Grade-A enlistment for water management, embankment, and flood-protection construction packages.",
+    homeSeal: "BWDB",
+    homeId: "Enlistment - Grade A",
+    homeValid: "Renewed annually",
+  },
+  {
+    id: "pwd-cat-1",
+    title: "PWD Category-1 Civil & Electrical",
+    authority: "Public Works Department",
+    number: "PWD / CAT-1 / C&E / 2025",
+    category: "Trade & Licensing",
+    issued: "Apr 2025",
+    expiry: "Apr 2026",
+    status: "Active",
+    thumbClass: "tone-slate",
+    accent: "seal-round",
+    description: "Category-1 registration for civil and electrical public works contracts.",
+    homeSeal: "PWD",
+    homeId: "Category - 1 Civil & Elect",
+    homeValid: "Renewed annually",
+  },
+  {
+    id: "bab-member",
+    title: "Bangladesh Association of Builders Membership",
+    authority: "Bangladesh Association of Builders",
+    number: "BAB / MEMBER / ACTIVE / 2016",
+    category: "Industry Body",
+    issued: "May 2016",
+    expiry: "Active Membership",
+    status: "Active",
+    thumbClass: "tone-paper",
+    accent: "seal-hex",
+    description: "Active industry body membership supporting professional standards and sector coordination.",
+    homeSeal: "BAB",
+    homeId: "Member - Active",
+    homeValid: "Since 2016",
+  },
+];
+
