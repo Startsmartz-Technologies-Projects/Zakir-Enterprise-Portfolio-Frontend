@@ -44,6 +44,8 @@ const PROJECT_IMAGES = {
     "https://images.unsplash.com/photo-1573108724029-4c46571d6490?w=1200&q=80&auto=format&fit=crop",
   blueprint:
     "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1400&q=80&auto=format&fit=crop",
+  mosque:
+    "https://res.cloudinary.com/dk4csiouq/image/upload/v1777271735/Central_Mosque-cumilla_cant.-hero_section_mx6wco.jpg",
 };
 
 export const PROJECTS = [
@@ -93,20 +95,20 @@ export const PROJECTS = [
     summary:
       "An 8-storied premium residential building rising in the heart of Dhaka Cantonment — 14 units per floor, two apartment types, and a modern curved facade that's already turning heads on Road",
   },
-  // {
-  //   id: "P004",
-  //   cat: "Site Development",
-  //   type: "Industrial",
-  //   status: "Completed",
-  //   location: "Mymensingh",
-  //   title: "Industrial Park Earthworks",
-  //   year: "2024",
-  //   duration: "9 months",
-  //   img: PROJECT_IMAGES.earth,
-  //   badge: "Completed",
-  //   summary:
-  //     "120-acre site preparation including grading, compaction and primary drainage for an export zone.",
-  // },
+  {
+    id: "P004",
+    cat: "Site Development",
+    type: "Religious / Institutional Construction",
+    status: "Completed",
+    location: "Comilla University, Kotbari, Comilla",
+    title: "Central Mosque",
+    year: "2024",
+    duration: "Ongoing",
+    img: PROJECT_IMAGES.mosque,
+    badge: "Completed",
+    summary:
+      "A three-storied central mosque built for 24 ECB Brigade at Comilla University accommodating 10,000 worshippers across two dedicated prayer floors, with ground floor parking and a total built area of 9,380 sq.m",
+  },
   // {
   //   id: "P005",
   //   cat: "Structural Concrete",
