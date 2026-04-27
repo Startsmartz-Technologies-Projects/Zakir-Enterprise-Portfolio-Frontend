@@ -227,7 +227,7 @@ export function AboutPageContent() {
       unit: "+",
       lbl: "Successfully Completed Diverse Construction Projects",
     },
-    { n: "16", unit: "+", lbl: "Years Experience" },
+    { n: "15", unit: "+", lbl: "Years Experience" },
     { n: "250", unit: "+", lbl: "Workforce" },
     { n: "64", unit: "", lbl: "Engagements" },
     { n: "98", unit: "%", lbl: "Client Confidence" },
@@ -374,13 +374,13 @@ export function AboutPageContent() {
               <div className="story-stats">
                 <div className="item">
                   <div className="n">
-                    16<span className="plus">+</span>
+                    15<span className="plus">+</span>
                   </div>
                   <div className="lbl">Years of Experience</div>
                 </div>
                 <div className="item">
                   <div className="n">
-                    100<span className="plus">+</span>
+                    50<span className="plus">+</span>
                   </div>
                   <div className="lbl">Projects</div>
                 </div>

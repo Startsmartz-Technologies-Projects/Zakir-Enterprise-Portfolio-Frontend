@@ -185,6 +185,7 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
   const highlights = Array.isArray(detail.highlights) ? detail.highlights : [];
 
   const related = projects.filter((p) => p.id !== project.id).slice(0, 3);
+  const showCaseStudy = project.id !== "P001";
 
   return (
     <>
@@ -198,7 +199,7 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
           <div className="crumb">
             <Link href="/">Home</Link>
             <span className="sep">/</span>
-            <Link href="/projects">Projects</Link>
+            <Link href="/projects">Projectsss</Link>
             <span className="sep">/</span>
             <Link href="/projects">{project.cat}</Link>
             <span className="sep">/</span>
@@ -447,33 +448,35 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
       </section>
 
       {/* Challenge / Solution / Outcome */}
-      <section className="cso-section" data-screen-label="07 CSO">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="num">CASE STUDY / 07</span>
-              <h2>Case Study</h2>
+      {showCaseStudy && (
+        <section className="cso-section" data-screen-label="07 CSO">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <span className="num">CASE STUDY / 07</span>
+                <h2>Case Study</h2>
+              </div>
+              <p className="head-right">
+                Project delivery story: challenge, approach, result.
+              </p>
             </div>
-            <p className="head-right">
-              Project delivery story: challenge, approach, result.
-            </p>
+            <div className="cso-grid">
+              <div className="cso-cell">
+                <span className="cso-step">01 - The Challenge</span>
+                <h3>{detail.caseStudyChallenge}</h3>
+              </div>
+              <div className="cso-cell highlight">
+                <span className="cso-step">02 - The Approach</span>
+                <h3>{detail.caseStudyApproach}</h3>
+              </div>
+              <div className="cso-cell">
+                <span className="cso-step">03 - The Result</span>
+                <h3>{detail.caseStudyResult}</h3>
+              </div>
+            </div>
           </div>
-          <div className="cso-grid">
-            <div className="cso-cell">
-              <span className="cso-step">01 - The Challenge</span>
-              <h3>{detail.caseStudyChallenge}</h3>
-            </div>
-            <div className="cso-cell highlight">
-              <span className="cso-step">02 - The Approach</span>
-              <h3>{detail.caseStudyApproach}</h3>
-            </div>
-            <div className="cso-cell">
-              <span className="cso-step">03 - The Result</span>
-              <h3>{detail.caseStudyResult}</h3>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Related projects - reuses proj-card style from projects page */}
       <section className="related-section" data-screen-label="08 Related">

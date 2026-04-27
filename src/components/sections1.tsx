@@ -5,10 +5,9 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Arrow, ArrowUpRight } from "./site-ui";
-import { BRAND_LOGOS } from "@/src/data/brand-assets";
 
 const LOGO_IMAGE_URL =
-  BRAND_LOGOS.updatedPrimary;
+  "https://res.cloudinary.com/dk4csiouq/image/upload/v1777193277/Heading_28_nm42pj.png";
 
 // Photography URLs - real commercial construction imagery from Unsplash
 export const IMG = {
@@ -175,8 +174,8 @@ export function Expertise() {
 
 export function Stats() {
   const stats = [
-    { n: 10, plus: "+", label: "Years Experience", sub: "Established operations since 2014" },
-    { n: 100, plus: "+", label: "Projects Delivered", sub: "Across public & private sectors" },
+    { n: 15, plus: "+", label: "Years Experience", sub: "Established operations since 2014" },
+    { n: 50, plus: "+", label: "Projects Delivered", sub: "Across public & private sectors" },
     { n: 64, plus: "", label: "District Reach", sub: "Nationwide execution capability" },
     { n: 250, plus: "+", label: "Skilled Team", sub: "Engineers, managers, technicians" },
   ];

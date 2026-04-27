@@ -61,7 +61,7 @@ const PROJECT_IMAGES = {
     "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939227/bridge_hero_zox21k.jpg",
   road: "https://res.cloudinary.com/dk4csiouq/image/upload/q_auto/f_auto/v1776917191/patuakhali_project_section_hero_nqcinq.jpg",
   bridgeAlt:
-    "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939518/SKCD_Dreams_hero_wdvl2j.jpg",
+    " https://res.cloudinary.com/dk4csiouq/image/upload/v1777265050/SKCD_updated_hero_1_ndt0oa.jpg",
   earth:
     "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80&auto=format&fit=crop",
   concrete:
@@ -108,7 +108,7 @@ const BASE_PROJECTS = [
     location: "Patuakhali, Bangladesh",
     title: "Patuakhali Naval Warehouse",
     year: "2025",
-    duration: "14 months",
+    duration: "4-5 months",
     img: PROJECT_IMAGES.road,
     badge: "Government",
     badgeClass: "black",
@@ -267,54 +267,56 @@ const DEFAULT_PROJECT_SCOPES: ProjectScope[] = [
     icon: "concrete",
     n: "01",
     t: "RCC Superstructure",
-    d: "Concrete frame built to project load-bearing requirements and long-term durability standards.",
+    d: "RCC Substructure — Foundations, piers and abutments built to government spec across all three bridge sites simultaneously.",
   },
   {
     icon: "building",
     n: "02",
     t: "Pre-Engineered Steel Roof",
-    d: "Wide-span steel truss system configured for structural performance and weather resistance.",
+    d: "Steel Arch Fabrication & Erection — Structural steel arch superstructure for the 49m main bridge, fabricated and erected by specialist steel teams.",
   },
   {
     icon: "equip",
     n: "03",
     t: "Equipment Integration",
-    d: "Structural provisions for operational equipment and internal logistics flow.",
+    d: "38m All-Traffic Bridge — Full construction of the second all-traffic bridge with integrated footpath, running parallel to the main arch structure.",
   },
   {
     icon: "fire",
     n: "04",
     t: "Fire Safety System",
-    d: "Fire safety infrastructure completed, tested, and commissioned before handover.",
+    d: "42m Pedestrian Bridge — Dedicated pedestrian-only crossing over Rampura Khal, independently designed and constructed for safe foot traffic.",
   },
   {
     icon: "mep",
     n: "05",
     t: "MEP Works",
-    d: "Electrical, plumbing, and ventilation systems coordinated for continuous operation.",
+    d: "Deck & Footpath Works — Bridge deck construction across all traffic bridges including integrated footpaths up to 15.40m deck width on the main span.",
   },
   {
     icon: "window",
     n: "06",
     t: "Security and Enclosure",
-    d: "External enclosure and security-compliant openings delivered as per client requirements.",
+    d: "Steel Fabrication & Connection Works — On-site steel assembly, bolting and welding of all arch members, deck supports and connection joints across all three structures.",
   },
   {
     icon: "earth",
     n: "07",
     t: "Site Preparation",
-    d: "Groundworks, levelling, and drainage enabling completed ahead of superstructure work.",
+    d: "Site Safety Management — Strict zero-compromise safety programme managing 100–120 workers across three concurrent bridge construction sites in urban Dhaka..",
   },
   {
     icon: "floor",
     n: "08",
     t: "Industrial Floor System",
-    d: "Heavy-duty floor construction delivered for operational loads and long service life.",
+    d: "Site Preparation & Temporary Works — Site setup, khal access management, temporary falsework and shoring installed before permanent works began on all three bridges.",
   },
 ];
 
 const PROJECT_DETAIL_OVERRIDES: Partial<Record<string, Partial<ProjectDetail>>> = {
   P001: {
+    overviewBody:
+      "The first is a 49m all-traffic steel arch bridge with a 15.40m deck accommodating double lanes plus footpath. Running alongside it is a 38m all-traffic bridge also carrying a footpath for pedestrians. And separately, a 42m pedestrian-only bridge crosses Rampura Khal - giving foot traffic a safe, dedicated route away from vehicles entirely. All three sit on RCC substructures, all three started December 6, 2025, and all three are being delivered by the same team of 100 to 120 workers under a single government contract worth 50 Crore BDT.",
     gallery: [
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939227/bridge_hero_zox21k.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777109606/IMG-20250910-WA0017_utwbd4.jpg",
@@ -420,7 +422,7 @@ const PROJECT_DETAIL_OVERRIDES: Partial<Record<string, Partial<ProjectDetail>>> 
   },
   P003: {
     gallery: [
-      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939518/SKCD_Dreams_hero_wdvl2j.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777265050/SKCD_updated_hero_1_ndt0oa.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110616/21_jdwj2x.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110551/22_peji5t.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110532/3D_PLAN_Even_level_xwisji.png",
