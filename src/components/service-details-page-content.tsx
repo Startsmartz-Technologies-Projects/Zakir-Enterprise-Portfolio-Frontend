@@ -106,11 +106,66 @@ const SERVICE_DATA = {
       q: "What is your typical delivery timeline for a building project?",
       a: "Most mid-rise buildings fall between 12 and 36 months depending on scope and conditions.",
     },
+    {
+      q: "What is your typical delivery timeline for a building project?",
+      a: "Most mid-rise buildings fall between 12 and 36 months depending on scope and conditions.",
+    },
+    {
+      q: "What is your typical delivery timeline for a building project?",
+      a: "Most mid-rise buildings fall between 12 and 36 months depending on scope and conditions.",
+    },
+    {
+      q: "What is your typical delivery timeline for a building project?",
+      a: "Most mid-rise buildings fall between 12 and 36 months depending on scope and conditions.",
+    },
   ],
 };
 
 function SvcSubnav() {
   const [active, setActive] = React.useState("overview");
+  const [isFixed, setIsFixed] = React.useState(false);
+  const [navHeight, setNavHeight] = React.useState(92);
+  const [subnavTop, setSubnavTop] = React.useState(0);
+  const [subnavHeight, setSubnavHeight] = React.useState(0);
+  const slotRef = React.useRef<HTMLDivElement | null>(null);
+  const barRef = React.useRef<HTMLDivElement | null>(null);
+
+  React.useEffect(() => {
+    const measure = () => {
+      const nav = document.querySelector(".nav") as HTMLElement | null;
+      const nextNavHeight = nav ? Math.round(nav.getBoundingClientRect().height) : 92;
+      const nextTop = slotRef.current ? Math.round(slotRef.current.getBoundingClientRect().top + window.scrollY) : 0;
+      const nextHeight = barRef.current?.offsetHeight ?? 0;
+
+      setNavHeight(nextNavHeight);
+      setSubnavTop(nextTop);
+      setSubnavHeight(nextHeight);
+    };
+
+    measure();
+    window.addEventListener("resize", measure);
+    window.addEventListener("load", measure);
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("load", measure);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    const onScroll = () => {
+      const shouldFix = window.scrollY + navHeight >= subnavTop;
+      setIsFixed((prev) => (prev === shouldFix ? prev : shouldFix));
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [navHeight, subnavTop]);
+
   const items = [
     { id: "overview", label: "Overview" },
     { id: "scope", label: "Scope of Work" },
@@ -121,18 +176,24 @@ function SvcSubnav() {
     { id: "faq", label: "FAQ" },
   ];
   return (
-    <div className="svc-subnav">
-      <div className="container">
-        <div className="svc-subnav-inner">
-          {items.map((it) => (
-            <a key={it.id} href={`#${it.id}`} onClick={() => setActive(it.id)} className={active === it.id ? "active" : ""}>
-              {it.label}
-            </a>
-          ))}
-          <div className="subnav-cta">
-            <a href="#svc-cta" className="btn btn-dark">
-              Request Quotation <Arrow />
-            </a>
+    <div ref={slotRef} style={isFixed ? { minHeight: subnavHeight } : undefined}>
+      <div
+        ref={barRef}
+        className="svc-subnav"
+        style={isFixed ? { position: "fixed", top: navHeight, left: 0, right: 0, zIndex: 40 } : undefined}
+      >
+        <div className="container">
+          <div className="svc-subnav-inner flex justify-center">
+            {items.map((it) => (
+              <a key={it.id} href={`#${it.id}`} onClick={() => setActive(it.id)} className={active === it.id ? "active" : ""}>
+                {it.label}
+              </a>
+            ))}
+            {/* <div className="subnav-cta">
+              <a href="#svc-cta" className="btn btn-dark">
+                Let's Collaborate <Arrow />
+              </a>
+            </div> */}
           </div>
         </div>
       </div>
@@ -151,6 +212,17 @@ function SvcFAQ({ items }: { items: Array<{ q: string; a: string }> }) {
               FREQUENTLY ASKED / 07
             </span>
             <h2>Questions from clients and stakeholders.</h2>
+            <p>
+              Clear, practical answers to the most common questions we receive from government bodies, developers, and private clients before engaging on a
+              build.
+            </p>
+            <div className="faq-cta-card">
+              <h5>Still have a question?</h5>
+              <p>Speak with our project team for a detailed discussion on scope, timeline and pricing.</p>
+              <Link href="#svc-cta" className="btn btn-primary">
+                Contact Project Team <Arrow />
+              </Link>
+            </div>
           </div>
           <div className="faq-list">
             {items.map((it, i) => (
@@ -243,6 +315,9 @@ export function ServiceDetailsPageContent() {
               <span className="num">SCOPE OF WORK / 02</span>
               <h2>End-to-end capability under one delivery team.</h2>
             </div>
+            <p className="head-right">
+              From earliest planning through final handover, we execute every stage in-house with dedicated engineers, equipment and site supervision.
+            </p>
           </div>
           <div className="scope-grid">
             {d.scope.map((it, i) => (
@@ -272,6 +347,9 @@ export function ServiceDetailsPageContent() {
               </span>
               <h2>A disciplined five-stage delivery workflow.</h2>
             </div>
+            <p className="head-right" style={{ color: "rgba(255,255,255,0.65)" }}>
+              Every project we undertake moves through the same structured stages - transparent, measurable and built to keep timelines and quality on track.
+            </p>
           </div>
           <div className="process-wrap">
             <div className="process-track">
@@ -295,6 +373,9 @@ export function ServiceDetailsPageContent() {
               <span className="num">WHY ZAKIR ENTERPRISE / 04</span>
               <h2>Chosen for delivery discipline, not just lowest bid.</h2>
             </div>
+            <p className="head-right">
+              Public clients, developers and industrial partners return to us because we execute on commitment - safely, on time, and to specification.
+            </p>
           </div>
           <div className="benefits-grid">
             {d.benefits.map((it, i) => (
@@ -320,6 +401,9 @@ export function ServiceDetailsPageContent() {
               <span className="num">EXECUTION STRENGTH / 05</span>
               <h2>Equipment, methods & site discipline.</h2>
             </div>
+            <p className="head-right">
+              We operate our own fleet of construction equipment, backed by trained operators, safety systems and quality assurance methods used on every site.
+            </p>
           </div>
           <div className="machinery-wrap">
             <div className="machinery-image" style={{ backgroundImage: `url(${SIMG.machine})` }}>
@@ -331,6 +415,9 @@ export function ServiceDetailsPageContent() {
             </div>
             <div className="machinery-copy">
               <h3>Operational capability built for scale and compliance.</h3>
+              <p>
+                Our execution strength is grounded in owned equipment, proven construction methods and structured site management - supported by independent quality checks and full compliance documentation for every delivery.
+              </p>
               <div className="machine-list">
                 {d.machine.map((it, i) => (
                   <div key={i} className="machine-item">
@@ -354,6 +441,9 @@ export function ServiceDetailsPageContent() {
               <span className="num">RELATED PROJECTS / 06</span>
               <h2>Recent work in this service line.</h2>
             </div>
+            <p className="head-right">
+              A selection of recent and ongoing executions under Building Construction - delivered across government, commercial and private sectors.
+            </p>
           </div>
           <div className="related-grid">
             {d.related.map((it, i) => (
@@ -394,13 +484,19 @@ export function ServiceDetailsPageContent() {
               <h2>
                 Planning a <span className="accent">{d.title}</span> project? <span className="italic">Let's deliver it right.</span>
               </h2>
-              <p>Share your site details, scope and timeline. Our project team will respond with a structured quotation and delivery roadmap.</p>
+              <p>Share your site details, scope and timeline. Our project team will respond with a structured quotation and delivery roadmap within two working days.</p>
               <div className="svc-cta-btns">
                 <Link href="/lets-collaborate" className="btn btn-primary">
                   Let's Collaborate <Arrow />
                 </Link>
                 <Link href="/lets-collaborate" className="btn btn-outline-light">
-                  Request Quotation <ArrowUpRight />
+                  Let's Collaborate <ArrowUpRight />
+                </Link>
+              </div>
+              <div className="svc-cta-tertiary">
+                <span>Looking at our work first?</span>
+                <Link href="/projects">
+                  View All Projects <Arrow size={12} />
                 </Link>
               </div>
             </div>
@@ -409,11 +505,19 @@ export function ServiceDetailsPageContent() {
               <ul>
                 <li>
                   <span className="k">Direct line</span>
-                  <span className="v">+880 1700 000 000</span>
+                  <span className="v">+8801791026074</span>
                 </li>
                 <li>
                   <span className="k">Email</span>
-                  <span className="v">projects@zakirenterprise.com.bd</span>
+                  <span className="v">zakirenterprise307@gmail.com</span>
+                </li>
+                <li>
+                  <span className="k">Head office</span>
+                  <span className="v">Banani, Dhaka 1213</span>
+                </li>
+                <li>
+                  <span className="k">Response time</span>
+                  <span className="v">Within 2 working days</span>
                 </li>
               </ul>
             </aside>
@@ -432,4 +536,3 @@ export function ServiceDetailsPageContent() {
     </>
   );
 }
-

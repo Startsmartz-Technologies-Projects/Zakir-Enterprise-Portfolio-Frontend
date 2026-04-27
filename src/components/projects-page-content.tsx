@@ -1,7 +1,14 @@
-"use client";
+﻿"use client";
 import * as React from "react";
 import Link from "next/link";
 import { Arrow as AP, ArrowUpRight as AURP } from "./site-ui";
+import {
+  FEATURED_PROJECT_IDS,
+  PROJECT_FILTERS,
+  PROJECT_SORTS,
+  type ProjectRecord,
+} from "@/src/data/projects-data";
+import { fetchProjects } from "@/src/lib/projects-api";
 
 // Projects listing page
 
@@ -340,9 +347,81 @@ export function ProjectsPageContent() {
   const [location, setLocation] = React.useState("All Locations");
   const [sort, setSort] = React.useState("Most Recent");
   const [visible, setVisible] = React.useState(6);
+  const [projects, setProjects] = React.useState<ProjectRecord[]>([]);
+  const [isLoadingProjects, setIsLoadingProjects] = React.useState(true);
+  const [featuredPage, setFeaturedPage] = React.useState(0);
+
+  React.useEffect(() => {
+    const controller = new AbortController();
+
+    const loadProjects = async () => {
+      try {
+        const data = await fetchProjects(controller.signal);
+        setProjects(data);
+      } catch {
+        setProjects([]);
+      } finally {
+        setIsLoadingProjects(false);
+      }
+    };
+
+    loadProjects();
+
+    return () => controller.abort();
+  }, []);
+
+  const featuredProjects = React.useMemo(
+    () =>
+      FEATURED_PROJECT_IDS.map((id) =>
+        projects.find((project) => project.id === id),
+      ).filter((project): project is ProjectRecord => Boolean(project)),
+    [projects],
+  );
+
+  const featuredSlides = React.useMemo(() => {
+    const slides: ProjectRecord[][] = [];
+    for (let i = 0; i < featuredProjects.length; i += 2) {
+      slides.push(featuredProjects.slice(i, i + 2));
+    }
+    return slides;
+  }, [featuredProjects]);
+
+  const featuredPageCount = Math.max(1, featuredSlides.length);
+
+  React.useEffect(() => {
+    setFeaturedPage((prev) => Math.min(prev, featuredPageCount - 1));
+  }, [featuredPageCount]);
+
+  const showNextFeatured = () => {
+    setFeaturedPage((prev) => (prev + 1) % featuredPageCount);
+  };
+
+  const showPreviousFeatured = () => {
+    setFeaturedPage((prev) => (prev - 1 + featuredPageCount) % featuredPageCount);
+  };
+
+  const heroProject = featuredProjects[0] ?? projects[0] ?? null;
+  const yearsExperience = React.useMemo(() => {
+    const years = projects
+      .map((project) => Number.parseInt(project.year, 10))
+      .filter((year) => Number.isFinite(year));
+    if (years.length === 0) return 0;
+    const earliestYear = Math.min(...years);
+    return Math.max(1, new Date().getFullYear() - earliestYear + 1);
+  }, [projects]);
+
+  const districtsReached = React.useMemo(() => {
+    const values = new Set(
+      projects.map((project) => {
+        const parts = project.location.split(",");
+        return (parts[parts.length - 1] ?? project.location).trim().toLowerCase();
+      }),
+    );
+    return values.size;
+  }, [projects]);
 
   const filtered = React.useMemo(() => {
-    let list = PROJECTS.filter((p) => {
+    let list = projects.filter((p) => {
       if (
         search &&
         !(p.title + p.cat + p.location)
@@ -354,7 +433,7 @@ export function ProjectsPageContent() {
         category !== "All" &&
         !p.cat.toLowerCase().includes(category.toLowerCase().split(" ")[0])
       ) {
-        // loose match Ã¢â‚¬â€ allow category chip to map
+        // loose match - allow category chip to map
         if (category === "Government Projects" && p.type !== "Government")
           return false;
         if (category === "Private Residential" && p.type !== "Private")
@@ -371,20 +450,20 @@ export function ProjectsPageContent() {
         return false;
       return true;
     });
-    if (sort === "A Ã¢â€ â€™ Z")
+    if (sort === "A - Z")
       list = [...list].sort((a, b) => a.title.localeCompare(b.title));
     if (sort === "Oldest First")
       list = [...list].sort((a, b) =>
         (a.year || "").localeCompare(b.year || ""),
       );
     return list;
-  }, [search, category, status, type, location, sort]);
+  }, [projects, search, category, status, type, location, sort]);
 
   const activeFilters = [];
   if (search)
     activeFilters.push({
       k: "search",
-      l: `Ã¢â‚¬Å“${search}Ã¢â‚¬Â`,
+      l: `"${search}"`,
       clear: () => setSearch(""),
     });
   if (category !== "All")
@@ -420,17 +499,30 @@ export function ProjectsPageContent() {
   const shown = filtered.slice(0, visible);
   const hasMore = visible < filtered.length;
 
-  // pinned filter bar shadow
+  // sticky filter bar
   const [pinned, setPinned] = React.useState(false);
+  const [filterBarHeight, setFilterBarHeight] = React.useState(0);
+  const stickyAnchorRef = React.useRef<HTMLDivElement | null>(null);
+  const filterBarRef = React.useRef<HTMLDivElement | null>(null);
+
   React.useEffect(() => {
-    const el = document.querySelector(".filter-bar");
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => setPinned(e.intersectionRatio < 1),
-      { threshold: [1] },
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    const STICKY_TOP = 76;
+
+    const update = () => {
+      const anchorTop = stickyAnchorRef.current?.getBoundingClientRect().top ?? Number.POSITIVE_INFINITY;
+      const nextPinned = anchorTop <= STICKY_TOP;
+      setPinned(nextPinned);
+      setFilterBarHeight(filterBarRef.current?.offsetHeight ?? 0);
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
   return (
@@ -463,29 +555,33 @@ export function ProjectsPageContent() {
               <div className="ih-stats">
                 <div className="ih-stat">
                   <div className="num">
-                    100<span className="plus">+</span>
+                    {projects.length}
+                    <span className="plus">+</span>
                   </div>
                   <div className="lbl">Total Projects</div>
                 </div>
                 <div className="ih-stat">
                   <div className="num">
-                    12<span className="plus">+</span>
+                    {yearsExperience}
+                    <span className="plus">+</span>
                   </div>
                   <div className="lbl">Years Experience</div>
                 </div>
                 <div className="ih-stat">
-                  <div className="num">64</div>
+                  <div className="num">{districtsReached}</div>
                   <div className="lbl">Districts Reached</div>
                 </div>
               </div>
             </div>
             <div
               className="inner-hero-visual"
-              style={{ backgroundImage: `url(${PROJECT_IMAGES.skyline})` }}
+              style={{ backgroundImage: `url(${heroProject?.img ?? ""})` }}
             >
               <div className="tag-cluster">
-                <span>Patuakhali Naval Warehouse</span>
-                <span>January 2026, Dhaka, Bangladesh</span>
+                <span>{heroProject?.title ?? "Loading project..."}</span>
+                <span>
+                  {heroProject ? `${heroProject.year}, ${heroProject.location}` : "Please wait"}
+                </span>
               </div>
               <div className="corner-meta">
                 <div className="big">
@@ -511,68 +607,103 @@ export function ProjectsPageContent() {
               scale, engineering complexity, and impact for our clients.
             </p>
           </div>
-          <div className="featured-grid">
-            <article className="featured-card">
-              <div
-                className="f-img"
-                style={{ backgroundImage: `url(${PROJECT_IMAGES.tower})` }}
-              />
-              <div className="f-top">
-                <span className="featured-badge">Featured</span>
-                <span className="featured-badge ghost">Commercial</span>
-              </div>
-              <div className="f-body">
-                <div className="f-cat">Construction & Commercial Building</div>
-                <h3>14-Storey Corporate Headquarters, Gulshan</h3>
-                <div className="f-meta">
-                  <span>Dhaka</span>
-                  <span className="dot" />
-                  <span>82,000 sqft</span>
-                  <span className="dot" />
-                  <span>Completed 2025</span>
+          <div className="featured-carousel-controls">
+            <button
+              type="button"
+              className="featured-nav-btn"
+              onClick={showPreviousFeatured}
+              disabled={featuredProjects.length <= 2}
+              aria-label="Previous featured projects"
+            >
+              <span className="icon left">
+                <AP size={12} />
+              </span>
+              Prev
+            </button>
+            <span className="featured-page-indicator">
+              {Math.min(featuredPage + 1, featuredPageCount)} / {featuredPageCount}
+            </span>
+            <button
+              type="button"
+              className="featured-nav-btn"
+              onClick={showNextFeatured}
+              disabled={featuredProjects.length <= 2}
+              aria-label="Next featured projects"
+            >
+              Next
+              <span className="icon">
+                <AP size={12} />
+              </span>
+            </button>
+          </div>
+          <div className="featured-carousel-viewport">
+            <div
+              className="featured-carousel-track"
+              style={{ transform: `translate3d(-${featuredPage * 100}%, 0, 0)` }}
+            >
+              {featuredSlides.map((slide, slideIndex) => (
+                <div className="featured-carousel-slide" key={`featured-slide-${slideIndex}`}>
+                  <div className="featured-grid">
+                    {slide.map((project) => (
+                      <Link
+                        key={project.id}
+                        href={`/projects/${encodeURIComponent(project.id)}`}
+                        className="featured-card"
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        <div className="f-img" style={{ backgroundImage: `url(${project.img})` }} />
+                        <div className="f-top">
+                          <span className={`featured-badge ${project.badgeClass ?? ""}`.trim()}>
+                            {project.badge}
+                          </span>
+                          <span className="featured-badge ghost">{project.type}</span>
+                        </div>
+                        <div className="f-body">
+                          <div className="f-cat">{project.cat}</div>
+                          <h3>{project.title}</h3>
+                          <div className="f-meta">
+                            <span>
+                              {project.location.length > 35
+                                ? `${project.location.slice(0, 35)}...`
+                                : project.location}
+                            </span>
+                            <span className="dot" />
+                            <span>{project.duration}</span>
+                            <span className="dot" />
+                            <span>{`${project.status} ${project.year}`}</span>
+                          </div>
+                        </div>
+                        <div className="f-arrow text-white">
+                          <AURP />
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div className="f-arrow">
-                <AURP />
-              </div>
-            </article>
-            <article className="featured-card">
-              <div
-                className="f-img"
-                style={{ backgroundImage: `url(${PROJECT_IMAGES.bridgeAlt})` }}
-              />
-              <div className="f-top">
-                <span className="featured-badge gold">Landmark</span>
-                <span className="featured-badge ghost">Infrastructure</span>
-              </div>
-              <div className="f-body">
-                <div className="f-cat">Bridge Works, Public Infrastructure</div>
-                <h3>Padma Feeder Girder Bridge</h3>
-                <div className="f-meta">
-                  <span>Faridpur</span>
-                  <span className="dot" />
-                  <span>180m span</span>
-                  <span className="dot" />
-                  <span>Ongoing 2026</span>
+              ))}
+              {!isLoadingProjects && featuredSlides.length === 0 && (
+                <div className="featured-carousel-slide">
+                  <div className="featured-grid">
+                    <div className="featured-empty">No featured projects are configured yet.</div>
+                  </div>
                 </div>
-              </div>
-              <div className="f-arrow">
-                <AURP />
-              </div>
-            </article>
+              )}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Sticky filter */}
-      <div className={`filter-bar ${pinned ? "pinned" : ""}`}>
+      <div ref={stickyAnchorRef} className="filter-sticky-anchor" aria-hidden />
+      {pinned && <div className="filter-sticky-spacer" style={{ height: filterBarHeight }} aria-hidden />}
+      <div ref={filterBarRef} className={`filter-bar ${pinned ? "pinned is-fixed" : ""}`}>
         <div className="container">
           <div className="filter-row">
             <div className="filter-search">
               <SearchIcon />
               <input
                 type="text"
-                placeholder="Search projects, locations, categoriesÃ¢â‚¬Â¦"
+                placeholder="Search projects, locations, categories..."
                 value={search}
                 onChange={(e) => {
                   setSearch(e.target.value);
@@ -635,8 +766,8 @@ export function ProjectsPageContent() {
             {CATEGORIES.map((c) => {
               const count =
                 c === "All"
-                  ? PROJECTS.length
-                  : PROJECTS.filter((p) => {
+                  ? projects.length
+                  : projects.filter((p) => {
                       if (c === "Government Projects")
                         return p.type === "Government";
                       if (c === "Private Residential")
@@ -681,7 +812,12 @@ export function ProjectsPageContent() {
         data-screen-label="03 Projects Grid"
       >
         <div className="container">
-          {shown.length === 0 ? (
+          {isLoadingProjects ? (
+            <div className="empty-state">
+              <h3>Loading projects...</h3>
+              <p>Fetching the latest project list from the API.</p>
+            </div>
+          ) : shown.length === 0 ? (
             <div className="empty-state">
               <div className="es-mark">
                 <svg
@@ -709,10 +845,10 @@ export function ProjectsPageContent() {
             </div>
           ) : (
             <div className="listing-grid">
-              {shown.map((p) => (
+              {shown.slice(0,3).map((p) => (
                 <Link
                   key={p.id}
-                  href="/projects/gulshan-commercial-tower"
+                  href={`/projects/${encodeURIComponent(p.id)}`}
                   className="proj-card"
                   style={{ textDecoration: "none" }}
                 >
@@ -758,10 +894,10 @@ export function ProjectsPageContent() {
                   style={{ width: `${(visible / filtered.length) * 100}%` }}
                 />
               </div>
-              <div className="meta">
-                Showing {shown.length} of {filtered.length} Ã‚Â·{" "}
+              {/* <div className="meta">
+                Showing {shown.length} of {filtered.length} 
                 {filtered.length - visible} more
-              </div>
+              </div> */}
               <button
                 className="btn btn-dark"
                 onClick={() => setVisible((v) => v + 6)}
@@ -787,12 +923,12 @@ export function ProjectsPageContent() {
             <div>
               <p>
                 Partner with Zakir Enterprise for dependable execution,
-                disciplined engineering and timely delivery Ã¢â‚¬â€ on
+                disciplined engineering and timely delivery - on
                 government tenders, commercial builds and private developments.
               </p>
               <div className="trust-cta-buttons">
                 <Link href="/lets-collaborate" className="btn btn-primary">
-                  Request Quotation <AP />
+                  Let's Collaborate <AP />
                 </Link>
                 <Link
                   href="/lets-collaborate"
@@ -808,3 +944,4 @@ export function ProjectsPageContent() {
     </>
   );
 }
+

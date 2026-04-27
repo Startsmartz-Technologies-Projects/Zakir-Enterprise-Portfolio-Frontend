@@ -1,15 +1,16 @@
-// Navbar, Hero, Expertise, Stats
+﻿// Navbar, Hero, Expertise, Stats
 "use client";
 
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Arrow, ArrowUpRight } from "./site-ui";
+import { BRAND_LOGOS } from "@/src/data/brand-assets";
 
 const LOGO_IMAGE_URL =
-  "https://res.cloudinary.com/dk4csiouq/image/upload/q_auto/f_auto/v1776763490/Heading_15_kr7lug.png";
+  BRAND_LOGOS.updatedPrimary;
 
-// Photography URLs ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â real commercial construction imagery from Unsplash
+// Photography URLs - real commercial construction imagery from Unsplash
 export const IMG = {
   heroSkyline:   "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=2000&q=80&auto=format&fit=crop",
   heroCrane:     "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=2000&q=80&auto=format&fit=crop",
@@ -42,23 +43,23 @@ export function Nav({ scrolled }) {
     { label: "Certifications", href: "/certifications" },
     { label: "News",           href: "/news" },
     { label: "Blogs",          href: "/blogs" },
-    { label: "Contact",        href: "/lets-collaborate" },
+    // { label: "Contact",        href: "/lets-collaborate" },
   ];
   const homeFile = "/";
   return (
     <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
         <Link href={homeFile} className="nav-logo">
-          <span className=" w-40 h-15">
+          <span className=" h-10 bg-contain">
             <img
-              src='https://res.cloudinary.com/dk4csiouq/image/upload/q_auto/f_auto/v1776763490/Heading_15_kr7lug.png'
+              src={LOGO_IMAGE_URL}
               alt="Zakir Enterprise Logo"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           </span>
           {/* <span className="title-stack">
             <span>ZAKIR ENTERPRISE</span>
-            <span className="sub">Construction Ãƒâ€šÃ‚Â· Infrastructure Ãƒâ€šÃ‚Â· Bangladesh</span>
+            <span className="sub">Construction - Infrastructure - Bangladesh</span>
           </span> */}
         </Link>
         <ul className="nav-menu">
@@ -73,9 +74,9 @@ export function Nav({ scrolled }) {
         <div className="nav-cta">
           <div className="nav-phone">
             <span>Call us</span>
-            <strong>+880 1700 000 000</strong>
+            <strong>+8801791026074</strong>
           </div>
-          <Link href="/lets-collaborate" className="btn btn-primary">Request Quotation <Arrow/></Link>
+          <Link href="/lets-collaborate" className="btn btn-primary">Let's Collaborate <Arrow/></Link>
         </div>
       </div>
     </nav>
@@ -90,20 +91,18 @@ export function Hero({ variant }) {
     <section className="hero" data-screen-label="01 Hero">
       <div className="hero-bg" style={{ backgroundImage: `url(${bg})` }} />
       <div className="hero-sidecol">
-        <span className="hero-sideticker">NATIONWIDE Ãƒâ€šÃ‚Â· SINCE 2014</span>
-        <div className="hero-sidenum"><span className="n">01</span> / 15</div>
+        <span className="hero-sideticker">NATIONWIDE - SINCE 2014</span>
+        
       </div>
       <div className="container hero-inner">
         <span className="microlabel on-dark">Building Bangladesh Since 2014</span>
-        <h1>Building Bangladesh With <span className="accent">Strength,</span> Precision &amp; Trust</h1>
+        <h1>Strength in Every Build , <span className="accent">Precision </span>    in Every Detail</h1>
         <p className="lede">
-          Zakir Enterprise delivers reliable construction solutions across Bangladesh ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â
-          from buildings, roads, bridges and foundations to large-scale site development
-          and specialized engineering works.
+          Zakir Enterprise: Bangladesh's Foundation of Strength & Trust. From site development to large-scale infrastructure, Zakir Enterprise is your trusted partner for high-quality construction that stands the test of time
         </p>
         <div className="hero-cta-row">
-          <Link href="/lets-collaborate" className="btn btn-primary">Request Quotation <Arrow/></Link>
-          <Link href="/projects" className="btn btn-outline-light">View Projects <ArrowUpRight/></Link>
+          <Link href="/lets-collaborate" className="btn btn-primary">Contact Us <Arrow/></Link>
+          <Link href="/projects" className="btn btn-outline-light">Explore Project <ArrowUpRight/></Link>
         </div>
         <div className="hero-badges">
           <div>
@@ -125,8 +124,8 @@ export function Hero({ variant }) {
         </div>
       </div>
       <div className="hero-bottom">
-        <span>Dhaka Ãƒâ€šÃ‚Â· Chattogram Ãƒâ€šÃ‚Â· Sylhet Ãƒâ€šÃ‚Â· Khulna Ãƒâ€šÃ‚Â· Rajshahi</span>
-        <span className="hero-scroll"><span className="line"/> Scroll to explore</span>
+        <span>Dhaka - Chattogram - Sylhet - Khulna - Rajshahi</span>
+       
       </div>
     </section>
   );
@@ -134,12 +133,13 @@ export function Hero({ variant }) {
 
 export function Expertise() {
   const cards = [
-    { tag: "01 Ãƒâ€šÃ‚Â· Public", title: "Government Projects", img: IMG.expGov,
+    { tag: "01 - Public", title: "Government Projects", img: IMG.expGov,
       body: "Reliable execution for public infrastructure and development works under LGED, RHD and municipal tenders." },
-    { tag: "02 Ãƒâ€šÃ‚Â· Commercial", title: "Commercial Projects", img: IMG.expCom,
-      body: "Modern solutions for business buildings, industrial facilities and commercial developments across Bangladesh." },
-    { tag: "03 Ãƒâ€šÃ‚Â· Private", title: "Private Projects", img: IMG.expPriv,
+      { tag: "03 - Private", title: "Private Projects", img: IMG.expPriv,
       body: "Premium residential homes, apartments and private buildings with disciplined quality finishing." },
+    { tag: "02 - Commercial", title: "Commercial Projects", img: IMG.expCom,
+      body: "Modern solutions for business buildings, industrial facilities and commercial developments across Bangladesh." },
+    
   ];
   return (
     <section className="section-pad" data-screen-label="03 Expertise">
@@ -189,7 +189,7 @@ export function Stats() {
             <h2>Delivering confidence through results.</h2>
           </div>
           <p className="head-right">
-            Over a decade of disciplined project delivery ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â measured in completed
+            Over a decade of disciplined project delivery  measured in completed
             contracts, satisfied clients and repeat government tenders.
           </p>
         </div>
@@ -230,3 +230,4 @@ function Counter({ to, dur = 1400 }) {
   }, [to]);
   return <span ref={ref}>{val}</span>;
 }
+
