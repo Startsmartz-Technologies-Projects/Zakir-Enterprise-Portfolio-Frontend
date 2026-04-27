@@ -12,11 +12,242 @@ import { fetchProjects } from "@/src/lib/projects-api";
 
 // Projects listing page
 
-const CATEGORIES = [...PROJECT_FILTERS.categories];
-const STATUSES = [...PROJECT_FILTERS.statuses];
-const TYPES = [...PROJECT_FILTERS.types];
-const LOCATIONS = [...PROJECT_FILTERS.locations];
-const SORTS = [...PROJECT_SORTS];
+const PROJECT_IMAGES = {
+  skyline:
+    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400&q=80&auto=format&fit=crop",
+  crane:
+    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1400&q=80&auto=format&fit=crop",
+  bridge:
+    "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=1400&q=80&auto=format&fit=crop",
+  tower:
+    "https://images.unsplash.com/photo-1517089596392-fb9a9033e05b?w=1200&q=80&auto=format&fit=crop",
+  road: "https://res.cloudinary.com/dk4csiouq/image/upload/q_auto/f_auto/v1776917191/patuakhali_project_section_hero_nqcinq.jpg",
+  bridgeAlt:
+    "https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?w=1200&q=80&auto=format&fit=crop",
+  earth:
+    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80&auto=format&fit=crop",
+  concrete:
+    "https://images.unsplash.com/photo-1565008576549-57569a49371c?w=1200&q=80&auto=format&fit=crop",
+  found:
+    "https://images.unsplash.com/photo-1518335935020-cfd6580c1ab4?w=1200&q=80&auto=format&fit=crop",
+  siteteam:
+    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&q=80&auto=format&fit=crop",
+  interior:
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80&auto=format&fit=crop",
+  apartment:
+    "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80&auto=format&fit=crop",
+  machinery:
+    "https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=1200&q=80&auto=format&fit=crop",
+  warehouse:
+    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80&auto=format&fit=crop",
+  highway:
+    "https://images.unsplash.com/photo-1573108724029-4c46571d6490?w=1200&q=80&auto=format&fit=crop",
+  blueprint:
+    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1400&q=80&auto=format&fit=crop",
+  mosque:
+    "https://res.cloudinary.com/dk4csiouq/image/upload/v1777271735/Central_Mosque-cumilla_cant.-hero_section_mx6wco.jpg",
+};
+
+export const PROJECTS = [
+  {
+    id: "P001",
+    cat: "Building Construction",
+    type: "Government",
+    status: "Completed",
+    location: "Rampura, Dhaka",
+    title: "49m All Traffic Steel Arch Bridge",
+    year: "2025",
+    duration: "22 months",
+    img: PROJECT_IMAGES.tower,
+    badge: "Featured",
+    badgeClass: "lime",
+    summary:
+      "A major government infrastructure project in Rampura, Dhaka delivering three bridges under one contract: two double-lane all-traffic steel bridges with footpath connecting Banasree with Aftab Nagar, and a dedicated pedestrian bridge over Rampura Khal.",
+  },
+  {
+    id: "P002",
+    cat: "Road Works",
+    type: "Government",
+    status: "Completed",
+    location: "Patuakhali, Bangladesh",
+    title: "Patuakhali Naval Warehouse",
+    year: "2025",
+    duration: "14 months",
+    img: PROJECT_IMAGES.road,
+    badge: "Government",
+    badgeClass: "black",
+    summary:
+      "A purpose-built government warehouse delivering secure, large-span storage for the Bangladesh Navy's southern coastal operations ",
+  },
+  {
+    id: "P003",
+    cat: "Private Residential",
+    type: "Infrastructure",
+    status: "Ongoing",
+    location:
+      "Plot 60/C, Road 07, Mouza Lalalsarat, Cantonment Market Area, Cantonment, Dhaka",
+    title: "SKCD Dream — G+7 Residential Building",
+    year: "2026",
+    duration: "In progress",
+    img: PROJECT_IMAGES.bridgeAlt,
+    badge: "Ongoing",
+    badgeClass: "gold",
+    summary:
+      "An 8-storied premium residential building rising in the heart of Dhaka Cantonment — 14 units per floor, two apartment types, and a modern curved facade that's already turning heads on Road",
+  },
+  {
+    id: "P004",
+    cat: "Site Development",
+    type: "Religious / Institutional Construction",
+    status: "Completed",
+    location: "Comilla University, Kotbari, Comilla",
+    title: "Central Mosque",
+    year: "2024",
+    duration: "Ongoing",
+    img: PROJECT_IMAGES.mosque,
+    badge: "Completed",
+    summary:
+      "A three-storied central mosque built for 24 ECB Brigade at Comilla University accommodating 10,000 worshippers across two dedicated prayer floors, with ground floor parking and a total built area of 9,380 sq.m",
+  },
+  // {
+  //   id: "P005",
+  //   cat: "Structural Concrete",
+  //   type: "Commercial",
+  //   status: "Completed",
+  //   location: "Chattogram EPZ",
+  //   title: "RCC Framework, Warehouse Facility",
+  //   year: "2024",
+  //   duration: "11 months",
+  //   img: PROJECT_IMAGES.warehouse,
+  //   badge: "Completed",
+  //   summary:
+  //     "45,000 sqft RCC framework with heavy-load slab design for export-oriented logistics operations.",
+  // },
+  // {
+  //   id: "P006",
+  //   cat: "Foundation Work",
+  //   type: "Commercial",
+  //   status: "Completed",
+  //   location: "Riverside, Dhaka",
+  //   title: "Deep Pile Foundation - 340 Piles",
+  //   year: "2023",
+  //   duration: "8 months",
+  //   img: PROJECT_IMAGES.found,
+  //   badge: "Completed",
+  //   summary:
+  //     "Cast-in-situ bored piles extending to 42m depth supporting a mixed-use riverside development.",
+  // },
+  // {
+  //   id: "P007",
+  //   cat: "Building Construction",
+  //   type: "Private",
+  //   status: "Completed",
+  //   location: "Banani, Dhaka",
+  //   title: "Premium Residential Tower, 12 Floors",
+  //   year: "2025",
+  //   duration: "19 months",
+  //   img: PROJECT_IMAGES.apartment,
+  //   badge: "Private",
+  //   badgeClass: "black",
+  //   summary:
+  //     "High-end apartment block featuring imported finishes, dual-lift core and architectural landscaping.",
+  // },
+  // {
+  //   id: "P008",
+  //   cat: "Road Works",
+  //   type: "Government",
+  //   status: "Ongoing",
+  //   location: "Sylhet Division",
+  //   title: "Regional Highway Expansion",
+  //   year: "2026",
+  //   duration: "In progress",
+  //   img: PROJECT_IMAGES.highway,
+  //   badge: "Ongoing",
+  //   badgeClass: "gold",
+  //   summary:
+  //     "Widening and resurfacing of 38km regional route including new culvert structures and road markings.",
+  // },
+  // {
+  //   id: "P009",
+  //   cat: "Commercial Works",
+  //   type: "Commercial",
+  //   status: "Completed",
+  //   location: "Motijheel, Dhaka",
+  //   title: "Bank Branch Renovation Programme",
+  //   year: "2024",
+  //   duration: "6 months",
+  //   img: PROJECT_IMAGES.interior,
+  //   badge: "Completed",
+  //   summary:
+  //     "Interior build-out across 7 banking branches including security works, electricals and finishing.",
+  // },
+  // {
+  //   id: "P010",
+  //   cat: "Bridge Works",
+  //   type: "Infrastructure",
+  //   status: "Completed",
+  //   location: "Barishal",
+  //   title: "Reinforced Culvert Network Ã¢â‚¬â€ 12 Units",
+  //   year: "2023",
+  //   duration: "10 months",
+  //   img: PROJECT_IMAGES.bridge,
+  //   badge: "Completed",
+  //   summary:
+  //     "Box-culvert construction programme replacing aged drainage structures across flood-prone roads.",
+  // },
+  // {
+  //   id: "P011",
+  //   cat: "Private Residential",
+  //   type: "Private",
+  //   status: "Planning",
+  //   location: "Uttara, Dhaka",
+  //   title: "Duplex Residence Compound",
+  //   year: "2026",
+  //   duration: "Kickoff Q2",
+  //   img: PROJECT_IMAGES.siteteam,
+  //   badge: "Private",
+  //   badgeClass: "black",
+  //   summary:
+  //     "Six-unit duplex compound with shared amenity deck, underground parking and architectural landscaping.",
+  // },
+  // {
+  //   id: "P012",
+  //   cat: "Structural Concrete",
+  //   type: "Industrial",
+  //   status: "Completed",
+  //   location: "Gazipur",
+  //   title: "Factory Expansion Ã¢â‚¬â€ Phase II",
+  //   year: "2024",
+  //   duration: "12 months",
+  //   img: PROJECT_IMAGES.concrete,
+  //   badge: "Completed",
+  //   summary:
+  //     "Structural extension adding 28,000 sqft production floor with reinforced mezzanine and crane rails.",
+  // },
+];
+
+const CATEGORIES = [
+  "All",
+  "Building Construction",
+  "Road Works",
+  "Bridge Works",
+  "Private Residential",
+  "Government Projects",
+  "Commercial Works",
+];
+const STATUSES = ["All Status", "Completed", "Ongoing", "Planning"];
+const TYPES = ["All Types", "Government", "Commercial", "Private"];
+const LOCATIONS = [
+  "All Locations",
+  "Dhaka",
+  "Chattogram",
+  "Sylhet",
+  "Cumilla",
+  "Barishal",
+  "Mymensingh",
+  "Gazipur",
+];
+const SORTS = ["Most Recent", "Oldest First", "A Ã¢â€ â€™ Z", "By Size"];
 
 function SearchIcon() {
   return (
