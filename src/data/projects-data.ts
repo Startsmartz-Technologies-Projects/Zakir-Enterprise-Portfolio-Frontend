@@ -531,7 +531,8 @@ export const PROJECTS: ProjectRecord[] = BASE_PROJECTS.map((project) => {
     client:
       project.type === "Government"
         ? "Government Client"
-        : project.type === "Infrastructure" || project.type === "Religious / Institutional Construction"
+        : project.type === "Infrastructure" ||
+            project.type === "Religious / Institutional Construction"
           ? "Commercial Client"
           : "Private Client",
     projectType: project.cat,
