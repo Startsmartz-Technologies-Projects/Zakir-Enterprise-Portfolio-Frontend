@@ -113,7 +113,7 @@ export function AboutPageContent() {
 
   const timeline = [
     {
-      year: "2009",
+      year: "2010",
       title: "Company Founded",
       p: "Established strong expertise in construction management and project execution",
     },
@@ -334,7 +334,7 @@ export function AboutPageContent() {
         <div className="container">
           <div className="story-grid">
             <div className="story-collage">
-              <div className="badge">Since 2009</div>
+              <div className="badge">Since 2010</div>
               <div
                 className="cell tall"
                 style={{ backgroundImage: `url(${ABOUT_IMAGES.story1})` }}
@@ -539,10 +539,15 @@ export function AboutPageContent() {
           </div>
           <div className="cd-process-track">
             {timeline.map((t, i) => (
-              <div key={i} className={"cd-process-step " + (t.active ? "active" : "")}>
+              <div
+                key={i}
+                className={"cd-process-step " + (t.active ? "active" : "")}
+              >
                 <div className="cd-process-connector">
                   <span className="cd-process-dot" />
-                  {i < timeline.length - 1 && <span className="cd-process-line" />}
+                  {i < timeline.length - 1 && (
+                    <span className="cd-process-line" />
+                  )}
                 </div>
                 <div className="cd-process-body">
                   <div className="cd-process-num">{t.year}</div>
@@ -773,12 +778,15 @@ export function AboutPageContent() {
             <div>
               <span className="microlabel on-dark">Start the Conversation</span>
               <h2 style={{ marginTop: 20 }}>
-                Ready to <span className="gold">build</span> with <span className="accent">confidence?</span>
+                Ready to <span className="gold">build</span> with{" "}
+                <span className="accent">confidence?</span>
               </h2>
             </div>
             <div>
               <p>
-                Partner with Zakir Enterprise for reliable construction and engineering excellence from initial consultation through handover and long-term maintenance.
+                Partner with Zakir Enterprise for reliable construction and
+                engineering excellence from initial consultation through
+                handover and long-term maintenance.
               </p>
               <div className="trust-cta-buttons">
                 <Link href="/lets-collaborate" className="btn btn-primary">
@@ -795,4 +803,3 @@ export function AboutPageContent() {
     </>
   );
 }
-

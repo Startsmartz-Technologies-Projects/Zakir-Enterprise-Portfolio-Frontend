@@ -574,7 +574,7 @@ export function ProjectsPageContent() {
                   <div className="lbl">Years Experience</div>
                 </div>
                 <div className="ih-stat">
-                  <div className="num">{districtsReached}</div>
+                  <div className="num">{64}</div>
                   <div className="lbl">Districts Reached</div>
                 </div>
               </div>
