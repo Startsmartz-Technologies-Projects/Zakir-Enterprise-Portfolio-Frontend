@@ -397,7 +397,9 @@ export function ProjectsPageContent() {
   };
 
   const showPreviousFeatured = () => {
-    setFeaturedPage((prev) => (prev - 1 + featuredPageCount) % featuredPageCount);
+    setFeaturedPage(
+      (prev) => (prev - 1 + featuredPageCount) % featuredPageCount,
+    );
   };
 
   const heroProject = featuredProjects[0] ?? projects[0] ?? null;
@@ -414,7 +416,9 @@ export function ProjectsPageContent() {
     const values = new Set(
       projects.map((project) => {
         const parts = project.location.split(",");
-        return (parts[parts.length - 1] ?? project.location).trim().toLowerCase();
+        return (parts[parts.length - 1] ?? project.location)
+          .trim()
+          .toLowerCase();
       }),
     );
     return values.size;
@@ -509,7 +513,9 @@ export function ProjectsPageContent() {
     const STICKY_TOP = 76;
 
     const update = () => {
-      const anchorTop = stickyAnchorRef.current?.getBoundingClientRect().top ?? Number.POSITIVE_INFINITY;
+      const anchorTop =
+        stickyAnchorRef.current?.getBoundingClientRect().top ??
+        Number.POSITIVE_INFINITY;
       const nextPinned = anchorTop <= STICKY_TOP;
       setPinned(nextPinned);
       setFilterBarHeight(filterBarRef.current?.offsetHeight ?? 0);
@@ -555,14 +561,14 @@ export function ProjectsPageContent() {
               <div className="ih-stats">
                 <div className="ih-stat">
                   <div className="num">
-                    {projects.length}
+                    {50}
                     <span className="plus">+</span>
                   </div>
                   <div className="lbl">Total Projects</div>
                 </div>
                 <div className="ih-stat">
                   <div className="num">
-                    {yearsExperience}
+                    {15}
                     <span className="plus">+</span>
                   </div>
                   <div className="lbl">Years Experience</div>
@@ -580,7 +586,9 @@ export function ProjectsPageContent() {
               <div className="tag-cluster">
                 <span>{heroProject?.title ?? "Loading project..."}</span>
                 <span>
-                  {heroProject ? `${heroProject.year}, ${heroProject.location}` : "Please wait"}
+                  {heroProject
+                    ? `${heroProject.year}, ${heroProject.location}`
+                    : "Please wait"}
                 </span>
               </div>
               <div className="corner-meta">
@@ -621,7 +629,8 @@ export function ProjectsPageContent() {
               Prev
             </button>
             <span className="featured-page-indicator">
-              {Math.min(featuredPage + 1, featuredPageCount)} / {featuredPageCount}
+              {Math.min(featuredPage + 1, featuredPageCount)} /{" "}
+              {featuredPageCount}
             </span>
             <button
               type="button"
@@ -639,10 +648,15 @@ export function ProjectsPageContent() {
           <div className="featured-carousel-viewport">
             <div
               className="featured-carousel-track"
-              style={{ transform: `translate3d(-${featuredPage * 100}%, 0, 0)` }}
+              style={{
+                transform: `translate3d(-${featuredPage * 100}%, 0, 0)`,
+              }}
             >
               {featuredSlides.map((slide, slideIndex) => (
-                <div className="featured-carousel-slide" key={`featured-slide-${slideIndex}`}>
+                <div
+                  className="featured-carousel-slide"
+                  key={`featured-slide-${slideIndex}`}
+                >
                   <div className="featured-grid">
                     {slide.map((project) => (
                       <Link
@@ -651,12 +665,19 @@ export function ProjectsPageContent() {
                         className="featured-card"
                         style={{ textDecoration: "none", color: "inherit" }}
                       >
-                        <div className="f-img" style={{ backgroundImage: `url(${project.img})` }} />
+                        <div
+                          className="f-img"
+                          style={{ backgroundImage: `url(${project.img})` }}
+                        />
                         <div className="f-top">
-                          <span className={`featured-badge ${project.badgeClass ?? ""}`.trim()}>
+                          <span
+                            className={`featured-badge ${project.badgeClass ?? ""}`.trim()}
+                          >
                             {project.badge}
                           </span>
-                          <span className="featured-badge ghost">{project.type}</span>
+                          <span className="featured-badge ghost">
+                            {project.type}
+                          </span>
                         </div>
                         <div className="f-body">
                           <div className="f-cat">{project.cat}</div>
@@ -684,7 +705,9 @@ export function ProjectsPageContent() {
               {!isLoadingProjects && featuredSlides.length === 0 && (
                 <div className="featured-carousel-slide">
                   <div className="featured-grid">
-                    <div className="featured-empty">No featured projects are configured yet.</div>
+                    <div className="featured-empty">
+                      No featured projects are configured yet.
+                    </div>
                   </div>
                 </div>
               )}
@@ -695,8 +718,17 @@ export function ProjectsPageContent() {
 
       {/* Sticky filter */}
       <div ref={stickyAnchorRef} className="filter-sticky-anchor" aria-hidden />
-      {pinned && <div className="filter-sticky-spacer" style={{ height: filterBarHeight }} aria-hidden />}
-      <div ref={filterBarRef} className={`filter-bar ${pinned ? "pinned is-fixed" : ""}`}>
+      {pinned && (
+        <div
+          className="filter-sticky-spacer"
+          style={{ height: filterBarHeight }}
+          aria-hidden
+        />
+      )}
+      <div
+        ref={filterBarRef}
+        className={`filter-bar ${pinned ? "pinned is-fixed" : ""}`}
+      >
         <div className="container">
           <div className="filter-row">
             <div className="filter-search">
@@ -845,7 +877,7 @@ export function ProjectsPageContent() {
             </div>
           ) : (
             <div className="listing-grid">
-              {shown.slice(0,3).map((p) => (
+              {shown.slice(0, 4).map((p) => (
                 <Link
                   key={p.id}
                   href={`/projects/${encodeURIComponent(p.id)}`}
@@ -923,8 +955,8 @@ export function ProjectsPageContent() {
             <div>
               <p>
                 Partner with Zakir Enterprise for dependable execution,
-                disciplined engineering and timely delivery - on
-                government tenders, commercial builds and private developments.
+                disciplined engineering and timely delivery - on government
+                tenders, commercial builds and private developments.
               </p>
               <div className="trust-cta-buttons">
                 <Link href="/lets-collaborate" className="btn btn-primary">
@@ -944,4 +976,3 @@ export function ProjectsPageContent() {
     </>
   );
 }
-
