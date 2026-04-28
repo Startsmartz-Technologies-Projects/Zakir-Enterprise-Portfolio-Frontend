@@ -425,6 +425,80 @@ const PROJECT_DETAIL_OVERRIDES: Partial<
     ],
   },
   P003: {
+    client: "Sena Kalyan Constructions & Developments Ltd. (SKCD)",
+    projectType: "Private Residential Construction",
+    overviewTitle:
+      "Eight floors of considered living, built where precision actually matters.",
+    overviewBody:
+      "Cantonment Dhaka isn't a forgiving place to build. 2 units per floor. Two apartment types — Type A at ±1926 sft and Type B at ±1640 sft — spread across 7 floors of living space above ground. The building is designed by HDD and carries a distinctive curved facade with generous balconies and integrated greenery that makes it stand out from everything else in the neighbourhood. At 63 Crore BDT and 2.5 years in the making, this isn't a project where corners get cut. The full scope runs from deep foundation through to interior finishing and facade works — all delivered under one contract, with safety treated as non-negotiable from day one.",
+    pullQuote:
+      "No delays. No incidents. Just a building the Bangladesh Navy could actually rely on.",
+    servicesDelivered: [
+      "RCC Superstructure",
+      "Steel Arch Fabrication & Erection",
+      "38m All-Traffic Bridge",
+      "42m Pedestrian Bridge",
+      "Deck & Footpath Works",
+      "Steel Fabrication & Connection Works",
+      "Site Safety Management",
+      "Site Preparation & Temporary Works",
+    ],
+    scopes: [
+      {
+        icon: "concrete",
+        n: "01",
+        t: "RCC Superstructure",
+        d: "Foundations, piers and abutments built to government spec across all three bridge sites simultaneously.",
+      },
+      {
+        icon: "building",
+        n: "02",
+        t: "Steel Arch Fabrication & Erection",
+        d: "Structural steel arch superstructure for the 49m main bridge, fabricated and erected by specialist steel teams.",
+      },
+      {
+        icon: "equip",
+        n: "03",
+        t: "38m All-Traffic Bridge",
+        d: "Full construction of the second all-traffic bridge with integrated footpath, running parallel to the main arch structure.",
+      },
+      {
+        icon: "fire",
+        n: "04",
+        t: "42m Pedestrian Bridge",
+        d: "Dedicated pedestrian-only crossing over Rampura Khal, independently designed and constructed for safe foot traffic.",
+      },
+      {
+        icon: "mep",
+        n: "05",
+        t: "Deck & Footpath Works",
+        d: "Bridge deck construction across all traffic bridges including integrated footpaths up to 15.40m deck width on the main span.",
+      },
+      {
+        icon: "window",
+        n: "06",
+        t: "Steel Fabrication & Connection Works",
+        d: "On-site steel assembly, bolting and welding of all arch members, deck supports and connection joints across all three structures.",
+      },
+      {
+        icon: "earth",
+        n: "07",
+        t: "Site Safety Management",
+        d: "Strict zero-compromise safety programme managing 100–120 workers across three concurrent bridge construction sites in urban Dhaka.",
+      },
+      {
+        icon: "floor",
+        n: "08",
+        t: "Site Preparation & Temporary Works",
+        d: "Site setup, khal access management, temporary falsework and shoring installed before permanent works began on all three bridges.",
+      },
+    ],
+    caseStudyChallenge:
+      "8 Floors of premium residential space delivered in Dhaka Cantonment",
+    caseStudyApproach:
+      "14 Units per floor across Type A (±1926 sft) and Type B (±1640 sft)",
+    caseStudyResult: "0 Safety incidents — 100% safety maintained throughout",
+    ctaHeading: "Planning a residential build that needs to be done properly?",
     gallery: [
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939518/SKCD_Dreams_hero_wdvl2j.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110616/21_jdwj2x.jpg",
