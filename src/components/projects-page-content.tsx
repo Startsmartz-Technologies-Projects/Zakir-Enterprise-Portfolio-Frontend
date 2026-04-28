@@ -561,14 +561,14 @@ export function ProjectsPageContent() {
               <div className="ih-stats">
                 <div className="ih-stat">
                   <div className="num">
-                    {projects.length}
+                    {50}
                     <span className="plus">+</span>
                   </div>
                   <div className="lbl">Total Projects</div>
                 </div>
                 <div className="ih-stat">
                   <div className="num">
-                    {yearsExperience}
+                    {15}
                     <span className="plus">+</span>
                   </div>
                   <div className="lbl">Years Experience</div>

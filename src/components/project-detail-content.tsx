@@ -130,7 +130,9 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
   const normalizedProjectId = (projectId || "").trim().toLowerCase();
   const project = React.useMemo(
     () =>
-      projects.find((p) => p.id.toLowerCase() === normalizedProjectId) ?? projects[0] ?? null,
+      projects.find((p) => p.id.toLowerCase() === normalizedProjectId) ??
+      projects[0] ??
+      null,
     [projects, normalizedProjectId],
   );
 
@@ -157,7 +159,10 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
   const detail = project.detail;
   const fallbackGallery = [
     project.img,
-    ...projects.filter((p) => p.id !== project.id).slice(0, 6).map((p) => p.img),
+    ...projects
+      .filter((p) => p.id !== project.id)
+      .slice(0, 6)
+      .map((p) => p.img),
   ];
   const gallerySource =
     Array.isArray(detail.gallery) && detail.gallery.length > 0
@@ -200,7 +205,9 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
             <span className="sep">/</span>
             <Link href="/projects">Projects</Link>
             <span className="sep">/</span>
-            <Link href={`/projects/${encodeURIComponent(project.id)}`}>{project.cat}</Link>
+            <Link href={`/projects/${encodeURIComponent(project.id)}`}>
+              {project.cat}
+            </Link>
             <span className="sep">/</span>
             <span>{project.title}</span>
           </div>
@@ -235,9 +242,7 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
           <div className="overview-grid">
             <div className="overview-copy">
               <span className="microlabel">Project Overview</span>
-              <h2 style={{ marginTop: 16 }}>
-                {detail.overviewTitle}
-              </h2>
+              <h2 style={{ marginTop: 16 }}>{detail.overviewTitle}</h2>
               <p>{detail.overviewBody}</p>
               <p className="pull">"{detail.pullQuote}"</p>
             </div>
@@ -283,13 +288,6 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
                 <Link href="/lets-collaborate" className="btn btn-dark">
                   Enquire About Project <AD />
                 </Link>
-                <a
-                  href="#"
-                  className="btn btn-ghost"
-                  style={{ padding: "10px 0" }}
-                >
-                  Download Case Study (PDF) <AURD />
-                </a>
               </div>
             </aside>
           </div>
@@ -304,9 +302,7 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
               <span className="num">SCOPE OF WORKS / 04</span>
               <h2>Services delivered on this project.</h2>
             </div>
-            <p className="head-right">
-              {detail.scopeDescription}
-            </p>
+            <p className="head-right">{detail.scopeDescription}</p>
           </div>
           <div className="scope-grid">
             {scopes.map((s) => (
@@ -432,10 +428,7 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
           </div>
           <div className="highlights-grid">
             {highlights.map((item, index) => (
-              <article
-                key={`${item.title}-${index}`}
-                className="hl-card"
-              >
+              <article key={`${item.title}-${index}`} className="hl-card">
                 <div className="hl-num">{item.num}</div>
                 <div className="hl-unit">{item.unit}</div>
                 <h4>{item.title}</h4>
@@ -538,9 +531,7 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
           <div className="trust-cta-inner">
             <div>
               <span className="microlabel on-dark">Start a Conversation</span>
-              <h2 style={{ marginTop: 20 }}>
-                {detail.ctaHeading}
-              </h2>
+              <h2 style={{ marginTop: 20 }}>{detail.ctaHeading}</h2>
             </div>
             <div>
               <div className="trust-cta-buttons">
@@ -561,4 +552,3 @@ export function ProjectDetailContent({ projectId }: { projectId?: string }) {
     </>
   );
 }
-
