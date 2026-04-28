@@ -36,10 +36,10 @@ export const CERTIFICATIONS: CertificationItem[] = [
   {
     id: "iso-14001",
     title: "Work Completion Certificate",
-    authority: "19 Engineer Construction Battalion, Bangladesh Army.",
+    authority: "19 Engineer Construction Battalion, Bangladesh Army",
     number: "ISO / EMS / 2024 / 51127",
     category: "Compliance",
-    issued: "01/04/2024.",
+    issued: "01/04/2024",
     expiry: "-",
     status: "Fully Completed",
     thumbClass: "tone-paper",
@@ -52,12 +52,12 @@ export const CERTIFICATIONS: CertificationItem[] = [
   },
   {
     id: "iso-45001",
-    title: "Work Experience Certificate.",
+    title: "Work Experience Certificate",
     authority:
-      "Jolshiri Abashon (under the 24 Engineer Construction Brigade, Dhaka Cantonment).",
+      "Jolshiri Abashon (under the 24 Engineer Construction Brigade, Dhaka Cantonment)",
     number: "ISO / OHS / 2024 / 64013",
     category: "Safety",
-    issued: "19-06-22.",
+    issued: "19-06-22",
     expiry: "-",
     status: "Fully Completed",
     thumbClass: "tone-cream",
@@ -70,7 +70,7 @@ export const CERTIFICATIONS: CertificationItem[] = [
   },
   {
     id: "Work Experience Certificate.",
-    title: "RAJUK & 24 Engineer Construction Brigade, Bangladesh Army.",
+    title: "RAJUK & 24 Engineer Construction Brigade, Bangladesh Army",
     authority: "Local Government Engineering Department",
     number: "LGED / ENLIST / CLASS-01 / 2025",
     category: "Engineering",
@@ -88,7 +88,7 @@ export const CERTIFICATIONS: CertificationItem[] = [
   {
     id: "Work Experience Certificate",
     title:
-      "16 Engineer Construction Battalion, Bangladesh Army (Hatirjheel Area Integrated Development Project).",
+      "16 Engineer Construction Battalion, Bangladesh Army (Hatirjheel Area Integrated Development Project)",
     authority: "Roads & Highways Department",
     number: "RHD / PQ / CAT-A / 2025 / 09340",
     category: "Engineering",
@@ -122,8 +122,8 @@ export const CERTIFICATIONS: CertificationItem[] = [
   },
   {
     id: "pwd-cat-1",
-    title: "Completion Certificate.",
-    authority: "New Hope Farms Bangladesh Ltd.",
+    title: "Completion Certificate",
+    authority: "New Hope Farms Bangladesh Ltd",
     number: "PWD / CAT-1 / C&E / 2025",
     category: "Trade & Licensing",
     issued: "September 13th, 2013",
@@ -140,10 +140,10 @@ export const CERTIFICATIONS: CertificationItem[] = [
   {
     id: "bab-member",
     title: "Work Experience Certificate",
-    authority: "16 Engineer Construction Battalion, Bangladesh Army.",
+    authority: "16 Engineer Construction Battalion, Bangladesh Army",
     number: "BAB / MEMBER / ACTIVE / 2016",
     category: "Industry Body",
-    issued: "July 3, 2016.",
+    issued: "July 3, 2016",
     expiry: "-",
     status: "Active",
     thumbClass: "tone-paper",
@@ -157,7 +157,7 @@ export const CERTIFICATIONS: CertificationItem[] = [
   {
     id: "bab-member",
     title: "Work Order (Outsourcing of Shore Protection Work)",
-    authority: "24 Engineer Construction Brigade, Bangladesh Army.",
+    authority: "24 Engineer Construction Brigade, Bangladesh Army",
     number: "609/Project/21/100' Wide Khal",
     category: "Industry Body",
     issued: "4/15/2018",
@@ -174,7 +174,7 @@ export const CERTIFICATIONS: CertificationItem[] = [
   {
     id: "bab-member",
     title: "Work Order",
-    authority: "16 Engineer Construction Battalion, Bangladesh Army.",
+    authority: "16 Engineer Construction Battalion, Bangladesh Army",
     number: "-",
     category: "Industry Body",
     issued: "2/1/2016",
@@ -192,10 +192,10 @@ export const CERTIFICATIONS: CertificationItem[] = [
     id: "bab-member",
     title: "Work Experience Certificate",
     authority:
-      "19 Engineer Construction Battalion, Bangladesh Army (Sheikh Russel Cantonment, Shariatpur).",
+      "19 Engineer Construction Battalion, Bangladesh Army (Sheikh Russel Cantonment, Shariatpur)",
     number: "-",
     category: "Industry Body",
-    issued: "01/04/2024.",
+    issued: "01/04/2024",
     expiry: "-",
     status: "Active",
     thumbClass: "tone-paper",
@@ -210,10 +210,10 @@ export const CERTIFICATIONS: CertificationItem[] = [
     id: "bab-member",
     title: "Work Experience Certificate",
     authority:
-      "19 Engineer Construction Battalion, Bangladesh Army (Sheikh Russel Cantonment, Shariatpur).",
+      "19 Engineer Construction Battalion, Bangladesh Army (Sheikh Russel Cantonment, Shariatpur)",
     number: "-",
     category: "Industry Body",
-    issued: "01/04/2024.",
+    issued: "01/04/2024",
     expiry: "-",
     status: "Active",
     thumbClass: "tone-paper",
@@ -228,7 +228,7 @@ export const CERTIFICATIONS: CertificationItem[] = [
     id: "bab-member",
     title: "Notification of Award",
     authority:
-      "4 River Proj Bogura (C/O: 24 Engineer Construction Brigade, Dhaka Cantonment).",
+      "4 River Proj Bogura (C/O: 24 Engineer Construction Brigade, Dhaka Cantonment)",
     number: "609/Project/4 Riv Proj/Pkg-12.",
     category: "Industry Body",
     issued: "02 November 2020.",
