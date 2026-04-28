@@ -82,6 +82,9 @@ const PROJECT_IMAGES = {
     "https://images.unsplash.com/photo-1573108724029-4c46571d6490?w=1200&q=80&auto=format&fit=crop",
   blueprint:
     "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1400&q=80&auto=format&fit=crop",
+  mosque:
+    "https://res.cloudinary.com/dk4csiouq/image/upload/v1777271735/Central_Mosque-cumilla_cant.-hero_section_mx6wco.jpg",
+  skcd: "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939518/SKCD_Dreams_hero_wdvl2j.jpg",
 };
 
 const BASE_PROJECTS = [
@@ -120,12 +123,11 @@ const BASE_PROJECTS = [
     cat: "Private Residential",
     type: "Infrastructure",
     status: "Ongoing",
-    location:
-      "Plot 60/C, Road 07, Mouza Lalalsarat, Cantonment Market Area, Cantonment, Dhaka",
+    location: "Mouza Lalalsarat, Cantonment, Dhaka",
     title: "SKCD Dream - G+7 Residential Building",
     year: "2026",
-    duration: "In progress",
-    img: PROJECT_IMAGES.bridgeAlt,
+    duration: "2.5 Years",
+    img: PROJECT_IMAGES.skcd,
     badge: "Ongoing",
     badgeClass: "gold",
     summary:
@@ -134,16 +136,16 @@ const BASE_PROJECTS = [
   {
     id: "P004",
     cat: "Site Development",
-    type: "Industrial",
+    type: "Religious / Institutional Construction",
     status: "Completed",
-    location: "Mymensingh",
-    title: "Industrial Park Earthworks",
+    location: "Comilla University, Kotbari, Comilla",
+    title: "Central Mosque",
     year: "2024",
-    duration: "9 months",
-    img: PROJECT_IMAGES.earth,
+    duration: "Ongoing",
+    img: PROJECT_IMAGES.mosque,
     badge: "Completed",
     summary:
-      "120-acre site preparation including grading, compaction and primary drainage for an export zone.",
+      "A three-storied central mosque built for 24 ECB Brigade at Comilla University accommodating 10,000 worshippers across two dedicated prayer floors, with ground floor parking and a total built area of 9,380 sq.m",
   },
   {
     id: "P005",
@@ -313,7 +315,9 @@ const DEFAULT_PROJECT_SCOPES: ProjectScope[] = [
   },
 ];
 
-const PROJECT_DETAIL_OVERRIDES: Partial<Record<string, Partial<ProjectDetail>>> = {
+const PROJECT_DETAIL_OVERRIDES: Partial<
+  Record<string, Partial<ProjectDetail>>
+> = {
   P001: {
     overviewBody:
       "The first is a 49m all-traffic steel arch bridge with a 15.40m deck accommodating double lanes plus footpath. Running alongside it is a 38m all-traffic bridge also carrying a footpath for pedestrians. And separately, a 42m pedestrian-only bridge crosses Rampura Khal - giving foot traffic a safe, dedicated route away from vehicles entirely. All three sit on RCC substructures, all three started December 6, 2025, and all three are being delivered by the same team of 100 to 120 workers under a single government contract worth 50 Crore BDT.",
@@ -422,9 +426,9 @@ const PROJECT_DETAIL_OVERRIDES: Partial<Record<string, Partial<ProjectDetail>>> 
   },
   P003: {
     gallery: [
-      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777265050/SKCD_updated_hero_1_ndt0oa.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1776939518/SKCD_Dreams_hero_wdvl2j.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110616/21_jdwj2x.jpg",
-      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110551/22_peji5t.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777265050/SKCD_updated_hero_1_ndt0oa.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110532/3D_PLAN_Even_level_xwisji.png",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110508/3D_PLAN_Ground_level_j9exjo.png",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110498/19_capapw.jpg",
@@ -432,6 +436,17 @@ const PROJECT_DETAIL_OVERRIDES: Partial<Record<string, Partial<ProjectDetail>>> 
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110438/18_cd4kfv.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110418/16_ktdd0w.jpg",
       "https://res.cloudinary.com/dk4csiouq/image/upload/v1777110412/23_w63dch.jpg",
+    ],
+  },
+  P004: {
+    gallery: [
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777271735/Central_Mosque-cumilla_cant.-hero_section_mx6wco.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777271733/Central_Mosque-cumilla_cant_1_vltssv.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777271734/Central_Mosque-cumilla_cant_2_sp6jco.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777271738/Central_Mosque-cumilla_cant_3_imz1uk.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777271739/Central_Mosque-cumilla_cant_4_mduyfb.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777271733/Central_Mosque-cumilla_cant_5_sd9386.jpg",
+      "https://res.cloudinary.com/dk4csiouq/image/upload/v1777271736/Central_Mosque-cumilla_cant_6_ksfjir.jpg",
     ],
   },
 };
@@ -470,8 +485,7 @@ export const PROJECTS: ProjectRecord[] = BASE_PROJECTS.map((project) => {
           Number.parseInt(project.duration, 10) > 0
             ? String(Number.parseInt(project.duration, 10))
             : "Live",
-        unit:
-          Number.parseInt(project.duration, 10) > 0 ? "Months" : "Progress",
+        unit: Number.parseInt(project.duration, 10) > 0 ? "Months" : "Progress",
         title: "Execution Duration",
         body: `Project duration: ${project.duration}.`,
       },
@@ -493,7 +507,15 @@ export const PROJECTS: ProjectRecord[] = BASE_PROJECTS.map((project) => {
       "Phased planning, disciplined site supervision, and coordinated engineering execution across all work packages.",
     caseStudyResult: `A ${project.status.toLowerCase()} project delivered for ${project.location}, aligned with the client scope and timeline.`,
     ctaHeading: `Need support for your next ${project.cat.toLowerCase()} project?`,
-    gallery: [project.img, project.img, project.img, project.img, project.img, project.img, project.img],
+    gallery: [
+      project.img,
+      project.img,
+      project.img,
+      project.img,
+      project.img,
+      project.img,
+      project.img,
+    ],
   };
 
   return {
@@ -502,7 +524,8 @@ export const PROJECTS: ProjectRecord[] = BASE_PROJECTS.map((project) => {
       ...defaultDetail,
       ...override,
       scopes: override.scopes ?? defaultDetail.scopes,
-      servicesDelivered: override.servicesDelivered ?? defaultDetail.servicesDelivered,
+      servicesDelivered:
+        override.servicesDelivered ?? defaultDetail.servicesDelivered,
       gallery: override.gallery ?? defaultDetail.gallery,
       highlights: override.highlights ?? defaultDetail.highlights,
     },
@@ -533,6 +556,11 @@ export const PROJECT_FILTERS = {
   ],
 } as const;
 
-export const PROJECT_SORTS = ["Most Recent", "Oldest First", "A - Z", "By Size"] as const;
+export const PROJECT_SORTS = [
+  "Most Recent",
+  "Oldest First",
+  "A - Z",
+  "By Size",
+] as const;
 
 export const FEATURED_PROJECT_IDS = ["P001", "P002", "P003", "P005"] as const;
