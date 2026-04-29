@@ -90,7 +90,7 @@ const PROJECT_IMAGES = {
 const BASE_PROJECTS = [
   {
     id: "P001",
-    cat: "Building Construction",
+    cat: "Bridge work",
     type: "Government",
     status: "Completed",
     location: "Rampura, Dhaka",
@@ -98,14 +98,14 @@ const BASE_PROJECTS = [
     year: "2025",
     duration: "22 months",
     img: PROJECT_IMAGES.tower,
-    badge: "Featured",
+    badge: "Government",
     badgeClass: "lime",
     summary:
       "A major government infrastructure project in Rampura, Dhaka delivering three bridges under one contract: two double-lane all-traffic steel bridges with footpath connecting Banasree with Aftab Nagar, and a dedicated pedestrian bridge over Rampura Khal.",
   },
   {
     id: "P002",
-    cat: "Road Works",
+    cat: "Government project",
     type: "Government",
     status: "Completed",
     location: "Patuakhali, Bangladesh",
@@ -120,7 +120,7 @@ const BASE_PROJECTS = [
   },
   {
     id: "P003",
-    cat: "Private Residential",
+    cat: "Building construction",
     type: "Infrastructure",
     status: "Ongoing",
     location: "Mouza Lalalsarat, Cantonment, Dhaka",
@@ -128,14 +128,14 @@ const BASE_PROJECTS = [
     year: "2026",
     duration: "2.5 Years",
     img: PROJECT_IMAGES.skcd,
-    badge: "Ongoing",
+    badge: "Infrastructure",
     badgeClass: "gold",
     summary:
       "An 8-storied premium residential building rising in the heart of Dhaka Cantonment - 14 units per floor, two apartment types, and a modern curved facade that's already turning heads on Road",
   },
   {
     id: "P004",
-    cat: "Site Development",
+    cat: "Government project",
     type: "Religious / Institutional Construction",
     status: "Completed",
     location: "Comilla University, Kotbari, Comilla",
@@ -143,7 +143,7 @@ const BASE_PROJECTS = [
     year: "2024",
     duration: "Ongoing",
     img: PROJECT_IMAGES.mosque,
-    badge: "Completed",
+    badge: "Institutional Construction",
     summary:
       "A three-storied central mosque built for 24 ECB Brigade at Comilla University accommodating 10,000 worshippers across two dedicated prayer floors, with ground floor parking and a total built area of 9,380 sq.m",
   },
