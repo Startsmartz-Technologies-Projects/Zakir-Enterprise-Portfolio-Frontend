@@ -531,9 +531,10 @@ export const PROJECTS: ProjectRecord[] = BASE_PROJECTS.map((project) => {
     client:
       project.type === "Government"
         ? "Government Client"
-        : project.type === "Private"
-          ? "Private Client"
-          : "Commercial Client",
+        : project.type === "Infrastructure" ||
+            project.type === "Religious / Institutional Construction"
+          ? "Commercial Client"
+          : "Private Client",
     projectType: project.cat,
     overviewTitle: `Built for ${project.location}, delivered with disciplined execution.`,
     overviewBody: `This ${project.type.toLowerCase()} ${project.cat.toLowerCase()} in ${project.location} was delivered with a focus on quality, safety and schedule discipline. From mobilization to handover, the team coordinated structural works, services and finishing to match project requirements and long-term performance goals.`,
